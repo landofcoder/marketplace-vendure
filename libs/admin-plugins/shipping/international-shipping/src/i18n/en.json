@@ -1,0 +1,11 @@
+{
+  "international_shipping": {
+    "breadcrumb": "International shipping price",
+    "code" : "Code",
+    "name": "Name",
+    "price": "Price"
+  }
+}
+
+
+

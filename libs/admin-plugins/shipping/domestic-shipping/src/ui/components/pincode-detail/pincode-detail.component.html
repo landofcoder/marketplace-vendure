@@ -1,0 +1,94 @@
+<vdr-action-bar>
+    <vdr-ab-left>
+        <div class="pincode-info">
+            <vdr-entity-info [entity]="entity$ | async"></vdr-entity-info>
+        </div>
+    </vdr-ab-left>
+    <vdr-ab-right>
+        <ng-container *ngIf="(isNew$ | async) === true; else updateButton">
+            <button
+                *vdrIfPermissions="'UpdatePromotion'"
+                class="btn btn-success"
+                (click)="save()"
+                [disabled]="detailForm.invalid"
+            >
+                Create
+            </button>
+        </ng-container>
+        <ng-template #updateButton>
+            <button
+                *vdrIfPermissions="'UpdatePromotion'"
+                class="btn btn-primary"
+                (click)="save()"
+                [disabled]="detailForm.invalid || detailForm.pristine"
+            >
+                {{ 'common.update' | translate }}
+            </button>
+        </ng-template>
+    </vdr-ab-right>
+</vdr-action-bar>
+
+<div class="clr-row">
+    <div class="clr-col">
+        <form class="form" [formGroup]="detailForm">
+            <section class="form-block">
+                <vdr-form-field label="Pincodes" for="pincode">
+                    <input
+                        id="pincode"
+                        type="text"
+                        formControlName="pincode"
+                        [readonly]="!('UpdatePromotion' | hasPermission)"
+                        [attr.disabled]="updatePincode ? true : null"
+                        [attr.placeholder]="!updatePincode ? 'Please enter six digit pincodes, example: 123456.' : null"
+                    />
+                </vdr-form-field>
+                <vdr-form-field label="State" for="state">
+                    <input
+                        id="state"
+                        type="text"
+                        formControlName="state"
+                        [readonly]="!('UpdatePromotion' | hasPermission)"
+                    />
+                </vdr-form-field>
+                <vdr-form-field label="District" for="district">
+                    <input
+                        id="district"
+                        type="text"
+                        formControlName="district"
+                        [readonly]="!('UpdatePromotion' | hasPermission)"
+                    />
+                </vdr-form-field>
+                <vdr-form-field label="Pre-paid" for="prepaid">
+                    <select id="prepaid" formControlName="prepaid" style="width: 20rem">
+                        <option [ngValue]="true">True</option>
+                        <option [ngValue]="false">False</option>
+                    </select>
+                </vdr-form-field>
+                <vdr-form-field label="Cod" for="cod">
+                    <select id="cod" formControlName="cod" style="width: 20rem">
+                        <option [ngValue]="true">True</option>
+                        <option [ngValue]="false">False</option>
+                    </select>
+                </vdr-form-field>
+                <vdr-form-field label="Pickup" for="pickup">
+                    <select id="pickup" formControlName="pickup" style="width: 20rem">
+                        <option [ngValue]="true">True</option>
+                        <option [ngValue]="false">False</option>
+                    </select>
+                </vdr-form-field>
+                <vdr-form-field label="Cash" for="cash">
+                    <select id="cash" formControlName="cash" style="width: 20rem">
+                        <option [ngValue]="true">True</option>
+                        <option [ngValue]="false">False</option>
+                    </select>
+                </vdr-form-field>
+                <vdr-form-field label="Repl" for="repl">
+                    <select id="repl" formControlName="repl" style="width: 20rem">
+                        <option [ngValue]="true">True</option>
+                        <option [ngValue]="false">False</option>
+                    </select>
+                </vdr-form-field>
+            </section>
+        </form>
+    </div>
+</div>

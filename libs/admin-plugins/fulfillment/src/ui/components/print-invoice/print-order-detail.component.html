@@ -1,0 +1,142 @@
+<div *ngIf="entity$ | async as order">
+    <div id="print-pdf" style="margin: auto;padding: auto">
+        <div class="clr-row">
+            <div class="clr-col-2"></div>
+            <div class="clr-col-md-8">
+                <p style="margin: 0; padding: 0;">Order Information</p>
+                <table class="order-lines table">
+                    <thead>
+                        <th>Product name</th>
+                        <th></th>
+                        <th>SKU</th>
+                        <th>Unit price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </thead>
+                    <tbody id="order-lines-body">
+                        {{formatterConvertCurrency(order.currencyCode)}}
+                        <tr *ngFor="let item of order.lines">
+                            <td *ngIf="item.productVariant.name" class="clr-align-middle"><span>{{item.productVariant.name}}</span></td>
+                            <td *ngIf="item.featuredAsset !== null">
+                                <img [src]="item.featuredAsset.preview" alt="" width="50px" height="50px">
+                            </td>
+                            <td *ngIf="item.productVariant.sku" class="clr-align-middle"><span>{{item.productVariant.sku}}</span></td>
+                            <td *ngIf="item.unitPriceWithTax" class="clr-align-middle"><span>{{formatter.format(item.unitPriceWithTax)}}</span></td>
+                            <td *ngIf="item.quantity" class="clr-align-middle"><span>{{item.quantity}}</span></td>
+                            <td *ngIf="item.totalPrice && item.quantity" class="clr-align-middle"><span>{{formatter.format(item.totalPrice*item.quantity)}}</span></td>
+                        </tr>
+                        <tr class="sub-total">
+                            <td colspan="4"></td>
+                            <td>Sub total</td>
+                            <td *ngIf="order.subTotal" class="clr-align-middle">{{formatter.format(order.subTotal)}}</td>
+                        </tr>
+                        <tr class="shipping">
+                            <td colspan="4"></td>
+                            <td>Shipping</td>
+                            <td *ngIf="order.shippingMethod; else shippingNull" class="clr-align-middle"><span *ngIf="order.shippingMethod.description && order.shippingWithTax">{{order.shippingMethod.description + ' - '}}{{formatter.format(order.shippingWithTax)}}</span></td>
+                            <ng-template #shippingNull><td>$0.00</td></ng-template>
+                        </tr>
+                        <tr class="discount">
+                            <td colspan="4"></td>
+                            <td>Discount</td>
+                            <td *ngIf="order.adjustments[0]; else discountNull" class="clr-align-middle"><span *ngIf="order.adjustments[0].description && order.adjustments[0].amount">{{order.adjustments[0].description + ' - '}}({{formatter.format(order.adjustments[0].amount)}})</span></td>
+                            <ng-template #discountNull><td>$0.00</td></ng-template>
+                        </tr>
+                        <tr class="total">
+                            <td colspan="4"></td>
+                            <td>Total</td>
+                            <td *ngIf="order.total" class="clr-align-middle">{{formatter.format(order.total)}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="clr-col-2"></div>
+        </div>
+        <div class="clr-row">
+            <div class="clr-col-3">
+                <table class="order-lines table">
+                    <thead>
+                        <th>Customer Information</th>
+                    </thead>
+                    <tbody *ngIf="order.customer">
+                        <tr>
+                            <td *ngIf="order.customer.firstName || order.customer.lastName" class="left">
+                                Name: {{order.customer.firstName + order.customer.lastName}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td *ngIf="order.customer.emailAddress" class="left">
+                                Email: {{order.customer.emailAddress}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td *ngIf="order.customer.phoneNumber" class="left">
+                                Phone Number: {{order.customer.phoneNumber}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="clr-col-3">
+                <table class="order-lines table">
+                    <thead>
+                        <th>Shipping</th>
+                    </thead>
+                    <tbody *ngIf="order.shippingAddress">
+                        <tr>
+                            <td *ngIf="order.shippingAddress.fullName" class="left">Full Name: {{order.shippingAddress.fullName}}</td>
+                        </tr>
+                        <tr>
+                            <td *ngIf="order.shippingAddress.streetLine1 || order.shippingAddress.city || order.shippingAddress.province || order.shippingAddress.postalCode || order.shippingAddress.country" class="left">Shipping Address: {{order.shippingAddress.streetLine1}}, {{order.shippingAddress.city}}, {{order.shippingAddress.province}}, {{order.shippingAddress.postalCode}}, {{order.shippingAddress.country}}.</td>
+                        </tr>
+                        <tr>
+                            <td *ngIf="order.shippingAddress.phoneNumber" class="left">Phone Number: {{order.shippingAddress.phoneNumber}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="clr-col-3">
+                <table class="order-lines table">
+                    <thead>
+                        <th>Billing</th>
+                    </thead>
+                    <tbody *ngIf="order.billingAddress">
+                        <tr>
+                            <td *ngIf="order.billingAddress.fullName" class="left">Full Name: {{order.billingAddress.fullName}}</td>
+                        </tr>
+                        <tr>
+                            <td *ngIf="order.billingAddress.streetLine1 || order.billingAddress.city || order.billingAddress.province || order.billingAddress.postalCode || order.billingAddress.country" class="left">Billing Address: {{order.billingAddress.streetLine1}}, {{order.billingAddress.city}}, {{order.billingAddress.province}}, {{order.billingAddress.postalCode}}, {{order.billingAddress.country}}.</td>
+                        </tr>
+                        <tr>
+                            <td *ngIf="order.billingAddress.phoneNumber" class="left">Phone Number: {{order.billingAddress.phoneNumber}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="clr-col-3">
+                <table class="order-lines table" id="payment-table">
+                    <thead>
+                        <th>Payment</th>
+                    </thead>
+                    <tbody *ngIf="order.payments">
+                        <div *ngFor="let payment of order.payments">
+                            <tr >
+                                <td *ngIf="payment.method" class="left">Payment Method: <br>{{payment.method}}</td>
+                            </tr>
+                            <tr>
+                                <td *ngIf="payment.amount" class="left">Payment Amount: <br>{{payment.amount}}</td>
+                            </tr>
+                            <tr>
+                                <td *ngIf="payment.transactionId" class="left">Payment Transaction ID: <br>{{payment.transactionId}}</td>
+                            </tr>
+                            <tr>
+                                <td *ngIf="payment.metadata" class="left">Payment Metadata: <br>{{keyValue(payment.metadata)}}</td>
+                            </tr>
+                        </div>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

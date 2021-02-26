@@ -1,0 +1,1 @@
+export const loggerDailyOrderError = "Not Found Vendor"

@@ -1,0 +1,50 @@
+<vdr-action-bar>
+    <vdr-ab-left>
+        <vdr-entity-info [entity]="entity$ | async"></vdr-entity-info>
+        <vdr-language-selector
+            [disabled]="isNew$ | async"
+            [availableLanguageCodes]="availableLanguages$ | async"
+            [currentLanguageCode]="languageCode$ | async"
+            (languageCodeChange)="setLanguage($event)"
+        ></vdr-language-selector>
+    </vdr-ab-left>
+    <vdr-ab-right>
+        <vdr-action-bar-items locationId="country-detail"></vdr-action-bar-items>
+        <button
+            class="btn btn-primary"
+            *ngIf="isNew$ | async; else updateButton"
+            (click)="create()"
+            [disabled]="detailForm.invalid || detailForm.pristine"
+        >
+            {{ 'common.create' | translate }}
+        </button>
+        <ng-template #updateButton>
+            <button
+                class="btn btn-primary"
+                *vdrIfPermissions="'UpdateSettings'"
+                (click)="save()"
+                [disabled]="detailForm.invalid || detailForm.pristine"
+            >
+                {{ 'common.update' | translate }}
+            </button>
+        </ng-template>
+    </vdr-ab-right>
+</vdr-action-bar>
+
+<form class="form" [formGroup]="detailForm">
+    <vdr-form-field [label]="'international_shipping.name' | translate" for="enabled">
+        <select name="country_code" formControlName="country_code" clrInput clrSelect>
+            <option *ngFor="let country of availableCountries$ | async" [value]="country.code">
+                {{ country.name }}
+            </option>
+        </select>
+    </vdr-form-field>
+    <vdr-form-field [label]="'international_shipping.price' | translate" for="enabled">
+        <input
+            id="price"
+            type="number"
+            formControlName="price"
+            [readonly]="!('UpdateSettings' | hasPermission)"
+        />
+    </vdr-form-field>
+</form>

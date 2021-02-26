@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blog_authors",
+  "info": {
+    "name": "blog_author"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "author_name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "author_avatar": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "Info": {
+      "type": "text"
+    },
+    "blog_posts": {
+      "via": "blog_author",
+      "collection": "blog-post"
+    }
+  }
+}

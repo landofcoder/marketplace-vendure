@@ -1,0 +1,16 @@
+{
+  "fulfill": {
+    "order": {
+      "pack" : "Pack",
+      "packaging-slip": "Packaging Slip",
+      "pack-info": "Package Info",
+      "customer-info": "Customer Info",
+      "number-item": "Total number of items",
+      "weight": "Weight (gm)",
+      "package-amount": "Total package amount",
+      "create-pack": "Create pack",
+      "print-invoice": "Print Invoice",
+      "courier": "Courier company Name"
+    }
+  }
+}

@@ -1,0 +1,129 @@
+//Sub nav bar common
+.shop-style {
+  .nav {
+    justify-content: center;
+    background-color: #47bfe4;
+  }
+  .nav {
+    .nav-item {
+      margin-left: 5px;
+      margin-right: 5px;
+      padding-top: 15px;
+      color: white;
+
+      .nav-link {
+        padding-left: 16px;
+        padding-right: 16px;
+        border-radius: 4px 4px 0 0;
+        font-weight: 600;
+        font-size: 0.9rem;
+        background: unset;
+        color: white;
+        padding-bottom: 20px;
+      }
+      .active {
+        background-color: white;
+        color: black;
+      }
+      &:hover {
+        .nav-link {
+          color: black;
+          background-color: white;
+        }
+      }
+    }
+  }
+
+  //Shop contact tab
+  #send-message {
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 20px;
+  }
+  .send-mss-form {
+    margin-top: 90px;
+    margin-bottom: 50px;
+  }
+  .send-mss-form {
+    > .container {
+      background-color: #f3f5f4;
+      padding: 50px;
+    }
+  }
+  .more-info {
+    font-size: 11px;
+    margin-top: 20px;
+  }
+  .send-mss-form {
+    .required {
+      color: red;
+    }
+    .required-border {
+      @extend .required;
+      border: 1px solid;
+    }
+    .required-text {
+      @extend .required;
+    }
+  }
+
+  //Shop reviews
+
+  .list-progress-star {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .shop-rating__name {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .shop-rating__icon {
+    color: #ffba02;
+  }
+  .shop-rating__value {
+    margin-left: 30px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .star-progress {
+    height: 7px;
+  }
+  #shop-review {
+    margin-top: 80px;
+  }
+
+  //Shop rating
+  .rating-data {
+    margin-bottom: 80px;
+  }
+  .rating-data__info {
+    width: 20%;
+    padding-bottom: 50px;
+  }
+  .rating-data__info--container {
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+  .rating-data__info--name {
+    text-align: center;
+    font-weight: bold;
+  }
+  .rating-data__info--date {
+    text-align: center;
+  }
+
+  //Shop detail tab
+  .shop-info {
+    padding-top: 100px;
+    padding-bottom: 50px;
+  }
+  .section-title--secondary--style2 {
+    > a:hover {
+      text-decoration: underline;
+      transition: all 0.3s;
+    }
+  }
+}
+.shop-sidebar {
+  background-color: #f8f8f8;
+}

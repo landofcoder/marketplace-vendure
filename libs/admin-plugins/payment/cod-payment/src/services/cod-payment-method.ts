@@ -1,0 +1,65 @@
+import { LanguageCode } from '@vendure/common/lib/generated-types';
+import { Logger, PaymentMethodHandler, CreatePaymentResult } from '@vendure/core';
+
+
+/**
+ * A dummy API to simulate an SDK provided by a popular payments service.
+ */
+const gripeSDK = {
+    charges: {
+        create: (options: any) => {
+            return Promise.resolve({
+                id: Math.random().toString(36).substr(3),
+            });
+        },
+        capture: (transactionId: string) => {
+            return true;
+        },
+    },
+};
+
+/**
+ * An example of a payment method which sets up and authorizes the payment on the client side and then
+ * requires a further step on the server side to charge the card.
+ */
+export const CODPaymentHandler = new PaymentMethodHandler({
+    code: 'cod-payment',
+    description: [{ languageCode: LanguageCode.en, value: 'Cash on delivery' }],
+    args: {
+        automaticCapture: { type: 'boolean' },
+        apiKey: { type: 'string' },
+    },
+    createPayment: async (ctx, order, args, metadata): Promise<CreatePaymentResult> => {
+        try {
+            const result = await gripeSDK.charges.create({
+                apiKey: args.apiKey,
+                amount: order.total,
+                source: metadata.authToken,
+            });
+            return {
+                amount: order.total,
+                state: args.automaticCapture ? 'Settled' : 'Authorized',
+                transactionId: result.id.toString(),
+                metadata,
+            };
+        } catch (err) {
+            return {
+                amount: order.total,
+                state: 'Declined' as 'Declined',
+                metadata: {
+                    errorMessage: err.message,
+                },
+            };
+        }
+    },
+    settlePayment: async (ctx, order, payment, args) => {
+        const result = await gripeSDK.charges.capture(payment.transactionId);
+        return {
+            success: result,
+            metadata: {
+                captureId: '1234567',
+            },
+        };
+    },
+});
+

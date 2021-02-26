@@ -1,0 +1,72 @@
+<vdr-action-bar>
+    <vdr-ab-left>
+        <div class="newsletter_queue-info">
+            <vdr-entity-info [entity]="entity$ | async"></vdr-entity-info>
+        </div>
+    </vdr-ab-left>
+    <vdr-ab-right>
+        <ng-container *ngIf="(isNew$ | async) === true; else updateButton">
+            <button
+                *vdrIfPermissions="'UpdatePromotion'"
+                class="btn btn-success"
+                (click)="save()"
+                [disabled]="detailForm.invalid"
+            >
+                Create
+            </button>
+        </ng-container>
+        <ng-template #updateButton>
+            <button
+                *vdrIfPermissions="'UpdatePromotion'"
+                class="btn btn-primary"
+                (click)="save()"
+                [disabled]="detailForm.invalid || detailForm.pristine"
+            >
+                {{ 'common.update' | translate }}
+            </button>
+        </ng-template>
+    </vdr-ab-right>
+</vdr-action-bar>
+
+<div class="clr-row">
+    <div class="clr-col">
+        <form class="form" [formGroup]="detailForm">
+            <section class="form-block">
+                <vdr-form-field label="Queue Date Start" for="startAt">
+                    <vdr-datetime-picker formControlName="startAt"></vdr-datetime-picker>
+                </vdr-form-field>
+                <vdr-form-field label="Subject" for="subject">
+                    <input
+                        id="subject"
+                        type="text"
+                        formControlName="subject"
+                        [readonly]="!('UpdatePromotion' | hasPermission)"
+                    />
+                </vdr-form-field>
+                <vdr-form-field label="Template Content" for="templateContent">
+                    <textarea
+                        id="templateContent"
+                        type="text"
+                        cols="20"
+                        rows="10"
+                        style="width: 400px;"
+                        formControlName="templateContent"
+                        [readonly]="!('UpdatePromotion' | hasPermission)"
+                    ></textarea>
+                </vdr-form-field>
+                <vdr-form-field label="Template Css Code" for="templateCss">
+                    <textarea
+                        id="templateCss"
+                        type="text"
+                        cols="20"
+                        rows="10"
+                        style="width: 400px;"
+                        formControlName="templateCss"
+                        [readonly]="!('UpdatePromotion' | hasPermission)"
+                    ></textarea>
+                </vdr-form-field>
+                
+            </section>
+        </form>
+    </div>
+</div>

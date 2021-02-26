@@ -1,0 +1,122 @@
+/*=============================================
+=            section title            =
+=============================================*/
+
+.section-title {
+  font-size: 32px;
+  font-weight: 400;
+
+  color: $black--two;
+  @include respond(small-desktop) {
+    font-size: 20px;
+  }
+
+  @include respond(large-mobile) {
+    font-size: 25px;
+  }
+  @include respond(extra-large-mobile) {
+    font-size: 30px;
+  }
+  &--secondary {
+    font-size: 14px;
+    font-weight: 500;
+
+    color: $black--two;
+
+    &--style2 {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.6;
+
+      color: $grey--seven;
+
+      & a{
+        position: relative;
+        display: inline-block;
+        font-weight: 300;
+        color: #F44336;
+        transition: color .2s ease;
+        padding: 3px 0;
+        margin-bottom: 15px;
+        
+        &:hover {
+          color: #F44336;
+           
+          &::after,
+          &::before {
+            width: 100%;
+            left: 0;
+          }
+          
+        }
+        
+        &::after,
+        &::before {
+          content: ''; 
+          position: absolute;
+          top: calc(100% + 5px);
+          width: 0;
+          right: 0;
+          height: 3px;
+        }
+        
+        &::before {
+          transition: width .4s cubic-bezier(0.51, 0.18, 0, 0.88) .1s;
+          background: #F44336;
+        }
+        
+        &::after {
+          transition: width .2s cubic-bezier(0.29, 0.18, 0.26, 0.83);
+          background: #F44336;
+        }
+      }
+    }
+  }
+
+  &__label {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+
+    letter-spacing: 1px;
+
+    color: $black--two;
+  }
+}
+
+.widget-slider-title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 22px;
+
+  position: relative;
+
+  margin-bottom: 35px;
+  padding-right: 60px;
+
+  color: $black--two;
+}
+
+.rotate-title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+
+  position: absolute;
+  top: 250px;
+
+  letter-spacing: 1px;
+
+  color: $black--two;
+  &--left {
+    transform: rotate(90deg) translate(30%, 180%);
+  }
+
+  &--right {
+    right: -15px;
+
+    transform: rotate(-90deg);
+  }
+}
+
+/*=====  End of section title  ======*/

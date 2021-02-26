@@ -1,0 +1,98 @@
+<ng-template vdrDialogTitle>{{ 'fulfill.order.pack-info' | translate }}</ng-template>
+
+<div class="fulfillment-wrapper">
+    <div class="clr-row">
+        <table class="table" style="margin-top: 0;">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>{{ 'order.product-name' | translate }}</th>
+                    <th>{{ 'order.product-sku' | translate }}</th>
+                    <th>{{ 'order.unfulfilled' | translate }}</th>
+                    <th>{{ 'order.fulfill' | translate }}</th>
+                </tr>
+            </thead>
+            <tr
+                *ngFor="let line of order.lines"
+                class="order-line"
+                [class.ignore]="getUnfulfilledCount(line) === 0"
+            >
+                <td class="align-middle thumb">
+                    <img *ngIf="line.featuredAsset" [src]="line.featuredAsset | assetPreview:'tiny'" />
+                </td>
+                <td class="align-middle name">{{ line.productVariant.name }}</td>
+                <td class="align-middle sku">{{ line.productVariant.sku }}</td>
+                <td class="align-middle quantity">{{ getUnfulfilledCount(line) }}</td>
+                <td class="align-middle fulfil">
+                    <input
+                        disabled
+                        [(ngModel)]="line.quantity"
+                        type="number"
+                        [max]="line.quantity"
+                        min="0"
+                    />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="clr-row" style="margin-top: 1.2rem;">
+        <div class="clr-col-3">
+            <label class="clr-control-label">{{ 'fulfill.order.customer-info' | translate }}</label>
+            <vdr-formatted-address [address]="order.shippingAddress"></vdr-formatted-address>
+        </div>
+        <div class="clr-col-3">
+            <label class="clr-control-label">{{ 'order.shipping-method' | translate }}</label>
+            {{ order.shippingMethod?.description }}
+            <strong>{{ order.shipping / 100 | currency: order.currencyCode }}</strong>
+
+            <div *ngIf="order.payments?.length > 0">
+                <label class="clr-control-label">{{ 'order.payment-method' | translate }}</label>
+                {{ order.payments[0]?.method === 'cod-payment' ? 'COD' : 'Pre-paid' }}
+            </div>
+        </div>
+        <div class="clr-col-3">
+            <clr-select-container class="method-select">
+                <label>{{ 'order.fulfillment-method' | translate }}</label>
+                <select clrSelect name="method" [(ngModel)]="method" required (ngModelChange)="selectMethod($event)">
+                    <option value="delhivery_shipping_method">Delhivery Shipping Method</option>
+                    <option value="ecomexpress_shipping_method">EcomExpress Shipping Method</option>
+                    <option value="manual_shipping_method">Manual Shipping Method</option>
+                </select>
+            </clr-select-container>
+            <div *ngIf="method=='manual_shipping_method'">
+                <clr-input-container>
+                    <label>{{ 'order.tracking-code' | translate }}</label>
+                    <input clrInput placeholder="" name="trackingCode" [(ngModel)]="trackingCode" required />
+                </clr-input-container>
+                <clr-input-container>
+                    <label>{{ 'fulfill.order.courier' | translate }}</label>
+                    <input clrInput placeholder="" name="courier" [(ngModel)]="courier" required />
+                </clr-input-container>
+            </div>
+        </div>
+
+        <div class="clr-col-3">
+            <clr-input-container>
+                <label>{{ 'fulfill.order.number-item' | translate }}</label>
+                <input clrInput type="number" placeholder="" name="trackingCode" [(ngModel)]="numberItem" disabled />
+            </clr-input-container>
+
+            <clr-input-container>
+                <label>{{ 'fulfill.order.weight' | translate }}</label>
+                <input clrInput type="number" placeholder="" name="orderWeight" [(ngModel)]="orderWeight" required readonly/>
+            </clr-input-container>
+
+            <clr-input-container>
+                <label>{{ 'fulfill.order.package-amount' | translate }}</label>
+                <input clrInput type="number" placeholder="" name="packageAmount" [(ngModel)]="packageAmount" disabled/>
+            </clr-input-container>
+        </div>
+    </div>
+</div>
+
+<ng-template vdrDialogButtons>
+    <button type="button" class="btn" (click)="cancel()">{{ 'common.cancel' | translate }}</button>
+    <button type="submit" (click)="select()" [disabled]="!weightFlag" class="btn btn-primary">
+        {{ 'fulfill.order.create-pack' | translate }}
+    </button>
+</ng-template>

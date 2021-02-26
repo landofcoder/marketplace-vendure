@@ -1,0 +1,99 @@
+<vdr-action-bar>
+    <vdr-ab-left>
+        <div class="subscriber-info">
+            <vdr-entity-info [entity]="entity$ | async"></vdr-entity-info>
+            <kb-subscriber-status-label [status]="subscriberStatus$ | async"></kb-subscriber-status-label>
+            <kb-subscriber-type-label [type]="subscriberType$ | async"></kb-subscriber-type-label>
+        </div>
+    </vdr-ab-left>
+    <vdr-ab-right>
+        <ng-container *ngIf="(isNew$ | async) === true; else updateButton">
+            <button
+                *vdrIfPermissions="'UpdatePromotion'"
+                class="btn btn-success"
+                (click)="save()"
+                [disabled]="detailForm.invalid"
+            >
+                Create
+            </button>
+        </ng-container>
+        <ng-template #updateButton>
+            <button
+                *vdrIfPermissions="'UpdatePromotion'"
+                class="btn btn-primary"
+                (click)="save()"
+                [disabled]="detailForm.invalid || detailForm.pristine"
+            >
+                {{ 'common.update' | translate }}
+            </button>
+        </ng-template>
+    </vdr-ab-right>
+</vdr-action-bar>
+
+<div class="clr-row">
+    <div class="clr-col">
+        <form class="form" [formGroup]="detailForm">
+            <section class="form-block">
+                <vdr-form-field label="Customer ID" for="customerId">
+                    <input
+                        id="customerId"
+                        type="text"
+                        formControlName="customerId"
+                        [readonly]="!('UpdatePromotion' | hasPermission)"
+                    />
+                </vdr-form-field>
+                <vdr-form-field label="Email" for="email">
+                    <input
+                        id="email"
+                        type="text"
+                        formControlName="email"
+                        [readonly]="!('UpdatePromotion' | hasPermission)"
+                    />
+                </vdr-form-field>
+                <vdr-form-field label="Subscribed Token" for="subscriberToken">
+                    <textarea
+                        id="subscriberToken"
+                        type="text"
+                        cols="20"
+                        rows="10"
+                        style="width: 400px;"
+                        formControlName="subscriberToken"
+                        [readonly]="true"
+                    ></textarea>
+                </vdr-form-field>
+                <vdr-form-field label="Customer First Name" for="customerFirstName">
+                    <input
+                        id="customerFirstName"
+                        type="text"
+                        formControlName="customerFirstName"
+                        [readonly]="!('UpdatePromotion' | hasPermission)"
+                    />
+                </vdr-form-field>
+                <vdr-form-field label="Customer Last Name" for="customerLastName">
+                    <input
+                        id="customerLastName"
+                        type="text"
+                        formControlName="customerLastName"
+                        [readonly]="!('UpdatePromotion' | hasPermission)"
+                    />
+                </vdr-form-field>
+                <vdr-form-field label="Customer Phone" for="customerPhone">
+                    <input
+                        id="customerPhone"
+                        type="text"
+                        formControlName="customerPhone"
+                        [readonly]="!('UpdatePromotion' | hasPermission)"
+                    />
+                </vdr-form-field>
+                <vdr-form-field label="Tags" for="tags">
+                    <input
+                        id="tags"
+                        type="text"
+                        formControlName="tags"
+                        [readonly]="!('UpdatePromotion' | hasPermission)"
+                    />
+                </vdr-form-field>
+            </section>
+        </form>
+    </div>
+</div>

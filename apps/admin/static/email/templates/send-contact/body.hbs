@@ -1,0 +1,30 @@
+{{> header title="New Contact From The Store: swarajshop.com" }}
+
+<mj-section background-color="#fafafa">
+    <mj-column>
+        <mj-text color="#525252">
+            You just received new contact from customer
+        </mj-text>
+        <mj-text color="#000">
+            Name: {{contact.authorName}}
+        </mj-text>
+        <mj-text color="#000">
+            Email: <a href="mailto:{{contact.authorEmail}}">{{contact.authorEmail}}</a>
+        </mj-text>
+        <mj-text color="#000">
+            Telephone: {{contact.authorPhone}}
+        </mj-text>
+        <mj-text color="#000">
+            Subject: {{contact.subject}}
+        </mj-text>
+        <mj-text color="#000">
+            Comment: 
+        </mj-text>
+        <mj-text color="#000">
+            {{contact.message}}
+        </mj-text>
+    </mj-column>
+</mj-section>
+
+
+{{> footer }}

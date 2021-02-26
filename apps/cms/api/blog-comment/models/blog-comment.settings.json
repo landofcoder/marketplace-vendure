@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blog_comments",
+  "info": {
+    "name": "blog_comment"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "customer_name": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "customer_email": {
+      "type": "email",
+      "required": true,
+      "unique": false
+    },
+    "comment_message": {
+      "type": "text"
+    },
+    "date": {
+      "type": "date"
+    },
+    "blog_post": {
+      "model": "blog-post",
+      "via": "blog_comments"
+    },
+    "avatar": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

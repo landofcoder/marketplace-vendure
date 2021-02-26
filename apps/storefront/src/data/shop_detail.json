@@ -1,0 +1,18 @@
+{
+    "name": "ショップ",
+    "image": "/assets/images/shop-avatar.png",
+    "ownerName": "John Castle",
+    "tags": "clothing_fashion",
+    "favoriteCounter":199,
+    "ownerImage": "/assets/images/testimonial/testimonial-1-80x80.png",
+    "description": "Top shop for gifts. Buyers bought gifts from this shop and gave them 5-star reviews!",
+    "rating": 4.5,
+    "reviewCounter": 1024,
+    "address": "Bloemendaal, The Netherlands On Etsy since 2015",
+    "favorite": 100,
+    "tag": "family",
+    "facebookUrl": "https://www.facebook.com",
+    "googlePlusUrl": "https://plus.google.com",
+    "twitterUrl": "https://www.twitter.com",
+    "totalSale": 123
+}

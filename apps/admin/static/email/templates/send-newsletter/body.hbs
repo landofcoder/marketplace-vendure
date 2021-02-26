@@ -1,0 +1,22 @@
+{{> header title="Newsletter subscription success from Swarajshop.com" }}
+<style type="text/css">{{{ newsletter.templateCss }}}</style>
+<mj-section background-color="#fafafa">
+    <mj-column>
+        <mj-text color="#525252">
+            The Swarajshop Newsletter
+        </mj-text>
+        <mj-text color="#000">
+            {{{ newsletter.templateContent }}}
+        </mj-text>
+    </mj-column>
+</mj-section>
+
+<mj-section background-color="#fafafa">
+    <mj-column>
+        <mj-text color="#525252">
+            This email was sent to <a href="mailto:{{ subscriber.email }}">{{ subscriber.email }}</a>. You can update your <a href="{{ unsubsribeUrl }}?token={{ subscriber.subscriberToken}}">email subscription preferences</a> at any time.
+        </mj-text>
+    </mj-column>
+</mj-section>
+
+{{> footer }}

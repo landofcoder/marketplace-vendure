@@ -1,0 +1,113 @@
+<div id="print-pdf">
+    <div class="clr-row">
+        <div class="clr-col-2"></div>
+        <div class="clr-col-md-8">
+            <p style="margin: 0; padding: 0;">Order Information</p>
+            <table class="order-lines table">
+                <thead>
+                    <th>Product name</th>
+                    <th></th>
+                    <th>SKU</th>
+                    <th>Unit price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </thead>
+                <tbody id="order-lines-body">
+                    <tr *ngFor='let test of tests'>
+                        <td>{{test}}</td>
+                    </tr>
+                    <tr *ngFor="let line of lines">
+                        <td>{{line.id}}</td>
+                    </tr>
+                    <tr class="sub-total">
+                        <td colspan="4"></td>
+                        <td>Sub total</td>
+                        <td class="clr-align-middle">{{formatter.format(orderSubTotal)}}</td>
+                    </tr>
+                    <tr class="shipping">
+                        <td colspan="4"></td>
+                        <td>Shipping</td>
+                        <td class="clr-align-middle">{{shippingDescription + ' - '}}{{formatter.format(shippingWithTax)}}</td>
+                    </tr>
+                    <tr class="discount">
+                        <td colspan="4"></td>
+                        <td>Discount</td>
+                        <td class="clr-align-middle">{{shippingDescription + ' - '}}{{formatter.format(shippingWithTax)}}</td>
+                    </tr>
+                    <tr class="total">
+                        <td colspan="4"></td>
+                        <td>Total</td>
+                        <td class="clr-align-middle">{{formatter.format(orderTotal)}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="clr-col-2"></div>
+    </div>
+    <div class="clr-row">
+        <div class="clr-col-2"></div>
+        <div class="clr-col-2">
+            <table class="order-lines table">
+                <thead>
+                    <th style="text-align: left">Customer Information</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="left">Name: {{customer.firstName + customer.lastName}}</td>
+                    </tr>
+                    <tr>
+                        <td class="left">Email: {{customer.emailAddress}}</td>
+                    </tr>
+                    <tr>
+                        <td class="left">Phone Number: {{customer.phoneNumber}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="clr-col-2">
+            <table class="order-lines table">
+                <thead>
+                    <th>Shipping</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="left">Full Name: {{shippingAddress.fullName}}</td>
+                    </tr>
+                    <tr>
+                        <td class="left">Shipping Address: {{shippingAddress.streetLine1}}, {{shippingAddress.city}}, {{shippingAddress.province}}, {{shippingAddress.postalCode}}, {{shippingAddress.country}}.</td>
+                    </tr>
+                    <tr>
+                        <td class="left">Phone Number: {{shippingAddress.phoneNumber}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="clr-col-2">
+            <table class="order-lines table">
+                <thead>
+                    <th>Billing</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="left">Full Name: {{billingAddress.fullName}}</td>
+                    </tr>
+                    <tr>
+                        <td class="left">Billing Address: {{billingAddress.streetLine1}}, {{billingAddress.city}}, {{billingAddress.province}}, {{billingAddress.postalCode}}, {{billingAddress.country}}.</td>
+                    </tr>
+                    <tr>
+                        <td class="left">Phone Number: {{billingAddress.phoneNumber}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="clr-col-2">
+            <table class="order-lines table" id="payment-table">
+                <thead>
+                    <th>Payment</th>
+                </thead>
+            </table>
+        </div>
+        <div class="clr-col-2"></div>
+    </div>
+</div>
+

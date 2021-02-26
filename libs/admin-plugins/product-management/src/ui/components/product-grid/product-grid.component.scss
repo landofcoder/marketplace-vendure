@@ -1,0 +1,80 @@
+@import "variables";
+
+.image-placeholder {
+  width: 50px;
+  height: 50px;
+  background-color: $color-grey-200;
+
+  .placeholder {
+    text-align: center;
+    color: $color-grey-300;
+  }
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+.search-input {
+  min-width: 300px;
+
+  @media screen and (max-width: $breakpoint-small) {
+    min-width: 100px;
+  }
+}
+
+.search-settings-menu {
+  margin: 0 12px;
+}
+
+td.disabled {
+  background-color: $color-grey-200;
+}
+
+.display-flex {
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  padding: 5px 12px;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.datagrid-cell {
+  display: flex;
+  align-items: center;
+}
+
+.table-footer {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+
+.filter-table {
+  border: 1px solid #c6c6c6;
+  padding: 5px 10px;
+  margin-top: 10px;
+}
+
+.clr-control-container::after {
+  content: "";
+  position: absolute;
+  height: 1.2rem;
+  width: 0.05rem;
+  left: 6px;
+  background-color: #cccccc;
+}
+
+.search-input {
+  margin-top: 6px;
+  min-width: 300px;
+}

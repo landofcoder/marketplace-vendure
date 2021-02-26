@@ -1,0 +1,17 @@
+{
+  "name": "@bavaan/vendure-product-recommendations",
+  "version": "0.0.1",
+  "main": "index.js",
+  "description": "Adds product recommendations to vendure",
+  "repository": "https://github.com/Tyratox/vendure-product-recommendations",
+  "author": "Nico Hauser",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf lib && tsc && cp package.json ./lib/ && cp README.md ./lib/ && cp -r ./src/ui-extensions ./lib/ui-extensions",
+    "generate-types": "graphql-codegen --config ./codegen.json"
+  },
+  "devDependencies": {
+  },
+  "dependencies": {
+  }
+}

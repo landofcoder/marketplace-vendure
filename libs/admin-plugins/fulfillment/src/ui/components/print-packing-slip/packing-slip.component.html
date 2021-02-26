@@ -1,0 +1,202 @@
+
+  <table
+    id="print-packing-slip"
+    class="table-container"
+    style="border: 1px solid;width:600px;background: #fff;margin:20px auto 20px;"
+    cellpadding="0"
+    cellspacing="0"
+    *ngIf="packing_slip"
+    >
+    <tr>
+      <td>
+        <table width="100%" style="border: 1px solid #000000;" cellpadding="5" cellspacing="0">
+          <tr>
+            <td width="50%" style="border-right: 1px solid #000000; color: #394263; vertical-align: middle"
+              align="center">
+              <img src={{packing_slip?.cl_logo}} alt="image" style="padding:5px; height:65px;">
+            </td>
+            <td width="50%" align="center">
+              <img style="padding:5px;height: 35px;" src={{packing_slip?.delhivery_logo}}>
+            </td>
+          </tr>
+        </table>
+        <table width="100%"
+          style="border-right: 1px solid #000000; border-left: 1px solid #000000;border-bottom: 1px solid #000000; "
+          cellpadding="5" cellspacing="0">
+          <tr>
+            <td width="100%">
+              <img style="margin: auto;display: block;" width="270" height="80" src={{packing_slip?.barcode}}>
+            </td>
+          </tr>
+        </table>
+        <table width="100%"
+          style="border-right: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000;"
+          cellpadding="5" cellspacing="0">
+          <tr>
+            <td width="70%" style="border-right: 1px solid #000000;">
+              <p style="font-weight:bold; margin: 0">Shipping Address:</p>
+              <p style="font-weight:bold; margin: 0; font-size: 14px">
+                {{packing_slip?.name}}
+              </p>
+              <p style="margin: 0; line-height: 9pt; font-size:10px;">
+                {{packing_slip?.address}}
+              </p>
+              <p style="margin: 0; line-height: 9pt; font-size:10px;">
+                {{packing_slip?.origin}}
+              </p>
+              <p style="margin: 0; font-size:10px;">
+                <strong>PIN: {{packing_slip?.pin}}</strong>
+              </p>
+            </td>
+            <td width="30%" align="center" style="vertical-align: middle;">
+              <p style="font-size:14px; font-weight:bold; margin: 0">
+                {{packing_slip?.pt}}
+              </p>
+              <p style="font-size:14px;font-weight:bold; margin: 0">
+                {{packing_slip?.rs}}
+              </p>
+              <p style="font-size:14px;font-weight:bold; margin: 0">
+                {{packing_slip?.mot === 'S' ? 'Surface' : 'Express'}}
+              </p>
+            </td>
+          </tr>
+        </table>
+        <table width="100%"
+          style="border-right: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000;"
+          cellpadding="5" cellspacing="0">
+          <tr>
+            <td width="60%" style="border-right: 1px solid #000000;">
+              <p style="margin: 0; line-height: 9pt; font-size:10px;"> <strong> Seller:</strong>
+                {{packing_slip?.snm}}
+              </p>
+
+              <p style="margin: 0; line-height: 9pt; font-size:10px;"><strong> Address:</strong>
+                {{packing_slip?.sadd}}
+              </p>
+            </td>
+            <td width="40%">
+              <p style="margin: 0; line-height: 9pt; font-size:10px;"> <strong>
+                  Date:
+                </strong>
+                {{ packing_slip?.sid}}
+              </p>
+            </td>
+          </tr>
+        </table>
+        <table width="100%"
+          style="border-right: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000;"
+          cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="60%" style="border-right: 1px solid #000000; padding: 0;">
+              <table width="100%" cellpadding="5" cellspacing="0">
+                <tr>
+                  <td>
+                    <p style="margin: 0; line-height: 9pt; font-size:10px; font-weight: bold;">Product Descripition</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td width="40%" style="padding: 0;">
+              <table width="100%" cellpadding="5" cellspacing="0">
+                <tr>
+                  <td width="50%" align="center" style="border-right: 1px solid #000000;">
+                    <p style="margin: 0; line-height: 9pt; font-size:10px;text-align: center; font-weight: bold;">Price
+                    </p>
+                  </td>
+                  <td width="50%" align="center">
+                    <p style="margin: 0; line-height: 9pt; font-size:10px; text-align: center; font-weight: bold;">Total
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        <table width="100%"
+          style="border-right: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000;"
+          cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="60%" style="border-right: 1px solid #000000; padding: 0;">
+              <table width="100%" cellpadding="5" cellspacing="0">
+                <tr>
+                  <td>
+                    <p style="margin: 0; line-height: 9pt; font-size:10px;">{{packing_slip?.prd}}</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td width="40%" style="padding: 0;">
+              <table width="100%" cellpadding="5" cellspacing="0">
+                <tr>
+                  <td width="50%" align="center" style="border-right: 1px solid #000000;">
+                    <p style="margin: 0; line-height: 9pt; font-size:10px;text-align: center;">
+                    
+                      {{packing_slip?.cod}}
+                  </td>
+                  <td width="50%" align="center">
+                    <p style="margin: 0; line-height: 9pt; font-size:10px; text-align: center;">
+                      {{packing_slip?.cod}}</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        <table width="100%"
+          style="border-right: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000;"
+          cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="60%" style="border-right: 1px solid #000000;padding: 0;">
+              <table width="100%" cellpadding="5" cellspacing="0">
+                <tr>
+                  <td>
+                    <p style="margin: 0; line-height: 9pt; font-size:10px;">
+                      <strong>Total</strong>
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td width="40%" style="padding: 0;">
+              <table width="100%" cellpadding="5" cellspacing="0">
+                <tr>
+                  <td width="50%" align="center" style="border-right: 1px solid #000000;">
+                    <p style="margin: 0; line-height: 9pt; font-size:10px; font-weight: 700;">
+                      {{packing_slip?.rs}}
+                    </p>
+                  </td>
+                  <td width="50%" align="center">
+                    <p style="margin: 0; line-height: 9pt; font-size:10px; font-weight: 700;">
+                      {{packing_slip?.rs}}
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        <table width="100%" style="border-right: 1px solid #000000; border-left: 1px solid #000000;" cellpadding="5"
+          cellspacing="0">
+          <tr>
+            <td width="100%">
+              <img style="margin: auto;display: block;" width="180" height="70" src={{packing_slip?.oid_barcode}}>
+              <p class="" style="text-align: center;font-size:17px; padding:0; margin:0;">
+                {{packing_slip?.oid}}
+              </p>
+            </td>
+          </tr>
+        </table>
+        <table width="100%"
+          style="border-right: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000;border-top: 1px solid #000000;"
+          cellpadding="5" cellspacing="0">
+          <tr>
+            <td width="60%" align="left">
+              <p class="" style="width: 100%;margin:0;font-size: 10px;"> <strong>Return Address:</strong>
+                {{packing_slip?.radd}} ' - {{packing_slip?.rst}} ' - ' {{packing_slip?.rcty}} ' - ' {{packing_slip?.rpin}}
+              </p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>

@@ -1,0 +1,1 @@
+export const delhiveryURL = "https://track.delhivery.com/";

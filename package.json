@@ -1,0 +1,34 @@
+{
+  "name": "@bavaan/marketplace",
+  "private": "true",
+  "devDependencies": {
+    "concurrently": "^5.2.0",
+    "lerna": "^3.22.0"
+  },
+  "author": {
+    "email": "landofcoder@gmail.com",
+    "name": "landofcoder team",
+    "url": "https://landofcoder.com"
+  },
+  "workspaces": [
+    "apps/*",
+    "libs/*",
+    "libs/admin-plugins/**",
+    "!libs/admin-plugins/fulfillment/*"
+  ],
+  "scripts": {
+    "dev-admin": "yarn workspace @bavaan/admin start",
+    "dev": "concurrently \"yarn workspace @bavaan/admin run start\" \"yarn workspace @bavaan/storefront run dev\"",
+    "build": "concurrently \"yarn workspace @bavaan/admin run build\" \"yarn workspace @bavaan/storefront run build\"",
+    "test": "yarn workspace @bavaan/testing run test",
+    "start": "pm2-runtime process.json"
+  },
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0",
+    "yarn": ">=1.2"
+  },
+  "dependencies": {
+    "dotenv-safe": "^8.2.0"
+  }
+}

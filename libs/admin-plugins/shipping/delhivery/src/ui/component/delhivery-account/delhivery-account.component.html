@@ -1,0 +1,34 @@
+
+<vdr-action-bar>
+
+   <vdr-ab-right>
+       <vdr-action-bar-items locationId="delhivery-account-detail"></vdr-action-bar-items>
+       <button
+           class="btn btn-primary"
+           (click)="save()"
+           [disabled]="!saveButtonEnabled()"
+       >
+           {{ 'common.update' | translate }}
+       </button>
+   </vdr-ab-right>
+</vdr-action-bar>
+
+<form class="form" [formGroup]="detailForm">
+
+   <vdr-form-field [label]="'delhivery_account.client_name' | translate" for="client_name">
+       <input id="client_name" type="text" formControlName="client_name" />
+   </vdr-form-field>
+   <vdr-form-field [label]="'delhivery_account.user_name' | translate" for="user_name">
+       <input id="user_name" type="text" formControlName="user_name" />
+   </vdr-form-field>
+   <vdr-form-field [label]="'delhivery_account.api_key' | translate" for="api_key">
+       <input id="api_key" type="text" formControlName="api_key" />
+   </vdr-form-field>
+   <vdr-form-field [label]="'delhivery_account.shipment_mode' | translate" for="shipping_mode">
+       <input id="shipment_mode" type="text" formControlName="shipping_mode" />
+   </vdr-form-field>
+   <vdr-form-field [label]="'delhivery_account.hand_fee' | translate" for="hand_fee">
+       <input id="hand_fee" type="number" formControlName="hand_fee" />
+    </vdr-form-field>
+
+</form>

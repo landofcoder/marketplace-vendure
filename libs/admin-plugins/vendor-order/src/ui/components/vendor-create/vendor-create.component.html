@@ -1,0 +1,396 @@
+<form clrStepper [formGroup]="form" (ngSubmit)="submit()">
+    <clr-stepper-panel formGroupName="vendor">
+        <clr-step-title>Vendor Register</clr-step-title>
+        <!--        <clr-step-description>Description goes here.</clr-step-description>-->
+        <clr-step-content *clrIfExpanded>
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>First Name</label>
+                        <input clrInput formControlName="firstName" />
+                        <clr-control-error *clrIfError="'required'">First Name Required</clr-control-error>
+
+                    </clr-input-container>
+                </div>
+            </div>
+
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>Last Name</label>
+                        <input clrInput formControlName="lastName" />
+                        <clr-control-error *clrIfError="'required'">Last Name Required</clr-control-error>
+
+                    </clr-input-container>
+                </div>
+            </div>
+
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>Email</label>
+                        <input clrInput formControlName="email" />
+                        <clr-control-error *clrIfError="'required'">Email Required</clr-control-error>
+
+                    </clr-input-container>
+                </div>
+            </div>
+
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>Phone</label>
+                        <input clrInput formControlName="phone" />
+                        <clr-control-error *clrIfError="'required'">Phone Required</clr-control-error>
+
+                    </clr-input-container>
+                </div>
+            </div>
+
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>GSTINID</label>
+                        <input clrInput formControlName="GSTINID" />
+                        <clr-control-error *clrIfError="'required'">GSTINID Required</clr-control-error>
+
+                    </clr-input-container>
+                </div>
+            </div>
+
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>State</label>
+                        <input clrInput formControlName="state" />
+                        <clr-control-error *clrIfError="'required'">State Required</clr-control-error>
+
+                    </clr-input-container>
+                </div>
+            </div>
+
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>Owner Name</label>
+                        <input clrInput formControlName="ownerName" />
+                        <clr-control-error *clrIfError="'required'">Owner name is required</clr-control-error>
+
+                    </clr-input-container>
+                </div>
+            </div>
+
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>Owner Email</label>
+                        <input clrInput formControlName="ownerEmail" />
+                        <clr-control-error *clrIfError="'required'">Owner email is required</clr-control-error>
+
+                    </clr-input-container>
+                </div>
+            </div>
+
+            <button clrStepButton="next">next</button>
+        </clr-step-content>
+    </clr-stepper-panel>
+
+
+    <!-- Vendor info -->
+    <clr-stepper-panel formGroupName="vendorInfo">
+        <clr-step-title>Vendor Information</clr-step-title>
+        <!--        <clr-step-description>Description goes here.</clr-step-description>-->
+        <clr-step-content *clrIfExpanded>
+
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>Brand Name</label>
+                        <input clrInput formControlName="brandName" />
+                        <clr-control-error *clrIfError="'required'">Brand name is required</clr-control-error>
+
+                    </clr-input-container>
+                </div>
+            </div>
+
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>Reg Address</label>
+                        <input clrInput formControlName="regAddress" />
+                        <clr-control-error *clrIfError="'required'">Reg address is required</clr-control-error>
+
+                    </clr-input-container>
+                </div>
+            </div>
+
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>Panno</label>
+                        <input clrInput formControlName="panno" />
+                        <clr-control-error *clrIfError="'required'">Panno is required</clr-control-error>
+
+                    </clr-input-container>
+                </div>
+            </div>
+
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>GSTINID</label>
+                        <input clrInput formControlName="GSTINID" />
+                        <clr-control-error *clrIfError="'required'">GSTINID is required</clr-control-error>
+
+                    </clr-input-container>
+                </div>
+            </div>
+
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>State</label>
+                        <input clrInput formControlName="state" />
+                        <clr-control-error *clrIfError="'required'">State is required</clr-control-error>
+
+                    </clr-input-container>
+                </div>
+            </div>
+
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>City</label>
+                        <input clrInput formControlName="city" />
+                        <clr-control-error *clrIfError="'required'">City is required</clr-control-error>
+
+                    </clr-input-container>
+                </div>
+            </div>
+
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>Postal Code</label>
+                        <input clrInput formControlName="postalCode" />
+                        <clr-control-error *clrIfError="'required'">Postal Code is required</clr-control-error>
+
+                    </clr-input-container>
+                </div>
+            </div>
+
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>Country code</label>
+                        <select name="countryCode" clrInput clrSelect formControlName="countryCode">
+                            <option *ngFor="let country of availableCountries$ | async" [value]="country.code">
+                                {{ country.name }}
+                            </option>
+                        </select>
+                        <clr-control-error *clrIfError="'required'">Country Code is required</clr-control-error>
+
+                    </clr-input-container>
+                </div>
+            </div>
+
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>ADHAR</label>
+                        <input clrInput formControlName="ADHAR" />
+                        <clr-control-error *clrIfError="'required'">ADHAR is required</clr-control-error>
+
+                    </clr-input-container>
+                </div>
+            </div>
+
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>About Us</label>
+                        <input clrInput formControlName="aboutUs" />
+                        <clr-control-error *clrIfError="'required'">About us is required</clr-control-error>
+
+                    </clr-input-container>
+                </div>
+            </div>
+
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>Staff Emaill</label>
+                        <input clrInput formControlName="staffEmail" />
+                        <clr-control-error *clrIfError="'required'">Staff Email is required</clr-control-error>
+
+                    </clr-input-container>
+                </div>
+            </div>
+
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>Phone</label>
+                        <input clrInput formControlName="phone" />
+                        <clr-control-error *clrIfError="'required'">Phone is required</clr-control-error>
+
+                    </clr-input-container>
+                </div>
+            </div>
+
+
+            <button clrStepButton="next">next</button>
+        </clr-step-content>
+    </clr-stepper-panel>
+
+
+    <!-- Contact -->
+    <clr-stepper-panel formGroupName="contact">
+        <clr-step-title>Vendor Contact</clr-step-title>
+        <!--        <clr-step-description>Description goes here.</clr-step-description>-->
+        <clr-step-content *clrIfExpanded>
+
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>Contact Name</label>
+                        <input clrInput formControlName="contactName" />
+                        <clr-control-error *clrIfError="'required'">Contact name is required</clr-control-error>
+
+                    </clr-input-container>
+                </div>
+            </div>
+
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>Email</label>
+                        <input clrInput formControlName="email" />
+                        <clr-control-error *clrIfError="'required'">Email is required</clr-control-error>
+
+                    </clr-input-container>
+                </div>
+            </div>
+
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>Phone</label>
+                        <input clrInput formControlName="phone" />
+                        <clr-control-error *clrIfError="'required'">Phone is required</clr-control-error>
+
+                    </clr-input-container>
+                </div>
+            </div>
+            <button clrStepButton="next">next</button>
+        </clr-step-content>
+    </clr-stepper-panel>
+
+
+    <!-- Marketing  -->
+    <clr-stepper-panel formGroupName="marketingContact">
+        <clr-step-title>Marketing Contact</clr-step-title>
+        <!--        <clr-step-description>Description goes here.</clr-step-description>-->
+        <clr-step-content *clrIfExpanded>
+
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>Name</label>
+                        <input clrInput formControlName="name" />
+                        <clr-control-error *clrIfError="'required'">Name is required</clr-control-error>
+
+                    </clr-input-container>
+                </div>
+            </div>
+
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>Email Address</label>
+                        <input clrInput formControlName="emailAddress" />
+                        <clr-control-error *clrIfError="'required'">Email Address is required</clr-control-error>
+
+                    </clr-input-container>
+                </div>
+            </div>
+
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>Phone</label>
+                        <input clrInput formControlName="phone" />
+                        <clr-control-error *clrIfError="'required'">Phone is required</clr-control-error>
+
+                    </clr-input-container>
+                </div>
+            </div>
+
+            <button clrStepButton="next">next</button>
+        </clr-step-content>
+    </clr-stepper-panel>
+
+
+
+    <!-- Banking -->
+    <clr-stepper-panel formGroupName="banking">
+        <clr-step-title>Bank Information</clr-step-title>
+        <!--        <clr-step-description>Description goes here.</clr-step-description>-->
+        <clr-step-content *clrIfExpanded>
+
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>Account</label>
+                        <input clrInput formControlName="account" />
+                        <clr-control-error *clrIfError="'required'">Account is required</clr-control-error>
+
+                    </clr-input-container>
+                </div>
+            </div>
+
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>Code</label>
+                        <input clrInput formControlName="code" />
+                        <clr-control-error *clrIfError="'required'">Code is required</clr-control-error>
+
+                    </clr-input-container>
+                </div>
+            </div>
+
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>Address</label>
+                        <input clrInput formControlName="address" />
+                        <clr-control-error *clrIfError="'required'">Address is required</clr-control-error>
+
+                    </clr-input-container>
+                </div>
+            </div>
+
+            <clr-input-container>
+                <label>Type</label>
+                <select name="type" clrSelect clrInput formControlName="type">
+                    <option *ngFor="let typeOption of typeOptions" [value]="typeOption">{{typeOption}}</option>
+                </select>
+                <clr-control-error *clrIfError="'required'">Type is required</clr-control-error>
+            </clr-input-container>
+
+            <div class="clr-row">
+                <div class="clr-col-md-4">
+                    <clr-input-container>
+                        <label>Is Check</label>
+                        <input clrInput formControlName="isCheck" />
+                        <clr-control-error *clrIfError="'required'">Is check is required</clr-control-error>
+                    </clr-input-container>
+                </div>
+            </div>
+
+            <button clrStepButton="next">Submit</button>
+        </clr-step-content>
+    </clr-stepper-panel>
+
+</form>

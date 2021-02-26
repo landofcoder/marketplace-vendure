@@ -1,0 +1,199 @@
+<vdr-action-bar>
+    <vdr-ab-left>
+        <div class="delhivery-warehouse-info">
+            <vdr-entity-info [entity]="entity$ | async"></vdr-entity-info>
+        </div>
+    </vdr-ab-left>
+    <vdr-ab-right>
+        <ng-container *ngIf="(isNew$ | async) === true; else updateButton">
+            <button
+                    *vdrIfPermissions="'UpdatePromotion'"
+                    class="btn btn-success"
+                    (click)="save()"
+                    [disabled]="detailForm.invalid"
+            >
+                Create
+            </button>
+        </ng-container>
+        <ng-template #updateButton>
+            <button
+                    *vdrIfPermissions="'UpdatePromotion'"
+                    class="btn btn-primary"
+                    (click)="save()"
+                    [disabled]="detailForm.invalid || detailForm.pristine"
+            >
+                {{ 'common.update' | translate }}
+            </button>
+        </ng-template>
+    </vdr-ab-right>
+</vdr-action-bar>
+
+<div class="clr-row">
+    <div class="clr-col">
+        <form class="form" [formGroup]="detailForm">
+            <section class="form-block" >
+                <label>Pickup Point</label>
+                <vdr-form-field label="Pickup Point Name" for="pickup_name">
+                    <input
+                            id="pickup_name"
+                            type="text"
+                            formControlName="pickup_name"
+                            placeholder="Enter Pickup Point Name"
+                            [readonly]="!('UpdatePromotion' | hasPermission)"
+                    />
+                </vdr-form-field>
+                <vdr-form-field label="Address" for="address">
+                    <input
+                            id="address"
+                            type="text"
+                            formControlName="address"
+                            placeholder="Flat No./ House No./ Plot No./ Office No."
+                            [readonly]="!('UpdatePromotion' | hasPermission)"
+                    />
+                </vdr-form-field>
+                <vdr-form-field label="Pincode" for="pincode">
+                    <input
+                            id="pincode"
+                            type="text"
+                            formControlName="pincode"
+                            placeholder="Enter Pincode"
+                            [readonly]="!('UpdatePromotion' | hasPermission)"
+                    />
+                </vdr-form-field>
+                <vdr-form-field label="City" for="city">
+                    <input
+                            id="city"
+                            type="text"
+                            formControlName="city"
+                            placeholder="Enter City name"
+                            [readonly]="!('UpdatePromotion' | hasPermission)"
+                    />
+                </vdr-form-field>
+                <vdr-form-field label="State" for="state">
+                    <input
+                            id="state"
+                            type="text"
+                            formControlName="state"
+                            placeholder="Enter State name"
+                            [readonly]="!('UpdatePromotion' | hasPermission)"
+                    />
+                </vdr-form-field>
+                <vdr-form-field label="Country" for="country">
+                    <select name="country" clrInput clrSelect formControlName="country" style="width: 20rem" (change)="countryChange($event)">
+                        <option *ngFor="let country of availableCountries$ | async" [value]="country.code">
+                            {{ country.name }}
+                        </option>
+                    </select>
+                </vdr-form-field>
+            </section>
+            <section class="form-block">
+                <label>Contact Info</label>
+                <vdr-form-field label="Contact Person Name" for="contact_person_name">
+                    <input
+                            id="contact_person_name"
+                            type="text"
+                            formControlName="contact_person_name"
+                            placeholder="Enter Name"
+                            [readonly]="!('UpdatePromotion' | hasPermission)"
+                    />
+                </vdr-form-field>
+                <vdr-form-field label="Contact Person Email" for="contact_person_email">
+                    <input
+                            id="contact_person_email"
+                            type="text"
+                            formControlName="contact_person_email"
+                            placeholder="Enter Email"
+                            [readonly]="!('UpdatePromotion' | hasPermission)"
+                    />
+                </vdr-form-field>
+                <vdr-form-field label="Contact Person Phone" for="contact_person_phone">
+                    <input
+                            id="contact_person_phone"
+                            type="text"
+                            formControlName="contact_person_phone"
+                            placeholder="Enter Phone Number"
+                            [readonly]="!('UpdatePromotion' | hasPermission)"
+                    />
+                </vdr-form-field>
+            </section>
+            <clr-checkbox-wrapper>
+                <input type="checkbox" clrCheckbox name="options" [checked]="true" (change)="checkValue($event)"/>
+                <label>Return address same as pickup address</label>
+            </clr-checkbox-wrapper>
+            <section class="form-block" *ngIf="returnAddress === false">
+                <label>Return Address</label>
+                <vdr-form-field label="Return Address" for="return_address">
+                    <input
+                            id="return_address"
+                            type="text"
+                            formControlName="return_address"
+                            placeholder="Flat No./ House No./ Plot No./ Office No."
+                            [readonly]="!('UpdatePromotion' | hasPermission)"
+                    />
+                </vdr-form-field>
+                <vdr-form-field label="Return Pin" for="return_pincode">
+                    <input
+                            id="return_pincode"
+                            type="text"
+                            formControlName="return_pincode"
+                            placeholder="Enter Pincode"
+                            [readonly]="!('UpdatePromotion' | hasPermission)"
+                    />
+                </vdr-form-field>
+                <vdr-form-field label="Return City" for="return_city">
+                    <input
+                            id="return_city"
+                            type="text"
+                            formControlName="return_city"
+                            placeholder="Enter City name"
+                            [readonly]="!('UpdatePromotion' | hasPermission)"
+                    />
+                </vdr-form-field>
+                <vdr-form-field label="Return State" for="return_state">
+                    <input
+                            id="return_state"
+                            type="text"
+                            formControlName="return_state"
+                            placeholder="Enter State name"
+                            [readonly]="!('UpdatePromotion' | hasPermission)"
+                    />
+                </vdr-form-field>
+                <vdr-form-field label="Return Country" for="return_country">
+                    <select name="return_country" clrInput clrSelect formControlName="return_country" style="width: 20rem" (change)="countryChange($event.target.value)">
+                        <option *ngFor="let country of availableCountries$ | async" [value]="country.code">
+                            {{ country.name }}
+                        </option>
+                    </select>
+                </vdr-form-field>
+            </section>
+            <section class="form-block">
+                <label>Working Hours</label>
+                <vdr-form-field label="From" for="from_working_hours">
+                    <select name="fromWorkingHour" clrInput clrSelect style="width: 20rem" formControlName="from_working_hours" (change)="fromHourChange($event.target.value)">
+                        <option *ngFor="let time of hoursFrom" [value]="time.time">
+                            {{ formatTime(time.time) }}
+                        </option>
+                    </select>
+                </vdr-form-field>
+                <vdr-form-field label="To" for="to_working_hours">
+                    <select name="toWorkingHour" clrInput clrSelect style="width: 20rem" formControlName="to_working_hours" (change)="toHourChange($event.target.value)">
+                        <option *ngFor="let time of hoursTo" [value]="time.time">
+                            {{ formatTime(time.time) }}
+                        </option>
+                    </select>
+                </vdr-form-field>
+
+                <vdr-form-field label="Day" for="day_working_hours">
+                    <ejs-multiselect id='multiselectelement' [dataSource]='daysData' [fields]='fields' [mode]='mode' [selectAllText]='selectAllText' [showDropDownIcon]='true' showSelectAll=true [placeholder]='placeholder' formControlName="day_working_hours"></ejs-multiselect>
+                </vdr-form-field>
+                <vdr-form-field label="Preferred Pickup Slots" for="preferred_pickup_slots">
+                    <select name="preferredPickup" clrInput clrSelect formControlName="preferred_pickup_slots" style="width: 20rem">
+                        <option *ngFor="let pickupSlot of preferredPickup" [value]="pickupSlot">
+                            {{pickupSlot}}
+                        </option>
+                    </select>
+                </vdr-form-field>
+            </section>
+        </form>
+    </div>
+</div>

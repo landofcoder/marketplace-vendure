@@ -1,0 +1,30 @@
+{
+  "delhivery_account": {
+    "breadcrumb": "Delhivery Account",
+    "client_name": "Client Name",
+    "user_name": "User Name",
+    "api_key": "API Key",
+    "shipment_mode": "Mode Of Shipment",
+    "hand_fee": "Hand Fee"
+  },
+
+  "delhivery_warehouse": {
+    "breadcrumb": "Delhivery Warehouse",
+    "phone": "Phone",
+    "city": "City",
+    "name": "Name",
+    "pin": "Pin",
+    "address": "Address",
+    "country": "Country",
+    "email": "Email",
+    "registered_name": "Registered Username",
+    "return_address": "Return Address",
+    "return_pin":"Return Pin",
+    "return_city":"Return City",
+    "return_state":"Return State",
+    "return_country": "Return Country"
+  }
+}
+
+
+

@@ -1,0 +1,11 @@
+@import "../../newsletter-ui";
+
+.type-icon {
+    margin-right: 3px;
+    &.guest {
+        color: $color-warning-500;
+    }
+    &.customer {
+        color: $color-success-500;
+    }
+}

@@ -1,0 +1,124 @@
+.shipping-address-container {
+    background-color: #FBFBFB;
+    padding: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.shipping-address-header {
+    padding-bottom: 20px;
+}
+.shipping-address-header > h6 {
+    font-weight: bold;
+}
+.shipping-address-icon-check {
+    color: green;
+    font-size: 20px;
+}
+
+
+.order-item {
+    padding: 20px;
+    // display: flex;
+}
+.shipping-address-container-responsive {
+    display: none;
+}
+.ordered-list-by-channel-responsive {
+    padding-top: 20px;
+}
+.responsive-item {
+    display: none;
+}
+.hidden-item {
+    display: none;
+}
+.ordered-list-by-channel {
+    
+    padding-top: 20px;
+}
+.order-field {
+    text-align: center;
+    font-size: 17px;
+    font-weight: bold;
+    margin: auto;
+    padding-bottom: 25px;
+}
+.order-detail {
+    margin: auto;
+    text-align: center;
+}
+.ordered-item-responsive {
+    //padding-top: 20px;
+    margin-top: 20px;
+}
+
+.ordered-item {
+    //padding-top: 20px;
+    margin-top: 20px;
+    
+}
+.order-subtotal-responsive {
+    padding-top: 20px;
+    font-weight: bold;
+}
+.order-subtotal-responsive > .col {
+    padding-bottom: 20px;
+}
+.ordered-list-header {
+    padding-top: 20px;
+}
+.container > .progressbar {
+    display: flex;
+    justify-content: center;
+}
+.product-name {
+    padding-left: 30px;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .ordered-list-header {
+        display: none;
+    }
+    .ordered-list-by-channel {
+        display: none;
+    }
+    .responsive-item {
+        display: block;
+    }
+    .hidden-item {
+        display: block;
+    }
+
+}
+.button-icon {
+    display: none;
+}
+.apply-coupon {
+    position: absolute;
+    right: 15px;
+}
+.channel {}
+@media only screen and (max-width: 991px) {
+    .test {
+        max-width: 82%;
+    }
+    .ordered-item-responsive > div:nth-last-child(1){
+        position: relative;
+        margin-top: 50px;
+    }
+}
+.text-align-center {
+    text-align: center;
+}
+.mg-20, .view-cart-footer {
+    margin: 20px;
+}
+// @media only screen and (max-width: 499px) {
+//     .button-icon {
+//         display: block;
+//     }
+//     .button-text {
+//         display: none;
+//     }
+// }

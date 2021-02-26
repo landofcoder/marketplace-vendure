@@ -1,0 +1,339 @@
+<vdr-action-bar>
+    <vdr-ab-left>
+        <div class="flex clr-align-items-center">
+            <vdr-entity-info [entity]="entity$ | async"></vdr-entity-info>
+            <clr-toggle-wrapper *vdrIfPermissions="'UpdateOrder'">
+                <input
+                        type="checkbox"
+                        clrToggle
+                        name="verified"
+                        [formControl]="detailForm.get(['vendor', 'verified'])"
+                />
+                <label>{{ 'common.enabled' | translate }}</label>
+            </clr-toggle-wrapper>
+        </div>
+    </vdr-ab-left>
+
+    <vdr-ab-right>
+        <vdr-action-bar-items locationId="vendor-detail"></vdr-action-bar-items>
+        <button
+                class="btn btn-primary"
+                (click)="save()"
+                [disabled]="!saveButtonEnabled()"
+        >
+            {{ 'common.update' | translate }}
+        </button>
+    </vdr-ab-right>
+</vdr-action-bar>
+
+
+<form class="form" [formGroup]="detailForm">
+
+    <div class="content-container" >
+        <div class="content-area">
+
+            <div class="clr-row" formGroupName="vendor">
+                <div class="clr-col">
+                    <vdr-form-field [label]="'vendor.firstName' | translate" for="firstName">
+                        <input
+                                id="firstName"
+                                type="text"
+                                formControlName="firstName"
+                        />
+                    </vdr-form-field>
+
+                    <vdr-form-field [label]="'vendor.lastName' | translate" for="lastName">
+                        <input
+                                id="lastName"
+                                type="text"
+                                formControlName="lastName"
+                        />
+                    </vdr-form-field>
+
+                    <vdr-form-field [label]="'vendor.email' | translate" for="email">
+                        <input
+                                id="email"
+                                type="text"
+                                formControlName="email"
+                                disabled="true"
+                        />
+                    </vdr-form-field>
+
+                    <vdr-form-field [label]="'vendor.phone' | translate" for="phone">
+                        <input
+                                id="phone"
+                                type="text"
+                                formControlName="phone"
+                        />
+                    </vdr-form-field>
+
+                    <vdr-form-field [label]="'vendor.GSTINID' | translate" for="GSTINID">
+                        <input
+                                id="GSTINID"
+                                type="text"
+                                formControlName="GSTINID"
+                        />
+                    </vdr-form-field>
+
+                    <vdr-form-field [label]="'vendor.state' | translate" for="state">
+                        <input
+                                id="state"
+                                type="text"
+                                formControlName="state"
+                        />
+                    </vdr-form-field>
+
+                    <vdr-form-field [label]="'vendor.ownerName' | translate" for="ownerName">
+                        <input
+                                id="ownerName"
+                                type="text"
+                                formControlName="ownerName"
+                        />
+                    </vdr-form-field>
+
+                    <vdr-form-field [label]="'vendor.ownerEmail' | translate" for="ownerEmail">
+                        <input
+                                id="ownerEmail"
+                                type="text"
+                                formControlName="ownerEmail"
+                        />
+                    </vdr-form-field>
+
+                    <vdr-form-field [label]="'vendor.roles' | translate"  *vdrIfPermissions="'SuperAdmin'">
+                        <ng-container *ngFor="let role of roles$ | async">
+                            <a href="settings/roles/{{role.id}}"> {{ role.code }}</a>
+                        </ng-container>
+                    </vdr-form-field>
+
+
+                </div>
+            </div>
+
+            <clr-tabs>
+                <clr-tab>
+                    <button clrTabLink>Vendor Infomation</button>
+                    <clr-tab-content>
+                        <div formArrayName="vendorInfo" class="card card-block" *ngFor="let info of vendorInfo.controls; let i = index;">
+                            <div class="row" [formGroup]="info">
+                                <vdr-form-field [label]="'vendorInfo.brandName' | translate" for="brandName">
+                                    <input
+                                            id="brandName"
+                                            type="text"
+                                            formControlName="brandName"
+                                            disabled="true"
+                                    />
+                                </vdr-form-field>
+
+                                <vdr-form-field [label]="'vendorInfo.regAddress' | translate" for="regAddress">
+                                    <input
+                                            id="regAddress"
+                                            type="text"
+                                            formControlName="regAddress"
+                                    />
+                                </vdr-form-field>
+
+                                <vdr-form-field [label]="'vendorInfo.panno' | translate" for="panno">
+                                    <input
+                                            id="panno"
+                                            type="text"
+                                            formControlName="panno"
+                                    />
+                                </vdr-form-field>
+
+                                <vdr-form-field [label]="'vendorInfo.GSTINID' | translate" for="GSTINID1">
+                                    <input
+                                            id="GSTINID1"
+                                            type="text"
+                                            formControlName="GSTINID"
+                                    />
+                                </vdr-form-field>
+
+                                <vdr-form-field [label]="'vendorInfo.state' | translate" for="state1">
+                                    <input
+                                            id="state1"
+                                            type="text"
+                                            formControlName="state"
+                                    />
+                                </vdr-form-field>
+
+                                <vdr-form-field [label]="'vendorInfo.postalCode' | translate" for="postalCode">
+                                    <input
+                                            id="postalCode"
+                                            type="text"
+                                            formControlName="postalCode"
+                                    />
+                                </vdr-form-field>
+
+                                <vdr-form-field [label]="'vendorInfo.city' | translate" for="city">
+                                    <input
+                                            id="city"
+                                            type="text"
+                                            formControlName="city"
+                                    />
+                                </vdr-form-field>
+
+                                <vdr-form-field [label]="'vendorInfo.countryCode' | translate" for="countryCode">
+                                    <select id="countryCode" name="countryCode" clrInput clrSelect formControlName="countryCode" style="width: 400px">
+                                        <option *ngFor="let country of availableCountries$ | async" [value]="country.code">
+                                            {{ country.name }}
+                                        </option>
+                                    </select>
+                                </vdr-form-field>
+
+                                <vdr-form-field [label]="'vendorInfo.ADHAR' | translate" for="ADHAR">
+                                    <input
+                                            id="ADHAR"
+                                            type="text"
+                                            formControlName="ADHAR"
+                                    />
+                                </vdr-form-field>
+
+                                <vdr-form-field [label]="'vendorInfo.aboutUs' | translate" for="aboutUs">
+                                    <input
+                                            id="aboutUs"
+                                            type="text"
+                                            formControlName="aboutUs"
+                                    />
+                                </vdr-form-field>
+
+                                <vdr-form-field [label]="'vendorInfo.staffEmail' | translate" for="staffEmail">
+                                    <input
+                                            id="staffEmail"
+                                            type="text"
+                                            formControlName="staffEmail"
+                                    />
+                                </vdr-form-field>
+
+                                <vdr-form-field [label]="'vendorInfo.phone' | translate" for="phone1">
+                                    <input
+                                            id="phone1"
+                                            type="text"
+                                            formControlName="phone"
+                                    />
+                                </vdr-form-field>
+                            </div>
+                        </div>
+                    </clr-tab-content>
+                </clr-tab>
+                <clr-tab>
+                    <button clrTabLink>Contact</button>
+
+                    <clr-tab-content>
+                        <div formGroupName="contacts" class="card card-block" *ngFor="let contact of contacts.controls; let i = index;">
+                            <div class="row" [formGroup]="contact">
+                                <vdr-form-field [label]="'vendorContact.contactName' | translate" for="contactName">
+                                    <input
+                                            id="contactName"
+                                            type="text"
+                                            formControlName="contactName"
+                                    />
+                                </vdr-form-field>
+
+                                <vdr-form-field [label]="'vendorContact.email' | translate" for="email">
+                                    <input
+                                            id="email1"
+                                            type="text"
+                                            formControlName="email"
+                                    />
+                                </vdr-form-field>
+
+                                <vdr-form-field [label]="'vendorContact.phone' | translate" for="phone">
+                                    <input
+                                            id="phone2"
+                                            type="text"
+                                            formControlName="phone"
+                                    />
+                                </vdr-form-field>
+                            </div>
+                        </div>
+                    </clr-tab-content>
+
+                </clr-tab>
+                <clr-tab>
+                    <button clrTabLink>Marketing Contact</button>
+
+                    <clr-tab-content>
+                        <div formGroupName="marketingContact" class="card card-block" *ngFor="let marketing of marketingContact.controls; let i = index;">
+                            <div class="row" [formGroup]="marketing">
+
+                                <vdr-form-field [label]="'vendorMarketing.name' | translate" for="name">
+                                    <input
+                                            id="name"
+                                            type="text"
+                                            formControlName="name"
+                                    />
+                                </vdr-form-field>
+
+                                <vdr-form-field [label]="'vendorMarketing.emailAddress' | translate" for="emailAddress">
+                                    <input
+                                            id="emailAddress"
+                                            type="text"
+                                            formControlName="emailAddress"
+                                    />
+                                </vdr-form-field>
+
+                                <vdr-form-field [label]="'vendorMarketing.phone' | translate" for="phone">
+                                    <input
+                                            id="phone3"
+                                            type="text"
+                                            formControlName="phone"
+                                    />
+                                </vdr-form-field>
+                            </div>
+                        </div>
+                    </clr-tab-content>
+
+                </clr-tab>
+                <clr-tab>
+                    <button clrTabLink>Bank Info</button>
+                    <clr-tab-content>
+                        <div formGroupName="banks" class="card card-block"  *ngFor="let bank of banks.controls; let i = index;">
+                            <div class="row" [formGroup]="bank">
+                                <vdr-form-field [label]="'vendorBank.account' | translate" for="account">
+                                    <input
+                                            id="account"
+                                            type="text"
+                                            formControlName="account"
+                                    />
+                                </vdr-form-field>
+
+                                <vdr-form-field [label]="'vendorBank.code' | translate" for="code">
+                                    <input
+                                            id="code"
+                                            type="text"
+                                            formControlName="code"
+                                    />
+                                </vdr-form-field>
+
+                                <vdr-form-field [label]="'vendorBank.address' | translate" for="address">
+                                    <input
+                                            id="address"
+                                            type="text"
+                                            formControlName="address"
+                                    />
+                                </vdr-form-field>
+
+                                <vdr-form-field [label]="'vendorBank.type' | translate" for="type">
+                                    <select name="type" clrSelect clrInput style="width: 20rem" formControlName="type">
+                                        <option *ngFor="let typeOption of typeOptions" [value]="typeOption">{{typeOption}}</option>
+                                    </select>
+                                </vdr-form-field>
+
+                                <vdr-form-field [label]="'vendorBank.isCheck' | translate" for="isCheck">
+                                    <input
+                                            id="isCheck"
+                                            type="text"
+                                            formControlName="isCheck"
+                                    />
+                                </vdr-form-field>
+                            </div>
+                        </div>
+                    </clr-tab-content>
+
+                </clr-tab>
+
+            </clr-tabs>
+
+        </div>
+    </div>
+</form>

@@ -1,0 +1,174 @@
+<vdr-action-bar>
+    <vdr-ab-right>
+        <vdr-action-bar-items locationId="product-list"></vdr-action-bar-items>
+        <a class="btn btn-primary" href="/admin/pincodes/pincode/create" *vdrIfPermissions="'CreateCatalog'">
+            <clr-icon shape="plus"></clr-icon>
+            <span class="full-label">{{ 'add pincode' | translate }}</span>
+        </a>
+    </vdr-ab-right>
+</vdr-action-bar>
+
+<div class="clr-row" style="background-color: #e8e8e8; padding: 10px; margin: 0 1px" >
+    <div class="clr-col-2">
+        <clr-input-container>
+            <input clrInput placeholder="Enter Pincode" name="name" style="width: 15rem" #box (keyup)="0" [(ngModel)]="inputPincode"/>
+<!--            <button (click)="handleClear()"><clr-icon shape="eraser"></clr-icon></button>-->
+            <clr-control-helper>Please enter six digit pincode</clr-control-helper>
+        </clr-input-container>
+    </div>
+    <div class="clr-col-2" style="padding: 0">
+        <button (click)="checkPincode(box.value)" class="btn btn-primary" style="margin-top: 0; margin-left: 10px; margin-right: 0" [disabled]="!box.value">
+            <clr-icon shape="search"></clr-icon>
+            Check
+        </button>
+        <button (click)="handleClear()" [hidden]="!box.value" class="btn btn-primary btn-icon" style="margin-top: 0; margin-left: 5px"><clr-icon shape="eraser"></clr-icon></button>
+    </div>
+    <div class="clr-col-7"></div>
+</div>
+
+<div *ngIf="checkPincodeResult | async as pincodeCheck; else checkFalse">
+    <table class="table">
+        <thead>
+            <th>PINCODE</th>
+            <th>STATE(CODE)</th>
+            <th>DISTRICT</th>
+            <th>PRE-PAID</th>
+            <th>COD</th>
+            <th>PICKUP</th>
+            <th>CASH</th>
+            <th>REPL</th>
+            <th></th>
+            <th></th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{pincodeCheck.checkPincode.pincode}}</td>
+                <td>{{pincodeCheck.checkPincode.state}}</td>
+                <td>{{pincodeCheck.checkPincode.district}}</td>
+                <td>
+                    <clr-icon *ngIf="pincodeCheck.checkPincode.prepaid === true" shape="success-standard" class="is-solid is-success"></clr-icon>
+                    <clr-icon *ngIf="pincodeCheck.checkPincode.prepaid === false" shape="times-circle" class="is-solid is-error"></clr-icon>
+                </td>
+                <td>
+                    <clr-icon *ngIf="pincodeCheck.checkPincode.cod === true" shape="success-standard" class="is-solid is-success"></clr-icon>
+                    <clr-icon *ngIf="pincodeCheck.checkPincode.cod === false" shape="times-circle" class="is-solid is-error"></clr-icon>
+                </td>
+                <td>
+                    <clr-icon *ngIf="pincodeCheck.checkPincode.pickup === true" shape="success-standard" class="is-solid is-success"></clr-icon>
+                    <clr-icon *ngIf="pincodeCheck.checkPincode.pickup === false" shape="times-circle" class="is-solid is-error"></clr-icon>
+                </td>
+                <td>
+                    <clr-icon *ngIf="pincodeCheck.checkPincode.cash === true" shape="success-standard" class="is-solid is-success"></clr-icon>
+                    <clr-icon *ngIf="pincodeCheck.checkPincode.cash === false" shape="times-circle" class="is-solid is-error"></clr-icon>
+                </td>
+                <td>
+                    <clr-icon *ngIf="pincodeCheck.checkPincode.repl === true" shape="success-standard" class="is-solid is-success"></clr-icon>
+                    <clr-icon *ngIf="pincodeCheck.checkPincode.repl === false" shape="times-circle" class="is-solid is-error"></clr-icon>
+                </td>
+                <td class="right align-middle">
+                    <vdr-table-row-action
+                            iconShape="edit"
+                            [label]="'common.edit' | translate"
+                            [linkTo]="['../pincode/', pincodeCheck.checkPincode.id]"
+                    ></vdr-table-row-action>
+                </td>
+                <td class="right align-middle">
+                    <vdr-dropdown>
+                        <button type="button" class="btn btn-link btn-sm" vdrDropdownTrigger>
+                            {{ 'common.actions' | translate }}
+                            <clr-icon shape="caret down"></clr-icon>
+                        </button>
+                        <vdr-dropdown-menu vdrPosition="bottom-right">
+                            <button
+                                    type="button"
+                                    class="delete-button"
+                                    (click)="deletePincode(pincodeCheck.checkPincode.id)"
+                                    [disabled]="!('DeletePromotion' | hasPermission)"
+                                    vdrDropdownItem
+                            >
+                                <clr-icon shape="trash" class="is-danger"></clr-icon>
+                                {{ 'common.delete' | translate }}
+                            </button>
+                        </vdr-dropdown-menu>
+                    </vdr-dropdown>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<ng-template #checkFalse>
+    <div *ngIf="totalItems$ | async as totalitems"><span>Found <span style="font-weight: bold">{{totalitems}}</span> valid codes, serviceability listed below</span></div>
+
+    <vdr-data-table
+        [items]="items$ | async"
+        [itemsPerPage]="itemsPerPage$ | async"
+        [totalItems]="totalItems$ | async"
+        [currentPage]="currentPage$ | async"
+        (pageChange)="setPageNumber($event)"
+        (itemsPerPageChange)="setItemsPerPage($event)"
+    >
+        <vdr-dt-column>PINCODEs</vdr-dt-column>
+        <vdr-dt-column>STATE(CODE)</vdr-dt-column>
+        <vdr-dt-column>DISTRICT</vdr-dt-column>
+        <vdr-dt-column>PRE-PAID</vdr-dt-column>
+        <vdr-dt-column>COD</vdr-dt-column>
+        <vdr-dt-column>PICKUP</vdr-dt-column>
+        <vdr-dt-column>CASH</vdr-dt-column>
+        <vdr-dt-column>REPL</vdr-dt-column>
+        <vdr-dt-column></vdr-dt-column>
+        <vdr-dt-column></vdr-dt-column>
+        <ng-template let-pincode="item">
+            <td class="left align-middle">{{ pincode.pincode }}</td>
+            <td class="left align-middle">{{ pincode.state }}</td>
+            <td class="left align-middle">{{ pincode.district }}</td>
+            <td class="left align-middle">
+                <clr-icon *ngIf="pincode.prepaid === true" shape="success-standard" class="is-solid is-success"></clr-icon>
+                <clr-icon *ngIf="pincode.prepaid === false" shape="times-circle" class="is-solid is-error"></clr-icon>
+            </td>
+            <td class="left align-middle">
+                <clr-icon *ngIf="pincode.cod === true" shape="success-standard" class="is-solid is-success"></clr-icon>
+                <clr-icon *ngIf="pincode.cod === false" shape="times-circle" class="is-solid is-error"></clr-icon>
+            </td>
+            <td class="left align-middle">
+                <clr-icon *ngIf="pincode.pickup === true" shape="success-standard" class="is-solid is-success"></clr-icon>
+                <clr-icon *ngIf="pincode.pickup === false" shape="times-circle" class="is-solid is-error"></clr-icon>
+            </td>
+            <td class="left align-middle">
+                <clr-icon *ngIf="pincode.cash === true" shape="success-standard" class="is-solid is-success"></clr-icon>
+                <clr-icon *ngIf="pincode.cash === false" shape="times-circle" class="is-solid is-error"></clr-icon>
+            </td>
+            <td class="left align-middle">
+                <clr-icon *ngIf="pincode.repl === true" shape="success-standard" class="is-solid is-success"></clr-icon>
+                <clr-icon *ngIf="pincode.repl === false" shape="times-circle" class="is-solid is-error"></clr-icon>
+            </td>
+            <td class="right align-middle">
+                <vdr-table-row-action
+                    iconShape="edit"
+                    [label]="'common.edit' | translate"
+                    [linkTo]="['../pincode/', pincode.id]"
+                ></vdr-table-row-action>
+            </td>
+            <td class="right align-middle">
+                <vdr-dropdown>
+                    <button type="button" class="btn btn-link btn-sm" vdrDropdownTrigger>
+                        {{ 'common.actions' | translate }}
+                        <clr-icon shape="caret down"></clr-icon>
+                    </button>
+                    <vdr-dropdown-menu vdrPosition="bottom-right">
+                        <button
+                            type="button"
+                            class="delete-button"
+                            (click)="deletePincode(pincode.id)"
+                            [disabled]="!('DeletePromotion' | hasPermission)"
+                            vdrDropdownItem
+                        >
+                            <clr-icon shape="trash" class="is-danger"></clr-icon>
+                            {{ 'common.delete' | translate }}
+                        </button>
+                    </vdr-dropdown-menu>
+                </vdr-dropdown>
+            </td>
+        </ng-template>
+    </vdr-data-table>
+</ng-template>

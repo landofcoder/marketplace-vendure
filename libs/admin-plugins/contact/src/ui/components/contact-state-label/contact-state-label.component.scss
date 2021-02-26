@@ -1,0 +1,17 @@
+@import "../../contact-ui";
+
+.state-icon {
+    margin-right: 3px;
+    &.new {
+        color: $color-warning-500;
+    }
+    &.checked {
+        color: $color-success-500;
+    }
+    &.sent {
+        color: $color-success-500;
+    }
+    &.error {
+        color: $color-error-500;
+    }
+}

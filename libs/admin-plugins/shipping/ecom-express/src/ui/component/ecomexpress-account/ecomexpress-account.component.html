@@ -1,0 +1,28 @@
+
+<vdr-action-bar>
+
+   <vdr-ab-right>
+       <vdr-action-bar-items locationId="ecomexpress-account-detail"></vdr-action-bar-items>
+       <button
+           class="btn btn-primary"
+           (click)="save()"
+           [disabled]="!saveButtonEnabled()"
+       >
+           {{ 'common.update' | translate }}
+       </button>
+   </vdr-ab-right>
+</vdr-action-bar>
+
+<form class="form" [formGroup]="detailForm">
+
+   <vdr-form-field [label]="'ecomexpress_account.username' | translate" for="username">
+       <input id="username" type="text" formControlName="username" />
+   </vdr-form-field>
+   <vdr-form-field [label]="'ecomexpress_account.password' | translate" for="password">
+       <input id="password" type="text" formControlName="password" />
+   </vdr-form-field>
+    <vdr-form-field [label]="'ecomexpress_account.production' | translate" for="production">
+        <input id="production" type="checkbox" formControlName="production" />
+    </vdr-form-field>
+
+</form>

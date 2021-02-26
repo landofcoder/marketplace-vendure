@@ -1,0 +1,105 @@
+<vdr-action-bar>
+    <vdr-ab-left>
+        <div class="flex clr-align-items-center">
+            <vdr-entity-info [entity]="entity$ | async"></vdr-entity-info>
+            <clr-toggle-wrapper *vdrIfPermissions="'UpdatePromotion'">
+                <input
+                        type="checkbox"
+                        clrToggle
+                        name="enabled"
+                        [formControl]="detailForm.enabled"
+                />
+                <label>{{ 'common.enabled' | translate }}</label>
+            </clr-toggle-wrapper>
+        </div>
+    </vdr-ab-left>
+    <vdr-ab-right>
+        <ng-container *ngIf="(isNew$ | async) === true; else updateButton">
+            <button
+                *vdrIfPermissions="'UpdatePromotion'"
+                class="btn btn-success"
+                (click)="save()"
+                [disabled]="detailForm.invalid"
+            >
+                Create
+            </button>
+        </ng-container>
+        <ng-template #updateButton>
+            <button
+                *vdrIfPermissions="'UpdatePromotion'"
+                class="btn btn-primary"
+                (click)="save()"
+                [disabled]="detailForm.invalid || detailForm.pristine"
+            >
+                {{ 'common.update' | translate }}
+            </button>
+        </ng-template>
+    </vdr-ab-right>
+</vdr-action-bar>
+
+<div class="clr-row">
+    <div class="clr-col">
+        <form class="form" [formGroup]="detailForm">
+            <section class="form-block">
+                <vdr-form-field label="Template Type" for="type">
+                    <select
+                        clrSelect
+                        name="type"
+                        formControlName="type"
+                        [vdrDisabled]="!('SuperAdmin' | hasPermission)"
+                    >
+                        
+                        <option value="html">{{ "Html" | translate }}</option>
+                        <option value="text">{{ "Text" | translate }}</option>
+                    </select>
+                </vdr-form-field>
+                <vdr-form-field label="Template Name" for="template_name">
+                    <input
+                        id="template_name"
+                        type="text"
+                        formControlName="template_name"
+                        [readonly]="!('UpdatePromotion' | hasPermission)"
+                    />
+                </vdr-form-field>
+                <vdr-form-field label="Subject" for="subject">
+                    <input
+                        id="subject"
+                        type="text"
+                        formControlName="subject"
+                        [readonly]="!('UpdatePromotion' | hasPermission)"
+                    />
+                </vdr-form-field>
+                <vdr-form-field label="Template Content" for="templateContent">
+                    <textarea
+                        id="templateContent"
+                        type="text"
+                        cols="20"
+                        rows="10"
+                        style="width: 400px;"
+                        formControlName="templateContent"
+                        [readonly]="!('UpdatePromotion' | hasPermission)"
+                    ></textarea>
+                </vdr-form-field>
+                <vdr-form-field label="Template Css Code" for="templateCss">
+                    <textarea
+                        id="templateCss"
+                        type="text"
+                        cols="20"
+                        rows="10"
+                        style="width: 400px;"
+                        formControlName="templateCss"
+                        [readonly]="!('UpdatePromotion' | hasPermission)"
+                    ></textarea>
+                </vdr-form-field>
+                <vdr-form-field label="Priority" for="priority">
+                    <input
+                        id="priority"
+                        type="text"
+                        formControlName="priority"
+                        [readonly]="!('UpdatePromotion' | hasPermission)"
+                    />
+                </vdr-form-field>
+            </section>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+.statistics-container {
+    width: 1000px;
+}
+#select-basic-year {
+    margin-left: 50px;
+}
+.range-form {
+    margin: 20px;
+}
+.csv-exporter {
+    margin-left: 50px;
+}

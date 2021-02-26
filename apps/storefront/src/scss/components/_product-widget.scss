@@ -1,0 +1,23 @@
+/*=============================================
+=            product widget            =
+=============================================*/
+
+.product-widget-container {
+  .single-widget-product-wrapper {
+    margin-bottom: 30px;
+    padding: 10px;
+    border: solid 1px #dee2e6;
+    border-radius: 4px;
+    border-bottom: 1px solid $grey--ten;
+    transition: all 0.6s;
+    &:last-child {
+      border-bottom: solid 1px $grey--ten;
+    }
+    &:hover {
+      border: solid 1px #FA3A59;
+      
+    }
+  }
+}
+
+/*=====  End of product widget  ======*/

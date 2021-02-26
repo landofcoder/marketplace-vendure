@@ -1,0 +1,170 @@
+<vdr-action-bar>
+    <vdr-ab-left>
+        <input
+                type="text"
+                name="searchTerm"
+                [formControl]="searchTerm"
+                [placeholder]="'Search SKU, name' | translate"
+                class="clr-input search-input"
+        />
+    </vdr-ab-left>
+    <vdr-ab-right>
+        <vdr-action-bar-items locationId="product-list"></vdr-action-bar-items>
+        <a class="btn btn-primary" href="/admin/catalog/products/create" *vdrIfPermissions="'CreateCatalog'">
+            <clr-icon shape="plus"></clr-icon>
+            <span class="full-label">{{ 'catalog.create-new-product' | translate }}</span>
+        </a>
+    </vdr-ab-right>
+</vdr-action-bar>
+
+<div class="clr-form-control display-flex filter-table">
+    <label class="clr-control-label">Filter</label>
+    <div class="clr-control-container clr-control-inline display-flex">
+        <label class="clr-control-label">Status</label>
+        <div class="clr-radio-wrapper">
+            <input type="radio" id="radio-status1" name="radio-status" class="clr-radio" value="" [(ngModel)]="status" (change)="refresh()">
+            <label for="radio-status1" class="clr-control-label">All</label>
+        </div>
+        <div class="clr-radio-wrapper">
+            <input type="radio" id="radio-status2" name="radio-status" class="clr-radio" value="true" [(ngModel)]="status" (change)="refresh()">
+            <label for="radio-status2" class="clr-control-label">Active</label>
+        </div>
+        <div class="clr-radio-wrapper">
+            <input type="radio" id="radio-status3" name="radio-status" class="clr-radio"  value="false" [(ngModel)]="status" (change)="refresh()">
+            <label for="radio-status3" class="clr-control-label">Inactive</label>
+        </div>
+    </div>
+
+    <div class="clr-control-container clr-control-inline display-flex">
+        <label class="clr-control-label">Inventory</label>
+        <div class="clr-radio-wrapper">
+            <input type="radio" id="radio-inventory1" name="radio-inventory" class="clr-radio" value="" [(ngModel)]="stock" (change)="refresh()">
+            <label for="radio-inventory1" class="clr-control-label">All</label>
+        </div>
+        <div class="clr-radio-wrapper">
+            <input type="radio" id="radio-inventory2" name="radio-inventory" class="clr-radio" value="true" [(ngModel)]="stock" (change)="refresh()">
+            <label for="radio-inventory2" class="clr-control-label">In stock</label>
+        </div>
+        <div class="clr-radio-wrapper">
+            <input type="radio" id="radio-inventory3" name="radio-inventory" value="out" class="clr-radio" value="false" [(ngModel)]="stock" (change)="refresh()">
+            <label for="radio-inventory3" class="clr-control-label">Out of stock</label>
+        </div>
+    </div>
+</div>
+
+<clr-datagrid [(clrDgSelected)]="selected">
+    <clr-dg-column>Status</clr-dg-column>
+    <clr-dg-column>Image</clr-dg-column>
+    <clr-dg-column>Name</clr-dg-column>
+    <clr-dg-column class="right align-middle">
+        <button type="button" class="btn btn-sm btn-danger" style="margin: 0;" (click)="saveAllChange()">
+            {{ 'save all' | translate }}
+        </button>
+    </clr-dg-column>
+
+    <clr-dg-row
+            *clrDgItems="let item of (items$ | async) |paginate:  (paginationConfig$ | async) || {}"
+            [clrDgItem]="item"
+            [(clrDgSelected)]="item.selected"
+    >
+        <clr-dg-cell>
+            <!-- to do set click vdr chip -->
+            <vdr-chip [colorType]="item.enabled ? 'success' : 'none'" (click)="item.enabled=!item.enabled">
+                {{ item.enabled ? ('common.enabled' | translate) : ('common.disabled' | translate) }}
+            </vdr-chip>
+        </clr-dg-cell>
+        <clr-dg-cell>
+            <div class="image-placeholder">
+                <img *ngIf="item.featuredAsset?.preview" [src]="item.featuredAsset?.preview + '?preset=tiny'" />
+            </div>
+        </clr-dg-cell>
+        <clr-dg-cell>
+            <input type="text" [value]="item.translations[0].name" [(ngModel)]="item.translations[0].name"
+                (ngModelChange)="item.selected=true" />
+        </clr-dg-cell>
+        <clr-dg-cell>
+            <vdr-dropdown>
+                <button type="button" class="btn btn-link btn-sm" vdrDropdownTrigger>
+                    {{ 'common.actions' | translate }}
+                    <clr-icon shape="caret down"></clr-icon>
+                </button>
+                <vdr-dropdown-menu vdrPosition="bottom-right">
+                    <a class="delete-button" href="/admin/catalog/products/{{item.id}}" vdrDropdownItem>
+                        <clr-icon shape="note" class="is-danger"></clr-icon>
+                        {{ 'Edit' | translate }}
+                    </a>
+                    <button type="button" class="delete-button" (click)="deleteProduct(item.id)"
+                        [disabled]="!('DeleteCatalog' | hasPermission)" vdrDropdownItem>
+                        <clr-icon shape="trash" class="is-danger"></clr-icon>
+                        {{ 'common.delete' | translate }}
+                    </button>
+                    <button type="button" class="delete-button" (click)="saveProduct(item)"
+                        [disabled]="!('DeleteCatalog' | hasPermission)" vdrDropdownItem>
+                        <clr-icon shape="floppy" class="is-danger"></clr-icon>
+                        {{ 'Save' | translate }}
+                    </button>
+                </vdr-dropdown-menu>
+            </vdr-dropdown>
+        </clr-dg-cell>
+        <!-- Expand table -->
+        <ng-container ngProjectAs="clr-dg-row-detail" *ngIf="true">
+            <clr-dg-row-detail *clrIfExpanded>
+                <clr-datagrid class="display-flex">
+                    <clr-dg-column>Status</clr-dg-column>
+                    <clr-dg-column>Image</clr-dg-column>
+                    <clr-dg-column>SKU</clr-dg-column>
+                    <clr-dg-column>Product variants</clr-dg-column>
+                    <clr-dg-column>Available</clr-dg-column>
+                    <clr-dg-column>Inbound</clr-dg-column>
+                    <clr-dg-column>Price <br />+ Shipping</clr-dg-column>
+                    <clr-dg-column>Bussines Price <br />+ Shipping</clr-dg-column>
+
+                    <clr-dg-row *ngFor="let variant of item.variants">
+                        <clr-dg-cell>
+                            <vdr-chip [colorType]="variant.enabled ? 'success' : 'none'"
+                                (click)="variant.enabled=!variant.enabled">
+                                {{ variant.enabled ? ('common.enabled' | translate) : ('common.disabled' | translate) }}
+                            </vdr-chip>
+                        </clr-dg-cell>
+                        <clr-dg-cell>
+                            <div class="image-placeholder">
+                                <img *ngIf="variant.featuredAsset?.preview"
+                                    [src]="variant.featuredAsset?.preview + '?preset=tiny'" />
+                            </div>
+                        </clr-dg-cell>
+                        <clr-dg-cell>
+                            <input type="text" [value]="variant.sku" [(ngModel)]="variant.sku"
+                                (ngModelChange)="item.selected=true" />
+                        </clr-dg-cell>
+                        <clr-dg-cell>
+                            <input type="text" [value]="variant.translations[0].name"
+                                [(ngModel)]="variant.translations[0].name" (ngModelChange)="item.selected=true" />
+                        </clr-dg-cell>
+                        <clr-dg-cell>
+                            <input type="number" class="text-right" [value]="variant.stockOnHand"
+                                [(ngModel)]="variant.stockOnHand" (ngModelChange)="item.selected=true" />
+                        </clr-dg-cell>
+                        <clr-dg-cell class="text-right">MRP</clr-dg-cell>
+                        <clr-dg-cell>
+                            <input type="number" class="text-right" [value]="variant.customFields.shippingPrice"
+                                [(ngModel)]="variant.customFields.shippingPrice" (ngModelChange)="item.selected=true" />
+                        </clr-dg-cell>
+                        <clr-dg-cell>
+                            <input type="number" class="text-right" [value]="variant.customFields.shippingBusinessPrice"
+                                [(ngModel)]="variant.customFields.shippingBusinessPrice"
+                                (ngModelChange)="item.selected=true" />
+                        </clr-dg-cell>
+                    </clr-dg-row>
+                </clr-datagrid>
+            </clr-dg-row-detail>
+        </ng-container>
+    </clr-dg-row>
+</clr-datagrid>
+<div class="table-footer">
+    <vdr-items-per-page-controls *ngIf="totalItems$ | async" [itemsPerPage]="itemsPerPage$ | async"
+        (itemsPerPageChange)="setItemsPerPage($event)"></vdr-items-per-page-controls>
+
+    <vdr-pagination-controls *ngIf="totalItems$ | async" [currentPage]="currentPage$ | async"
+        [itemsPerPage]="itemsPerPage$ | async" [totalItems]="totalItems$ | async" (pageChange)="setPageNumber($event)">
+    </vdr-pagination-controls>
+</div>

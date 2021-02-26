@@ -1,0 +1,11 @@
+@import "../../newsletter-ui";
+
+.status-icon {
+    margin-right: 3px;
+    &.subscribed {
+        color: $color-success-500;
+    }
+    &.unsubscribed {
+        color: $color-warning-500;
+    }
+}

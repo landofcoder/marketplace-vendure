@@ -1,0 +1,77 @@
+{
+  "vendor": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email Address",
+    "phone": "Mobile Number",
+    "GSTINID": "GSTIN ID",
+    "state": "State",
+    "ownerName": "Owner Name",
+    "ownerEmail": "Owner Email Adress",
+    "verified": "Verified",
+    "confirm-delete-vendor": "Delete Vendor",
+    "roles": "Roles",
+    "vendor-management": "Vendor Management",
+    "create": "Create Vendor",
+    "info": "Vendor Info"
+  },
+  "vendorInfo": {
+    "brandName": "Brand Name",
+    "regAddress": "Reg Address",
+    "panno": "PANNO",
+    "GSTINID": "GSTIN",
+    "state": "State",
+    "postalCode": "Postal Code",
+    "city": "City",
+    "countryCode": "Country Code",
+    "ADHAR": "ADHAR Number",
+    "aboutUs": "About us",
+    "staffEmail": "Staff Email Address",
+    "phone": "Phone"
+  },
+  "vendorBank":{
+    "account": "Account Number",
+    "code": "IFSC Code",
+    "address": "Address",
+    "type": "Type of account",
+    "isCheck": "Cancle Check"
+  },
+  "vendorContact": {
+    "contactName": "Contact Person Name",
+    "pickupAddress": "Pickup Address",
+    "email": "Email Address",
+    "phone": "Contact Number",
+    "state": "State",
+    "postalCode": "Postal Code",
+    "city": "City",
+    "countryCode": "Country Code",
+    "pickupTime": "Pickup Time",
+    "fromWorkingHour": "From",
+    "toWorkingHour": "To",
+    "dayWorkingHour": "Day",
+    "preferredPickup": "Preferred Pickup"
+  },
+  "vendorMarketing": {
+    "name": "Contact Person Name",
+    "emailAddress": "Email Address",
+    "phone": "Contact Number"
+  },
+  "channel": {
+    "add-shipping": "Shipping Method",
+    "no-shipping-method-set": "This channel has no shipping method. This may cause errors when customer choose shipping method.",
+    "not_find_coupon_code": "Cannot find coupon code in channel."
+  },
+  "weekday": {
+    "MON": "Monday",
+    "TUE": "Tuesday",
+    "WED": "Wednesday",
+    "THU": "Thursday",
+    "FRI": "Friday",
+    "STA": "Saturday",
+    "SUN": "Sunday"
+  }
+
+}
+
+
+

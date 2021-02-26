@@ -1,0 +1,16 @@
+<div>
+  <input type="checkbox" [formControl]="formControl" />
+  <div *ngIf="formControl.value">
+    <div>Upsells</div>
+    <ng-select [items]="(productSearchUpSell$ | async)?.search.items" [multiple]="true" [hideSelected]="true"
+      [minTermLength]="3" [loading]="upSellLoading" [typeahead]="productInput$" [(ngModel)]="upSell"
+      bindLabel="productName" [readonly]="readonly"></ng-select>
+    <div>Crosssells</div>
+    <ng-select [items]="(productSearchCrossSell$ | async)?.search.items" [multiple]="true" [hideSelected]="true"
+      [minTermLength]="3" [loading]="crossSellLoading" [typeahead]="productInput$" [(ngModel)]="crossSell"
+      bindLabel="productName" [readonly]="readonly"></ng-select>
+    <button class="btn btn-primary" (click)="saveProductRecommendations()">
+      Save
+    </button>
+  </div>
+</div>

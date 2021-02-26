@@ -1,0 +1,140 @@
+<vdr-action-bar>
+    <vdr-ab-left>
+        <div class="search-form">
+            <div class="btn-group btn-outline-primary" *ngIf="activePreset$ | async as activePreset">
+                <button
+                        class="btn"
+                        *ngFor="let preset of filterPresets"
+                        [class.btn-primary]="activePreset === preset.name"
+                        (click)="selectFilterPreset(preset.name)"
+                >
+                    {{ preset.label | translate }}
+                </button>
+                <button
+                        class="btn"
+                        [class.btn-primary]="activePreset === 'custom'"
+                        (click)="selectFilterPreset('custom')"
+                >
+                    {{ 'order.filter-custom' | translate }}
+                    <clr-icon shape="angle down"></clr-icon>
+                </button>
+            </div>
+
+            <input
+                    type="text"
+                    name="searchTerm"
+                    [formControl]="searchTerm"
+                    [placeholder]="'order.search-by-order-code' | translate"
+                    class="clr-input search-input"
+            />
+        </div>
+        <div class="custom-filters" [class.expanded]="(activePreset$ | async) === 'custom'">
+            <form [formGroup]="customFilterForm">
+                <div class="flex align-center">
+                    <ng-select
+                            [items]="orderStates"
+                            appendTo="body"
+                            [addTag]="false"
+                            [multiple]="true"
+                            formControlName="states"
+                            [placeholder]="'state.all-orders' | translate"
+                            [clearable]="true"
+                            [searchable]="false"
+                    >
+                        <ng-template ng-option-tmp let-item="item">{{ item | stateI18nToken | translate }}</ng-template>
+                        <ng-template ng-label-tmp let-item="item" let-clear="clear">
+                            <span class="ng-value-label"> {{ item | stateI18nToken | translate }}</span>
+                            <span class="ng-value-icon right" (click)="clear(item)" aria-hidden="true">×</span>
+                        </ng-template>
+                    </ng-select>
+                    <button
+                            class="btn btn-secondary"
+                            [disabled]="customFilterForm.pristine"
+                            (click)="applyCustomFilters()"
+                    >
+                        {{ 'order.apply-filters' | translate }}
+                        <clr-icon shape="filter"></clr-icon>
+                    </button>
+                </div>
+                <div class="flex">
+                    <div>
+                        <label>{{ 'order.placed-at-start' | translate }}</label>
+                        <vdr-datetime-picker formControlName="placedAtStart"></vdr-datetime-picker>
+                    </div>
+                    <div>
+                        <label>{{ 'order.placed-at-end' | translate }}</label>
+                        <vdr-datetime-picker formControlName="placedAtEnd"></vdr-datetime-picker>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </vdr-ab-left>
+    <vdr-ab-right>
+        <vdr-action-bar-items locationId="order-list"></vdr-action-bar-items>
+    </vdr-ab-right>
+</vdr-action-bar>
+
+<clr-datagrid>
+
+    <clr-dg-column>{{ 'common.code' | translate }}</clr-dg-column>
+    <clr-dg-column>{{ 'order.customer' | translate }}</clr-dg-column>
+    <clr-dg-column>{{ 'order.state' | translate }}</clr-dg-column>
+    <clr-dg-column>{{ 'order.total' | translate }}</clr-dg-column>
+    <clr-dg-column>{{ 'common.updated-at' | translate }}</clr-dg-column>
+    <clr-dg-column></clr-dg-column>
+
+    <clr-dg-row
+            *clrDgItems="let order of (items$ | async) |paginate:  (paginationConfig$ | async) || {}"
+            [clrDgItem]="order"
+    >
+        <clr-dg-cell>
+            <a (click)="openOrderDetail(order)">{{ formatOrderCode(order.code)}}</a>
+        </clr-dg-cell>
+        <clr-dg-cell>
+            <vdr-customer-label [customer]="order.customer"></vdr-customer-label>
+        </clr-dg-cell>
+
+        <clr-dg-cell>
+            <vdr-order-state-label [state]="order.state"></vdr-order-state-label>
+        </clr-dg-cell>
+
+        <clr-dg-cell>
+            {{ order.total / 100 | currency: order.currencyCode }}
+        </clr-dg-cell>
+
+        <clr-dg-cell>
+            {{ order.updatedAt | date: 'medium' }}
+        </clr-dg-cell>
+
+        <clr-dg-cell>
+            <vdr-table-row-action
+                    iconShape="shopping-cart"
+                    [label]="'common.open' | translate"
+                    [linkTo]="['./', order.id]"
+            ></vdr-table-row-action>
+        </clr-dg-cell>
+
+    </clr-dg-row>
+
+
+    <!-- Expand table -->
+    <ng-template [(clrIfDetail)]="currentOrderSelected$" let-order>
+        <clr-dg-detail >
+
+            <clr-dg-detail-header>Order Code: #{{order.code}}</clr-dg-detail-header>
+            <clr-dg-detail-body>
+                <vdr-order-detail-popup [order-id]="order.id"></vdr-order-detail-popup>
+            </clr-dg-detail-body>
+        </clr-dg-detail>
+    </ng-template>
+
+</clr-datagrid>
+
+<div class="table-footer">
+    <vdr-items-per-page-controls *ngIf="totalItems$ | async" [itemsPerPage]="itemsPerPage$ | async"
+                                 (itemsPerPageChange)="setItemsPerPage($event)"></vdr-items-per-page-controls>
+    <vdr-pagination-controls *ngIf="totalItems$ | async" [currentPage]="currentPage$ | async"
+                             [itemsPerPage]="itemsPerPage$ | async" [totalItems]="totalItems$ | async" (pageChange)="setPageNumber($event)">
+    </vdr-pagination-controls>
+</div>
+
