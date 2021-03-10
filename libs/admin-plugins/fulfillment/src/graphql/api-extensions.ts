@@ -71,9 +71,14 @@ export const adminApiExtensions = gql`
         sort_code: String
         rpin: Int
     }
+    
+    input OrderFilterCondition {
+        orderPlacedAt: NumberRange
+    }
 
     extend type Query {
         getPackingSlip(trackingCode: String!): PackingSlip
+        countOrderByStatus(filter: OrderFilterCondition): JSON
     }
     extend type Mutation {
         fulfillOrder(input: FulfillOrderInput!): AddFulfillmentToOrderResult!

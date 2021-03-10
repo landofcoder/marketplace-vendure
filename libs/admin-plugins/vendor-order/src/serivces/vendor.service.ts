@@ -139,7 +139,7 @@ export class VendorService {
 
         let customer;
         if (existingVendor && existingUser) {
-            throw new UserInputError(`Email in vendor register must be unique!`);
+            return existingVendor;
         } else if (existingUser && !existingVendor) {
             // create vendor from customer
             if (ctx.activeUserId) {
@@ -452,7 +452,7 @@ export class VendorService {
             }
             if (user) {
                 // verify customer
-                const customer = await this.customerService.findOneByUserId(ctx, user.id);
+                const customer = await this.customerService.findOneByUserId(ctx, user.id, false);
                 if (!customer) {
                     throw new InternalServerError('error.cannot-locate-customer-for-user');
                 }
@@ -482,7 +482,8 @@ export class VendorService {
                 }
 
                 return {
-                    result: VerifyResult.Success
+                    result: VerifyResult.Success,
+                    brand: vendor?.info[0]?.brandName
                 };
             }
         }

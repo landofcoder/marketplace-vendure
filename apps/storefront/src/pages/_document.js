@@ -30,15 +30,15 @@ export default class MyDocument extends Document {
                     ></link>
 
                     {/* YoastSEO Twitter Card  */}
-                    <meta name='twitter:card' content='summary' />
+                    {/* <meta name='twitter:card' content='summary' />
                     <meta name='twitter:url' content='@https://twitter.com/swarajshop?lang=en' />
                     <meta name='twitter:title' content='Swarajshop On Twitter' />
                     <meta name='twitter:image' content='https://www.swarajshop.com/pub/media/yoast/img/2020-05-23_19-21-44.png    ' />
                     <meta name='twitter:creator' content='@DavidWShadow' />
-                    <meta property="fb:pages" content="https://www.facebook.com/swarajshopindia" />
+                    <meta property="fb:pages" content="https://www.facebook.com/swarajshopindia" /> */}
 
                     {/* YoastSEO OpenGraph  */}
-                    <meta property="og:locale" content="en_US" />
+                    {/* <meta property="og:locale" content="en_US" />
                     <meta property='og:type' content='website' />
                     <meta property='og:title' content='Swarajshop' />
                     <meta property='og:description' content='Swarajshop Artificial Jewellery Set Online' />
@@ -47,7 +47,7 @@ export default class MyDocument extends Document {
                     <meta property='og:image' content='https://www.swarajshop.com/pub/media/yoast/img/2020-05-23_19-20-24.png' />
                     <meta property="og:image:width" content="1095" />
                     <meta property="og:image:height" content="537" />
-                    <meta property="og:image:type" content="image/png" />
+                    <meta property="og:image:type" content="image/png" /> */}
                 </Head>
                 <body>
                     <Main />

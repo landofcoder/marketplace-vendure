@@ -1,0 +1,36 @@
+<table class="order-lines table" *ngIf="entity$ | async as order">
+    <thead>
+    <tr>
+        <th></th>
+        <th>{{ 'order.product-name' | translate }}</th>
+        <th>{{ 'order.product-sku' | translate }}</th>
+        <th>{{ 'order.unit-price' | translate }}</th>
+        <th>{{ 'order.quantity' | translate }}</th>
+    </tr>
+    </thead>
+    <ng-container *ngFor="let line of order.lines">
+        <tr
+            *ngIf="line.quantity > 0"
+            class="order-line"
+            [class.is-cancelled]="line.quantity === 0"
+        >
+            <td class="align-middle thumb">
+                <img *ngIf="line.featuredAsset" [src]="line.featuredAsset | assetPreview:'tiny'" />
+            </td>
+            <td class="align-middle name">{{ line.productVariant.name }}</td>
+            <td class="align-middle sku">{{ line.productVariant.sku }}</td>
+            <td class="align-middle unit-price">
+                {{ line.unitPriceWithTax / 100 | currency: order.currencyCode }}
+<!--                <div class="net-price" [title]="'order.net-price' | translate">-->
+<!--                    {{ line.unitPrice / 100 | currency: order.currencyCode }}-->
+<!--                </div>-->
+            </td>
+            <td class="align-middle quantity">
+                {{ line.quantity }}
+                <vdr-line-refunds [line]="line"></vdr-line-refunds>
+                <vdr-line-fulfillment [line]="line" [orderState]="order.state"></vdr-line-fulfillment>
+            </td>
+
+        </tr>
+    </ng-container>
+</table>

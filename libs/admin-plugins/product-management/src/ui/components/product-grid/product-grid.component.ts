@@ -13,6 +13,7 @@ import { GetProductListCustomize } from '../../generated-types';
 import { GET_PRODUCT_LIST } from './product-grid.graphql';
 import { FormControl } from '@angular/forms';
 import { PaginationInstance } from 'ngx-pagination';
+let env = require("../../env.json");
 
 @Component({
     selector: 'bav-product-grid',
@@ -30,8 +31,10 @@ export class ProductGridComponent extends BaseListComponent<
     paginationConfig$: Observable<PaginationInstance>;
     selected: any[] = [];
     searchTerm = new FormControl('');
-    status: string | null = '';
-    stock: string | null = '';
+    status: string | null = 'Approval';
+    stock: string | null = 'true';
+    items$: Observable<GetProductListCustomize.Items[]>;
+    storefont: string | null = env.storefront || '';
 
     constructor(
         private dataService: DataService,
@@ -52,7 +55,7 @@ export class ProductGridComponent extends BaseListComponent<
                         take,
                         filter: {
                             ...(this.searchTerm.value && {name: { contains: this.searchTerm.value } }),
-                            ...(this.status && {enabled: {eq: (this.status === "true")}}),
+                            ...(this.status && {status: {eq: this.status}}),
                             ...(this.stock && {isInStock: {eq: (this.stock === "true")}})
                         },
                     },
@@ -71,6 +74,11 @@ export class ProductGridComponent extends BaseListComponent<
             .subscribe(() => this.refresh());
     }
 
+    changeState(item, value){
+        item.selected = true;
+        item.enabled = value == 'Approval' ? true : false;
+        return item.customFields.status = value;
+    }
 
     saveProduct(rowData: any) {
         const variantInputs = rowData.variants

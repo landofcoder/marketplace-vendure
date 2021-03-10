@@ -1,85 +1,107 @@
-<vdr-action-bar>
-    <vdr-ab-left>
-        <div class="search-form">
-            <div class="btn-group btn-outline-primary" *ngIf="activePreset$ | async as activePreset">
-                <button
-                        class="btn"
-                        *ngFor="let preset of filterPresets"
-                        [class.btn-primary]="activePreset === preset.name"
-                        (click)="selectFilterPreset(preset.name)"
-                >
-                    {{ preset.label | translate }}
-                </button>
-                <button
-                        class="btn"
-                        [class.btn-primary]="activePreset === 'custom'"
-                        (click)="selectFilterPreset('custom')"
-                >
-                    {{ 'order.filter-custom' | translate }}
-                    <clr-icon shape="angle down"></clr-icon>
-                </button>
-            </div>
 
-            <input
-                    type="text"
-                    name="searchTerm"
-                    [formControl]="searchTerm"
-                    [placeholder]="'order.search-by-order-code' | translate"
-                    class="clr-input search-input"
-            />
+<div>
+    <h6>Order Processing</h6>
+    <div  *ngIf="activePreset$ | async as activePreset">
+        <div class="btn-group">
+            <button class="btn"
+            [class.btn-primary]="activePreset === 'new'"
+            (click)="selectFilterPreset('new')">
+                <p>{{ (countOrderByStatus$ | async)?.new || 0}}</p>
+                New
+            </button>
+            <button class="btn"
+            [class.btn-primary]="activePreset === 'packed'"
+            (click)="selectFilterPreset('packed')"
+            >
+                <p>{{ (countOrderByStatus$ | async)?.packed || 0}}</p>
+                Pack
+            </button>
+            <button class="btn"
+            [class.btn-primary]="activePreset === 'handover'"
+            (click)="selectFilterPreset('handover')"
+            >
+                <p>{{ (countOrderByStatus$ | async)?.handover || 0}}</p>
+                Handover
+            </button>
         </div>
-        <div class="custom-filters" [class.expanded]="(activePreset$ | async) === 'custom'">
-            <form [formGroup]="customFilterForm">
-                <div class="flex align-center">
-                    <ng-select
-                            [items]="orderStates"
-                            appendTo="body"
-                            [addTag]="false"
-                            [multiple]="true"
-                            formControlName="states"
-                            [placeholder]="'state.all-orders' | translate"
-                            [clearable]="true"
-                            [searchable]="false"
-                    >
-                        <ng-template ng-option-tmp let-item="item">{{ item | stateI18nToken | translate }}</ng-template>
-                        <ng-template ng-label-tmp let-item="item" let-clear="clear">
-                            <span class="ng-value-label"> {{ item | stateI18nToken | translate }}</span>
-                            <span class="ng-value-icon right" (click)="clear(item)" aria-hidden="true">×</span>
-                        </ng-template>
-                    </ng-select>
-                    <button
-                            class="btn btn-secondary"
-                            [disabled]="customFilterForm.pristine"
-                            (click)="applyCustomFilters()"
-                    >
-                        {{ 'order.apply-filters' | translate }}
-                        <clr-icon shape="filter"></clr-icon>
-                    </button>
-                </div>
-                <div class="flex">
-                    <div>
-                        <label>{{ 'order.placed-at-start' | translate }}</label>
-                        <vdr-datetime-picker formControlName="placedAtStart"></vdr-datetime-picker>
-                    </div>
-                    <div>
-                        <label>{{ 'order.placed-at-end' | translate }}</label>
-                        <vdr-datetime-picker formControlName="placedAtEnd"></vdr-datetime-picker>
-                    </div>
-                </div>
-            </form>
+
+        <div class="btn-group">
+            <button class="btn"
+            [class.btn-primary]="activePreset === 'transit'"
+            (click)="selectFilterPreset('transit')"
+            >
+                <p>{{ (countOrderByStatus$ | async)?.transit || 0}}</p>
+                Transit
+            </button>
+            <button class="btn"
+            [class.btn-primary]="activePreset === 'delivered'"
+            (click)="selectFilterPreset('delivered')"
+            >
+                <p>{{ (countOrderByStatus$ | async)?.delivered || 0}}</p>
+                Delivered
+            </button>
         </div>
-    </vdr-ab-left>
-    <vdr-ab-right>
-        <vdr-action-bar-items locationId="order-list"></vdr-action-bar-items>
-    </vdr-ab-right>
-</vdr-action-bar>
+
+        <div class="btn-group">
+            <button class="btn"
+            [class.btn-primary]="activePreset === 'upcomming'"
+            (click)="selectFilterPreset('upcomming')"
+            >
+                <p>{{ (countOrderByStatus$ | async)?.upcomming || 0}}</p>
+                Upcoming
+            </button>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn"
+            [class.btn-primary]="activePreset === 'returned'"
+            (click)="selectFilterPreset('returned')"
+            >
+                <p>{{ (countOrderByStatus$ | async)?.returned || 0}}</p>
+                Return
+            </button>
+            <button class="btn"
+            [class.btn-primary]="activePreset === 'cancelled'"
+            (click)="selectFilterPreset('cancelled')"
+            >
+                <p>{{ (countOrderByStatus$ | async)?.cancelled || 0}}</p>
+                Cancel
+            </button>
+        </div>
+
+    </div>
+
+    <h6>Filters</h6>
+    <div class="filter">
+        <input
+                type="text"
+                name="searchTerm"
+                [formControl]="searchTerm"
+                [placeholder]="'order.search-by-order-code' | translate"
+                class="clr-input style-input"
+        />
+
+        <input
+                type="text"
+                class="form-control clr-input style-input"
+                ngxDaterangepickerMd
+                [(ngModel)]="selectedDate"
+                [placeholder]="'fulfill.order_list.range' | translate"
+        />
+        <button class="btn btn-primary" (click)="applyCustomFilters()">
+            <clr-icon shape="filter"></clr-icon>
+            Apply Filter
+        </button>
+    </div>
+</div>
 
 <clr-datagrid>
 
     <clr-dg-column>{{ 'common.code' | translate }}</clr-dg-column>
-    <clr-dg-column>{{ 'order.customer' | translate }}</clr-dg-column>
-    <clr-dg-column>{{ 'order.state' | translate }}</clr-dg-column>
+<!--    <clr-dg-column>{{ 'order.customer' | translate }}</clr-dg-column>-->
+    <clr-dg-column class="product-info">{{ 'fulfill.order_list.product_info' | translate }}</clr-dg-column>
     <clr-dg-column>{{ 'order.total' | translate }}</clr-dg-column>
+    <clr-dg-column>{{ 'order.state' | translate }}</clr-dg-column>
     <clr-dg-column>{{ 'common.updated-at' | translate }}</clr-dg-column>
     <clr-dg-column></clr-dg-column>
 
@@ -87,26 +109,30 @@
             *clrDgItems="let order of (items$ | async) |paginate:  (paginationConfig$ | async) || {}"
             [clrDgItem]="order"
     >
-        <clr-dg-cell>
+        <clr-dg-cell class="clr-align-self-center">
             <a (click)="openOrderDetail(order)">{{ formatOrderCode(order.code)}}</a>
         </clr-dg-cell>
-        <clr-dg-cell>
-            <vdr-customer-label [customer]="order.customer"></vdr-customer-label>
+<!--        <clr-dg-cell class="clr-align-self-center">-->
+<!--            <vdr-customer-label [customer]="order.customer"></vdr-customer-label>-->
+<!--        </clr-dg-cell>-->
+
+        <clr-dg-cell class="product-info">
+            <vdr-order-list-lines [order-id]="order.id"></vdr-order-list-lines>
         </clr-dg-cell>
 
-        <clr-dg-cell>
-            <vdr-order-state-label [state]="order.state"></vdr-order-state-label>
-        </clr-dg-cell>
-
-        <clr-dg-cell>
+        <clr-dg-cell class="clr-align-self-center">
             {{ order.total / 100 | currency: order.currencyCode }}
         </clr-dg-cell>
 
-        <clr-dg-cell>
+        <clr-dg-cell class="clr-align-self-center">
+            <vdr-order-state-label [state]="order.state"></vdr-order-state-label>
+        </clr-dg-cell>
+
+        <clr-dg-cell class="clr-align-self-center">
             {{ order.updatedAt | date: 'medium' }}
         </clr-dg-cell>
 
-        <clr-dg-cell>
+        <clr-dg-cell class="clr-align-self-center">
             <vdr-table-row-action
                     iconShape="shopping-cart"
                     [label]="'common.open' | translate"

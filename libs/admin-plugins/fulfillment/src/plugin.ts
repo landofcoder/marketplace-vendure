@@ -8,6 +8,7 @@ import { DelhiveryWarehouseService } from "@bavaan/vendure-delhivery-plugin/src/
 import { VendorService, VendorRoleService } from '@bavaan/vendure-order-vendor-plugin';
 import { VendorDelhiveryApiService } from "@bavaan/vendure-order-vendor-plugin/src/serivces/delhivery-api.sevice";
 import { EcomExpressApiService, EcomExpressService} from "@bavaan/vendure-ecomexpress-plugin/src/services";
+import {OrderProcess} from "./order-process";
 
 @VendurePlugin({
     imports: [PluginCommonModule],
@@ -38,6 +39,11 @@ import { EcomExpressApiService, EcomExpressService} from "@bavaan/vendure-ecomex
             { languageCode: LanguageCode.en, value: "Courier company Name" },
           ],
         });
+
+        config.orderOptions.process = [
+            ...config.orderOptions.process,
+            OrderProcess,
+        ];
 
         return config;
       }

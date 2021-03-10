@@ -37,6 +37,7 @@
   "dependencies": {
     "@bavaan/vendure-delhivery-plugin": "0.0.1",
     "@bavaan/vendure-ecomexpress-plugin": "0.0.1",
-    "@bavaan/vendure-order-vendor-plugin":  "0.0.1"
+    "@bavaan/vendure-order-vendor-plugin": "0.0.1",
+    "ngx-daterangepicker-material": "^4.0.1"
   }
 }

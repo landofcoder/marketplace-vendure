@@ -58,9 +58,11 @@ export type Query = {
   products: ProductList;
   /** Search Products based on the criteria set by the `SearchInput` */
   search: SearchResponse;
+  productRecommendations: Array<ProductRecommendation>;
   productTierPrices: Array<TierPrice>;
   generateBraintreeClientToken: Scalars['String'];
-  generatePayumoneyClientToken: Array<Maybe<Scalars['String']>>;
+  generatePayumoneyMethod: SubmitPayumoney;
+  checkPincode: ResultCheckPincode;
   activeOrderVendors?: Maybe<Array<Maybe<Order>>>;
   getVendorByBrand?: Maybe<Vendor>;
   getVendorByEmail?: Maybe<Vendor>;
@@ -68,7 +70,7 @@ export type Query = {
   paymentMethods: PaymentMethodList;
   paymentMethod?: Maybe<PaymentMethod>;
   getProductRecentlyViewed: ProductList;
-  checkPincode: Pincode;
+  getPaypalEnv?: Maybe<PaypalEnv>;
 };
 
 
@@ -109,13 +111,18 @@ export type QuerySearchArgs = {
 };
 
 
+export type QueryProductRecommendationsArgs = {
+  productId: Scalars['ID'];
+};
+
+
 export type QueryProductTierPricesArgs = {
   productId: Scalars['ID'];
 };
 
 
-export type QueryGeneratePayumoneyClientTokenArgs = {
-  orderId: Scalars['ID'];
+export type QueryCheckPincodeArgs = {
+  input: CheckPincodeInput;
 };
 
 
@@ -146,11 +153,6 @@ export type QueryPaymentMethodArgs = {
 
 export type QueryGetProductRecentlyViewedArgs = {
   options?: Maybe<ProductListOptions>;
-};
-
-
-export type QueryCheckPincodeArgs = {
-  input: CheckPincodeInput;
 };
 
 export type Mutation = {
@@ -189,18 +191,18 @@ export type Mutation = {
   logout: Success;
   /**
    * Register a Customer account with the given credentials. There are three possible registration flows:
-   * 
+   *
    * _If `authOptions.requireVerification` is set to `true`:_
-   * 
+   *
    * 1. **The Customer is registered _with_ a password**. A verificationToken will be created (and typically emailed to the Customer). That
    *    verificationToken would then be passed to the `verifyCustomerAccount` mutation _without_ a password. The Customer is then
    *    verified and authenticated in one step.
    * 2. **The Customer is registered _without_ a password**. A verificationToken will be created (and typically emailed to the Customer). That
    *    verificationToken would then be passed to the `verifyCustomerAccount` mutation _with_ the chosed password of the Customer. The Customer is then
    *    verified and authenticated in one step.
-   * 
+   *
    * _If `authOptions.requireVerification` is set to `false`:_
-   * 
+   *
    * 3. The Customer _must_ be registered _with_ a password. No further action is needed - the Customer is able to authenticate immediately.
    */
   registerCustomerAccount: RegisterCustomerAccountResult;
@@ -216,7 +218,7 @@ export type Mutation = {
   deleteCustomerAddress: Success;
   /**
    * Verify a Customer email address with the token sent to that address. Only applicable if `authOptions.requireVerification` is set to true.
-   * 
+   *
    * If the Customer was not registered with a password in the `registerCustomerAccount` mutation, the a password _must_ be
    * provided here.
    */
@@ -262,6 +264,8 @@ export type Mutation = {
   removeCouponCodeForOrderVendor?: Maybe<Array<Maybe<Order>>>;
   setShippingMethodByOrderVendor?: Maybe<Array<Maybe<Order>>>;
   addPaymentToOrderVendors?: Maybe<Array<Maybe<Order>>>;
+  createPaymentForPaypalMethod: PaypalOrder;
+  executePaymentForPaypalMethod: ExucetePaypal;
 };
 
 
@@ -527,6 +531,18 @@ export type MutationAddPaymentToOrderVendorsArgs = {
 };
 
 
+export type MutationCreatePaymentForPaypalMethodArgs = {
+  returnURL?: Maybe<Scalars['String']>;
+  cancelURL?: Maybe<Scalars['String']>;
+};
+
+
+export type MutationExecutePaymentForPaypalMethodArgs = {
+  paymentID?: Maybe<Scalars['String']>;
+  payerID?: Maybe<Scalars['String']>;
+};
+
+
 
 
 export enum GlobalFlag {
@@ -593,7 +609,7 @@ export enum DeletionResult {
  * @description
  * Permissions for administrators and customers. Used to control access to
  * GraphQL resolvers via the {@link Allow} decorator.
- * 
+ *
  * @docsCategory common
  */
 export enum Permission {
@@ -860,7 +876,7 @@ export type EmailAddressConflictError = ErrorResult & {
 /**
  * @description
  * ISO 4217 currency code
- * 
+ *
  * @docsCategory common
  */
 export enum CurrencyCode {
@@ -1294,7 +1310,7 @@ export type CustomFieldConfig = StringCustomFieldConfig | LocaleStringCustomFiel
  * region or script modifier (e.g. de_AT). The selection available is based
  * on the [Unicode CLDR summary list](https://unicode-org.github.io/cldr-staging/charts/37/summary/root.html)
  * and includes the major spoken languages of the world and any widely-used variants.
- * 
+ *
  * @docsCategory common
  */
 export enum LanguageCode {
@@ -2386,7 +2402,7 @@ export type Fulfillment = Node & {
   state: Scalars['String'];
   method: Scalars['String'];
   trackingCode?: Maybe<Scalars['String']>;
-  customFields?: Maybe<Scalars['JSON']>;
+  customFields?: Maybe<FulfillmentCustomFields>;
 };
 
 export type PaymentMethod = Node & {
@@ -2535,6 +2551,7 @@ export type Product = Node & {
   collections: Array<Collection>;
   reviews: ProductReviewList;
   reviewsHistogram: Array<ProductReviewHistogramItem>;
+  recommendations: Array<ProductRecommendation>;
   channel?: Maybe<Channel>;
   customFields?: Maybe<ProductCustomFields>;
 };
@@ -3036,11 +3053,80 @@ export type SubmitUnSubscriberInput = {
   token: Scalars['String'];
 };
 
+export enum RecommendationType {
+  Crosssell = 'CROSSSELL',
+  Upsell = 'UPSELL',
+  Related = 'RELATED'
+}
+
+export type ProductRecommendation = {
+  __typename?: 'ProductRecommendation';
+  product: Product;
+  recommendation: Product;
+  type: RecommendationType;
+};
+
 export type TierPrice = {
   __typename?: 'TierPrice';
   productVariant: ProductVariant;
   quantity: Scalars['Int'];
   price: Scalars['Float'];
+};
+
+export type SubmitPayumoney = {
+  __typename?: 'submitPayumoney';
+  key?: Maybe<Scalars['String']>;
+  hash?: Maybe<Scalars['String']>;
+  txnid?: Maybe<Scalars['String']>;
+  amount?: Maybe<Scalars['String']>;
+  firstname?: Maybe<Scalars['String']>;
+  email?: Maybe<Scalars['String']>;
+  phone?: Maybe<Scalars['String']>;
+  productinfo?: Maybe<Scalars['String']>;
+  isProduction?: Maybe<Scalars['String']>;
+};
+
+export type Pincode = Node & {
+  __typename?: 'Pincode';
+  createdAt: Scalars['DateTime'];
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  pincode?: Maybe<Scalars['Int']>;
+  state?: Maybe<Scalars['String']>;
+  district?: Maybe<Scalars['String']>;
+  prepaid?: Maybe<Scalars['Boolean']>;
+  cod?: Maybe<Scalars['Boolean']>;
+  pickup?: Maybe<Scalars['Boolean']>;
+  cash?: Maybe<Scalars['Boolean']>;
+  repl?: Maybe<Scalars['Boolean']>;
+};
+
+export type PincodeList = PaginatedList & {
+  __typename?: 'PincodeList';
+  items: Array<Pincode>;
+  totalItems: Scalars['Int'];
+};
+
+export type PincodeDeleteReturn = {
+  __typename?: 'PincodeDeleteReturn';
+  error?: Maybe<Scalars['String']>;
+  message?: Maybe<Scalars['String']>;
+};
+
+export type PincodeListOptions = {
+  skip: Scalars['Int'];
+  take: Scalars['Int'];
+};
+
+export type CheckPincodeInput = {
+  pincode: Scalars['String'];
+  productWeight?: Maybe<Scalars['Int']>;
+};
+
+export type ResultCheckPincode = {
+  __typename?: 'resultCheckPincode';
+  status?: Maybe<Scalars['String']>;
+  data?: Maybe<Scalars['JSON']>;
 };
 
 export type FacetResult = {
@@ -3250,7 +3336,7 @@ export enum VerifyResult {
 export type VerifyResponse = {
   __typename?: 'VerifyResponse';
   result: VerifyResult;
-  message?: Maybe<Scalars['String']>;
+  brand?: Maybe<Scalars['String']>;
 };
 
 export type PaymentMethodListOptions = {
@@ -3266,41 +3352,26 @@ export type PaymentMethodList = PaginatedList & {
   totalItems: Scalars['Int'];
 };
 
-export type Pincode = Node & {
-  __typename?: 'Pincode';
-  createdAt: Scalars['DateTime'];
-  updatedAt: Scalars['DateTime'];
-  id: Scalars['ID'];
-  pincode?: Maybe<Scalars['Int']>;
-  state?: Maybe<Scalars['String']>;
-  district?: Maybe<Scalars['String']>;
-  prepaid?: Maybe<Scalars['Boolean']>;
-  cod?: Maybe<Scalars['Boolean']>;
-  pickup?: Maybe<Scalars['Boolean']>;
-  cash?: Maybe<Scalars['Boolean']>;
-  repl?: Maybe<Scalars['Boolean']>;
+export type PaypalOrder = {
+  __typename?: 'PaypalOrder';
+  id?: Maybe<Scalars['String']>;
 };
 
-export type PincodeList = PaginatedList & {
-  __typename?: 'PincodeList';
-  items: Array<Pincode>;
-  totalItems: Scalars['Int'];
+export enum Status {
+  Success = 'success',
+  Fail = 'fail'
+}
+
+export type ExucetePaypal = {
+  __typename?: 'ExucetePaypal';
+  status?: Maybe<Status>;
+  data?: Maybe<Scalars['JSON']>;
 };
 
-export type PincodeDeleteReturn = {
-  __typename?: 'PincodeDeleteReturn';
-  error?: Maybe<Scalars['String']>;
-  message?: Maybe<Scalars['String']>;
-};
-
-export type PincodeListOptions = {
-  skip: Scalars['Int'];
-  take: Scalars['Int'];
-};
-
-export type CheckPincodeInput = {
-  pincode: Scalars['Int'];
-};
+export enum PaypalEnv {
+  Production = 'production',
+  Sandbox = 'sandbox'
+}
 
 export type CollectionListOptions = {
   skip?: Maybe<Scalars['Int']>;
@@ -3380,6 +3451,7 @@ export type ProductFilterParameter = {
   description?: Maybe<StringOperators>;
   reviewRating?: Maybe<NumberOperators>;
   reviewCount?: Maybe<NumberOperators>;
+  productRecommendationsEnabled?: Maybe<BooleanOperators>;
   isInStock?: Maybe<BooleanOperators>;
 };
 
@@ -3392,6 +3464,7 @@ export type ProductSortParameter = {
   description?: Maybe<SortOrder>;
   reviewRating?: Maybe<SortOrder>;
   reviewCount?: Maybe<SortOrder>;
+  productRecommendationsEnabled?: Maybe<SortOrder>;
   isInStock?: Maybe<SortOrder>;
 };
 
@@ -3550,6 +3623,11 @@ export type UpdateOrderInput = {
   customFields?: Maybe<UpdateOrderCustomFieldsInput>;
 };
 
+export type FulfillmentCustomFields = {
+  __typename?: 'FulfillmentCustomFields';
+  courier?: Maybe<Scalars['String']>;
+};
+
 export type GlobalSettingsCustomFields = {
   __typename?: 'GlobalSettingsCustomFields';
   receivedEmailAddress?: Maybe<Scalars['String']>;
@@ -3576,6 +3654,7 @@ export type ProductCustomFields = {
   __typename?: 'ProductCustomFields';
   reviewRating?: Maybe<Scalars['Float']>;
   reviewCount?: Maybe<Scalars['Float']>;
+  productRecommendationsEnabled?: Maybe<Scalars['Boolean']>;
   isInStock?: Maybe<Scalars['Boolean']>;
 };
 

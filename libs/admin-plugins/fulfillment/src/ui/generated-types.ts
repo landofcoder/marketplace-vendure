@@ -107,6 +107,7 @@ export type Query = {
   delhiveryWarehouseByChannelId?: Maybe<DelhiveryWarehouse>;
   delhiveryWarehouseByPickupName?: Maybe<DelhiveryWarehouse>;
   getPackingSlip?: Maybe<PackingSlip>;
+  countOrderByStatus?: Maybe<Scalars['JSON']>;
   ecomexpressAccountConfig?: Maybe<EcomExpressAccount>;
 };
 
@@ -450,6 +451,11 @@ export type QueryDelhiveryWarehouseByPickupNameArgs = {
 
 export type QueryGetPackingSlipArgs = {
   trackingCode: Scalars['String'];
+};
+
+
+export type QueryCountOrderByStatusArgs = {
+  filter?: Maybe<OrderFilterCondition>;
 };
 
 export type Mutation = {
@@ -4778,7 +4784,7 @@ export enum VerifyResult {
 export type VerifyResponse = {
   __typename?: 'VerifyResponse';
   result: VerifyResult;
-  message?: Maybe<Scalars['String']>;
+  brand?: Maybe<Scalars['String']>;
 };
 
 
@@ -4979,6 +4985,10 @@ export type PackingSlip = {
   wbn?: Maybe<Scalars['String']>;
   sort_code?: Maybe<Scalars['String']>;
   rpin?: Maybe<Scalars['Int']>;
+};
+
+export type OrderFilterCondition = {
+  createdAt?: Maybe<NumberRange>;
 };
 
 export type EcomExpressAccount = Node & {
@@ -5945,6 +5955,11 @@ export namespace GetListOrders {
   export type Items = NonNullable<(NonNullable<(NonNullable<GetListOrdersQuery['orders']>)['items']>)[number]>;
 }
 
+export namespace CountOrderByStatus {
+  export type Variables = CountOrderByStatusQueryVariables;
+  export type Query = CountOrderByStatusQuery;
+}
+
 export type FulfillmentFragment = (
   { __typename?: 'Fulfillment' }
   & Pick<Fulfillment, 'nextStates' | 'id' | 'createdAt' | 'updatedAt' | 'state' | 'method' | 'trackingCode'>
@@ -6112,4 +6127,14 @@ export type GetListOrdersQuery = (
       & OrderFragmentFragment
     )> }
   ) }
+);
+
+export type CountOrderByStatusQueryVariables = Exact<{
+  filter?: Maybe<OrderFilterCondition>;
+}>;
+
+
+export type CountOrderByStatusQuery = (
+  { __typename?: 'Query' }
+  & Pick<Query, 'countOrderByStatus'>
 );

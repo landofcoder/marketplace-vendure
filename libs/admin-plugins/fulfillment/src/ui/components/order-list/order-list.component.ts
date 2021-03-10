@@ -2,13 +2,11 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { marker as _ } from '@biesbjerg/ngx-translate-extract-marker';
-import { BaseListComponent, LocalStorageService, ServerConfigService } from '@vendure/admin-ui/core';
-import { GetOrderList, SortOrder } from '@vendure/admin-ui/core';
-import { DataService } from '@vendure/admin-ui/core';
+import { BaseListComponent, LocalStorageService, ServerConfigService, GetOrderList, SortOrder, DataService } from '@vendure/admin-ui/core';
 import { merge, Observable, combineLatest, EMPTY } from 'rxjs';
-import { debounceTime, takeUntil, map, distinctUntilChanged } from 'rxjs/operators';
+import { debounceTime, takeUntil, map, distinctUntilChanged, shareReplay } from 'rxjs/operators';
 import { PaginationInstance } from 'ngx-pagination';
-import { GET_LIST_ORDERS } from './order_list.graphql';
+import {COUNT_ORDER_BY_STATUS, GET_LIST_ORDERS } from './order_list.graphql';
 
 interface OrderFilterConfig {
     active?: boolean;
@@ -17,7 +15,6 @@ interface OrderFilterConfig {
 
 interface FilterPreset {
     name: string;
-    label: string;
     config: OrderFilterConfig;
 }
 
@@ -39,40 +36,64 @@ export class OrderListComponent
     orderStates = this.serverConfigService.getOrderProcessStates().map(item => item.name);
     filterPresets: FilterPreset[] = [
         {
-            name: 'open',
-            label: _('order.filter-preset-open'),
+            name: 'new',
             config: {
                 active: false,
-                states: this.orderStates.filter(
-                    s => s !== 'Delivered' && s !== 'Cancelled' && s !== 'Shipped',
-                ),
+                states: ['PaymentAuthorized', 'PaymentSettled']
             },
         },
         {
-            name: 'shipped',
-            label: _('order.filter-preset-shipped'),
+            name: 'packed',
             config: {
                 active: false,
-                states: ['Shipped'],
+                states: ['Packed'],
             },
         },
         {
-            name: 'completed',
-            label: _('order.filter-preset-completed'),
+            name: 'handover',
             config: {
                 active: false,
-                states: ['Delivered', 'Cancelled'],
+                states: ['Handover'],
             },
         },
         {
-            name: 'active',
-            label: _('order.filter-preset-active'),
+            name: 'transit',
+            config: {
+                active: false,
+                states: ['Shipped', 'PartiallyShipped'],
+            },
+        },
+        {
+            name: 'delivered',
+            config: {
+                active: false,
+                states: ['Delivered'],
+            },
+        },
+        {
+            name: 'cancelled',
+            config: {
+                active: false,
+                states: ['Cancelled'],
+            },
+        },
+        {
+            name: 'returned',
+            config: {
+                active: false,
+                states: ['Returned'],
+            },
+        },
+        {
+            name: 'upcomming',
             config: {
                 active: true,
             },
         },
     ];
     activePreset$: Observable<string>;
+    selectedDate: any;
+    countOrderByStatus$: Observable<any>;
 
     constructor(
         private serverConfigService: ServerConfigService,
@@ -94,34 +115,19 @@ export class OrderListComponent
                     skip,
                     take,
                     this.searchTerm.value,
-                    this.route.snapshot.queryParamMap.get('filter') || 'open',
+                    this.route.snapshot.queryParamMap.get('filter') || 'new',
                 ),
         );
-        // super.setQueryFn(
-        //     (...args: any[]) => this.dataService.order.getOrders(...args).refetchOnChannelChange(),
-        //     data => {
-        //         console.log("ORDERS", data.orders)
-        //         return data.orders
-        //     },
-        //     // tslint:disable-next-line:no-shadowed-variable
-        //     (skip, take) =>
-        //         this.createQueryOptions(
-        //             skip,
-        //             take,
-        //             this.searchTerm.value,
-        //             this.route.snapshot.queryParamMap.get('filter') || 'open',
-        //         ),
-        // );
-        const lastFilters = this.localStorageService.get('orderListLastCustomFilters');
-        if (lastFilters) {
-            this.setQueryParam(lastFilters, { replaceUrl: true });
-        }
+        // const lastFilters = this.localStorageService.get('orderListLastCustomFilters');
+        // if (lastFilters) {
+        //     this.setQueryParam(lastFilters, { replaceUrl: true });
+        // }
     }
 
     ngOnInit() {
         super.ngOnInit();
         this.activePreset$ = this.route.queryParamMap.pipe(
-            map(qpm => qpm.get('filter') || 'open'),
+            map(qpm => qpm.get('filter') || 'new'),
             distinctUntilChanged(),
         );
         merge(this.searchTerm.valueChanges.pipe(debounceTime(250)), this.route.queryParamMap)
@@ -133,13 +139,37 @@ export class OrderListComponent
         const queryParamMap = this.route.snapshot.queryParamMap;
         this.customFilterForm = new FormGroup({
             states: new FormControl(queryParamMap.getAll('states') ?? []),
-            placedAtStart: new FormControl(queryParamMap.get('placedAtStart')),
-            placedAtEnd: new FormControl(queryParamMap.get('placedAtEnd')),
+            //placedAtStart: new FormControl(queryParamMap.get('placedAtStart')),
+            //placedAtEnd: new FormControl(queryParamMap.get('placedAtEnd')),
         });
 
         this.paginationConfig$ = combineLatest(this.itemsPerPage$, this.currentPage$, this.totalItems$).pipe(
             map(([itemsPerPage, currentPage, totalItems]) => ({ itemsPerPage, currentPage, totalItems })),
         );
+
+        this.countOrderByStatus$ = this.dataService.query<any, any>(COUNT_ORDER_BY_STATUS, {}).refetchOnChannelChange().mapStream(res => {
+            var obj = {};
+            console.log(res);
+            if(res.countOrderByStatus){
+                let newStatus = res.countOrderByStatus.filter(o => o.state == 'PaymentAuthorized' || o.state == 'PaymentSettled');
+                obj['new'] = newStatus.length ? newStatus.map(o => o.count ).reduce((pre, cur) => parseInt(pre) + parseInt(cur)) : 0;
+                let upcommingStatus = res.countOrderByStatus.filter(o => o.state == 'Created' || o.state == 'AddingItems' || o.state == 'ArrangingPayment' || o.state == 'ArrangingAdditionalPayment');
+                obj['upcomming'] = upcommingStatus.length ? upcommingStatus.map(o => o.count ).reduce((pre, cur) => parseInt(pre) + parseInt(cur)) : 0;
+                let packStatus = res.countOrderByStatus.filter(o => o.state == 'Packed');
+                obj['packed'] = packStatus.length ? packStatus[0].count : 0;
+                let handoverStatus = res.countOrderByStatus.filter(o => o.state == 'Handover');
+                obj['handover'] = handoverStatus.length ? handoverStatus[0].count : 0;
+                let transitStatus = res.countOrderByStatus.filter(o => o.state == 'Shipped' || o.state == 'PartiallyShipped');
+                obj['transit'] = transitStatus.length ? transitStatus.map(o => o.count ).reduce((pre, cur) => parseInt(pre) + parseInt(cur)) : 0;
+                let deliveredStatus = res.countOrderByStatus.filter(o => o.state == 'Delivered');
+                obj['delivered'] = deliveredStatus.length ? deliveredStatus[0].count : 0;
+                let cancelledStatus = res.countOrderByStatus.filter(o => o.state == 'Cancelled');
+                obj['cancelled'] = cancelledStatus.length ? cancelledStatus[0].count : 0;
+                let returnedStatus = res.countOrderByStatus.filter(o => o.state == 'Returned');
+                obj['returned'] = returnedStatus.length ? returnedStatus[0].count : 0;
+            }
+            return obj;
+        }).pipe(shareReplay(1));;
 
     }
 
@@ -155,6 +185,7 @@ export class OrderListComponent
     }
 
     selectFilterPreset(presetName: string) {
+        
         const lastCustomFilters = this.localStorageService.get('orderListLastCustomFilters') ?? {};
         const emptyCustomFilters = { states: undefined, placedAtStart: undefined, placedAtEnd: undefined };
         const filters = presetName === 'custom' ? lastCustomFilters : emptyCustomFilters;
@@ -172,13 +203,18 @@ export class OrderListComponent
         const formValue = this.customFilterForm.value;
         const customFilters = {
             states: formValue.states,
-            placedAtStart: formValue.placedAtStart,
-            placedAtEnd: formValue.placedAtEnd,
+            placedAtStart: this.selectedDate.startDate ? (this.selectedDate.startDate as any).toISOString() : undefined,//formValue.placedAtStart,
+            placedAtEnd: this.selectedDate.endDate ? (this.selectedDate.endDate as any).toISOString() : undefined//formValue.placedAtEnd,
         };
+        const queryParams = this.route.snapshot.queryParamMap;
+        const filter = queryParams.get('filter') || 'new';
         this.setQueryParam({
-            filter: 'custom',
+            filter: filter,
+            page: 1,
             ...customFilters,
-        });
+        },
+        { replaceUrl: true },
+        );
         this.customFilterForm.markAsPristine();
         this.localStorageService.set('orderListLastCustomFilters', customFilters);
     }
@@ -198,16 +234,17 @@ export class OrderListComponent
                     in: filterConfig.config.states,
                 };
             }
-        } else if (activeFilterPreset === 'custom') {
+        } 
+        //else if (activeFilterPreset === 'custom') {
             const queryParams = this.route.snapshot.queryParamMap;
-            const states = queryParams.getAll('states') ?? [];
+            //const states = queryParams.getAll('states') ?? [];
             const placedAtStart = queryParams.get('placedAtStart');
             const placedAtEnd = queryParams.get('placedAtEnd');
-            if (states.length) {
-                filter.state = {
-                    in: states,
-                };
-            }
+            // if (states.length) {
+            //     filter.state = {
+            //         in: states,
+            //     };
+            // }
             if (placedAtStart && placedAtEnd) {
                 filter.orderPlacedAt = {
                     between: {
@@ -224,7 +261,7 @@ export class OrderListComponent
                     before: placedAtEnd,
                 };
             }
-        }
+        //}
         return {
             options: {
                 skip,

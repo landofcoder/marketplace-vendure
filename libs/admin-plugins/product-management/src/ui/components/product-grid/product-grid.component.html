@@ -1,4 +1,4 @@
-<vdr-action-bar>
+<vdr-action-bar class="relative">
     <vdr-ab-left>
         <input
                 type="text"
@@ -21,26 +21,31 @@
     <label class="clr-control-label">Filter</label>
     <div class="clr-control-container clr-control-inline display-flex">
         <label class="clr-control-label">Status</label>
-        <div class="clr-radio-wrapper">
+        <!-- <div class="clr-radio-wrapper">
             <input type="radio" id="radio-status1" name="radio-status" class="clr-radio" value="" [(ngModel)]="status" (change)="refresh()">
             <label for="radio-status1" class="clr-control-label">All</label>
+        </div> -->
+        <div class="clr-radio-wrapper">
+            <input type="radio" id="radio-status3" name="radio-status" class="clr-radio"  value="Approval" [(ngModel)]="status" (change)="refresh()">
+            <label for="radio-status3" class="clr-control-label">Approval</label>
         </div>
         <div class="clr-radio-wrapper">
-            <input type="radio" id="radio-status2" name="radio-status" class="clr-radio" value="true" [(ngModel)]="status" (change)="refresh()">
-            <label for="radio-status2" class="clr-control-label">Active</label>
+            <input type="radio" id="radio-status2" name="radio-status" class="clr-radio" value="Pending" [(ngModel)]="status" (change)="refresh()">
+            <label for="radio-status2" class="clr-control-label">Pending</label>
         </div>
         <div class="clr-radio-wrapper">
-            <input type="radio" id="radio-status3" name="radio-status" class="clr-radio"  value="false" [(ngModel)]="status" (change)="refresh()">
-            <label for="radio-status3" class="clr-control-label">Inactive</label>
+            <input type="radio" id="radio-status4" name="radio-status" class="clr-radio"  value="Reject" [(ngModel)]="status" (change)="refresh()">
+            <label for="radio-status4" class="clr-control-label">Reject</label>
         </div>
+
     </div>
 
     <div class="clr-control-container clr-control-inline display-flex">
         <label class="clr-control-label">Inventory</label>
-        <div class="clr-radio-wrapper">
+        <!-- <div class="clr-radio-wrapper">
             <input type="radio" id="radio-inventory1" name="radio-inventory" class="clr-radio" value="" [(ngModel)]="stock" (change)="refresh()">
             <label for="radio-inventory1" class="clr-control-label">All</label>
-        </div>
+        </div> -->
         <div class="clr-radio-wrapper">
             <input type="radio" id="radio-inventory2" name="radio-inventory" class="clr-radio" value="true" [(ngModel)]="stock" (change)="refresh()">
             <label for="radio-inventory2" class="clr-control-label">In stock</label>
@@ -56,6 +61,7 @@
     <clr-dg-column>Status</clr-dg-column>
     <clr-dg-column>Image</clr-dg-column>
     <clr-dg-column>Name</clr-dg-column>
+    <clr-dg-column>Seller Name</clr-dg-column>
     <clr-dg-column class="right align-middle">
         <button type="button" class="btn btn-sm btn-danger" style="margin: 0;" (click)="saveAllChange()">
             {{ 'save all' | translate }}
@@ -68,10 +74,22 @@
             [(clrDgSelected)]="item.selected"
     >
         <clr-dg-cell>
-            <!-- to do set click vdr chip -->
-            <vdr-chip [colorType]="item.enabled ? 'success' : 'none'" (click)="item.enabled=!item.enabled">
-                {{ item.enabled ? ('common.enabled' | translate) : ('common.disabled' | translate) }}
-            </vdr-chip>
+            <clr-select-container *vdrIfPermissions="'SuperAdmin'; else statusLabel" >
+                <select
+                    clrSelect
+                    name="status"
+                    [ngModel]="item.customFields.status"
+                    (change)="changeState(item, $event.target.value)"
+                >
+                    <option value="Approval"> Approval </option>
+                    <option value="Reject"> Reject </option>
+                    <option value="Pending"> Pending </option>
+            </select>
+            </clr-select-container>
+            <ng-template #statusLabel>
+                <label class="clr-control-label">{{ item.customFields.status}}</label>
+            </ng-template>
+
         </clr-dg-cell>
         <clr-dg-cell>
             <div class="image-placeholder">
@@ -79,8 +97,16 @@
             </div>
         </clr-dg-cell>
         <clr-dg-cell>
-            <input type="text" [value]="item.translations[0].name" [(ngModel)]="item.translations[0].name"
-                (ngModelChange)="item.selected=true" />
+
+            <a class="btn btn-link btn-sm" [href]=" storefont + '/product/' + item.slug">
+                {{ item.translations[0].name }}
+            </a>
+
+        </clr-dg-cell>
+        <clr-dg-cell>
+
+                {{ item.channels[item.channels.length - 1].code }}
+
         </clr-dg-cell>
         <clr-dg-cell>
             <vdr-dropdown>

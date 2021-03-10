@@ -3336,7 +3336,7 @@ export enum VerifyResult {
 export type VerifyResponse = {
   __typename?: 'VerifyResponse';
   result: VerifyResult;
-  message?: Maybe<Scalars['String']>;
+  brand?: Maybe<Scalars['String']>;
 };
 
 export type PaymentMethodListOptions = {

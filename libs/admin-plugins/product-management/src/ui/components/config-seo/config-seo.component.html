@@ -1,0 +1,34 @@
+
+<vdr-action-bar>
+
+   <vdr-ab-right>
+       <vdr-action-bar-items locationId="ecomexpress-account-detail"></vdr-action-bar-items>
+       <button
+           class="btn btn-primary"
+           (click)="save()"
+           [disabled]="!saveButtonEnabled()"
+       >
+           {{ 'common.update' | translate }}
+       </button>
+   </vdr-ab-right>
+</vdr-action-bar>
+
+<form class="form" [formGroup]="detailForm">
+
+   <vdr-form-field [label]="'seo_config.title' | translate" for="title">
+       <input id="title" type="text" formControlName="title" />
+   </vdr-form-field>
+   <vdr-form-field [label]="'seo_config.titleTemplate' | translate" for="titleTemplate">
+       <input id="titleTemplate" type="text" formControlName="titleTemplate" />
+   </vdr-form-field>
+    <vdr-form-field [label]="'seo_config.description' | translate" for="description">
+        <input id="description" type="text" formControlName="description" />
+    </vdr-form-field>
+    <vdr-form-field [label]="'seo_config.url' | translate" for="url">
+        <input id="url" type="text" formControlName="url" />
+    </vdr-form-field>
+    <vdr-form-field [label]="'seo_config.site_name' | translate" for="site_name">
+        <input id="site_name" type="text" formControlName="site_name" />
+    </vdr-form-field>
+
+</form>

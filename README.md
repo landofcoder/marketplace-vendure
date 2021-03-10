@@ -1,9 +1,8 @@
-# Landofcoder Headless Marketplace
-PWA storefront, headless ecommerce, vendure.io
+Swarajshop.com
 
 ## Setup project
 
-1. clone code https://github.com/landofcoder/marketplace-vendure
+1. clone code https://github.com/ecomteck/swarajshop-marketplace
 2. run $ yarn
 3. build admin ui. $ yarn workspace @bavaan/ui-devkit build
 4. get data: $ yarn workspace @bavaan/admin run populate

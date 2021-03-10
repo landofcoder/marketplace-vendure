@@ -37,10 +37,10 @@ const Verify = () => {
                       appearance: "success",
                       autoDismiss: true,
                   });
-                  router.push("/customer/login");
+                  router.push(`/shop/${res.data.verifyVendorAccount.brand}/shop_store_home`);
               } else {
-                  addToast("Verified account sucessfully!", {
-                      appearance: "success",
+                  addToast("Verified error!", {
+                      appearance: "error",
                       autoDismiss: true,
                   });
               }

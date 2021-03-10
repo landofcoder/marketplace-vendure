@@ -85,7 +85,13 @@ export type Query = {
   subscriber?: Maybe<Subscriber>;
   newsletters: NewsletterList;
   newsletter?: Maybe<Newsletter>;
+  productRecommendations: Array<ProductRecommendation>;
   productTierPrices: Array<TierPrice>;
+  pincodes: PincodeList;
+  pincode?: Maybe<Pincode>;
+  checkPincode: Pincode;
+  shippingCountry?: Maybe<ShippingCountryPrice>;
+  shippingCountries: ShippingCountryPriceList;
   productGrid: ProductList;
   getOrderListByChannel: OrderList;
   getVendorByBrand?: Maybe<Vendor>;
@@ -101,9 +107,7 @@ export type Query = {
   delhiveryWarehouseByChannelId?: Maybe<DelhiveryWarehouse>;
   delhiveryWarehouseByPickupName?: Maybe<DelhiveryWarehouse>;
   getPackingSlip?: Maybe<PackingSlip>;
-  pincodes: PincodeList;
-  pincode?: Maybe<Pincode>;
-  checkPincode: Pincode;
+  ecomexpressAccountConfig?: Maybe<EcomExpressAccount>;
 };
 
 
@@ -349,8 +353,38 @@ export type QueryNewsletterArgs = {
 };
 
 
+export type QueryProductRecommendationsArgs = {
+  productId: Scalars['ID'];
+};
+
+
 export type QueryProductTierPricesArgs = {
   productId: Scalars['ID'];
+};
+
+
+export type QueryPincodesArgs = {
+  options?: Maybe<PincodeListOptions>;
+};
+
+
+export type QueryPincodeArgs = {
+  id: Scalars['ID'];
+};
+
+
+export type QueryCheckPincodeArgs = {
+  input: CheckPincodeInput;
+};
+
+
+export type QueryShippingCountryArgs = {
+  id: Scalars['ID'];
+};
+
+
+export type QueryShippingCountriesArgs = {
+  options?: Maybe<ShippingCountryPriceListOptions>;
 };
 
 
@@ -416,21 +450,6 @@ export type QueryDelhiveryWarehouseByPickupNameArgs = {
 
 export type QueryGetPackingSlipArgs = {
   trackingCode: Scalars['String'];
-};
-
-
-export type QueryPincodesArgs = {
-  options?: Maybe<PincodeListOptions>;
-};
-
-
-export type QueryPincodeArgs = {
-  id: Scalars['ID'];
-};
-
-
-export type QueryCheckPincodeArgs = {
-  input: CheckPincodeInput;
 };
 
 export type Mutation = {
@@ -612,8 +631,18 @@ export type Mutation = {
   deleteNewsletter: NewsletterDeleteReturn;
   deleteSubscriber: NewsletterDeleteReturn;
   deleteNewsletterQueue: NewsletterDeleteReturn;
+  updateCrossSellingProducts: Scalars['Boolean'];
+  updateUpSellingProducts: Scalars['Boolean'];
+  updateRelatedProducts: Scalars['Boolean'];
+  autoRelatedProducts: Scalars['Boolean'];
   updateProductVariantTierPrices: Scalars['Boolean'];
   updateProductVariantTierPricesBySku: Scalars['Boolean'];
+  createPincode: Pincode;
+  updatePincode: Pincode;
+  deletePincode: PincodeDeleteReturn;
+  createShippingCountry: ShippingCountryPrice;
+  updateShippingCountry: ShippingCountryPrice;
+  deleteShippingCountry: DeletionResponse;
   createVendor?: Maybe<Vendor>;
   createVendorInfo?: Maybe<VendorInfo>;
   createVendorBank?: Maybe<VendorBank>;
@@ -630,9 +659,7 @@ export type Mutation = {
   createDelhiveryWarehouse: DelhiveryWarehouse;
   updateDelhiveryWarehouse: DelhiveryWarehouse;
   fulfillOrder: AddFulfillmentToOrderResult;
-  createPincode: Pincode;
-  updatePincode: Pincode;
-  deletePincode: PincodeDeleteReturn;
+  updateEcomExpressConfig: EcomExpressAccount;
 };
 
 
@@ -1175,6 +1202,29 @@ export type MutationDeleteNewsletterQueueArgs = {
 };
 
 
+export type MutationUpdateCrossSellingProductsArgs = {
+  productId: Scalars['ID'];
+  productIds: Array<Scalars['ID']>;
+};
+
+
+export type MutationUpdateUpSellingProductsArgs = {
+  productId: Scalars['ID'];
+  productIds: Array<Scalars['ID']>;
+};
+
+
+export type MutationUpdateRelatedProductsArgs = {
+  productId: Scalars['ID'];
+  productIds: Array<Scalars['ID']>;
+};
+
+
+export type MutationAutoRelatedProductsArgs = {
+  productId: Scalars['ID'];
+};
+
+
 export type MutationUpdateProductVariantTierPricesArgs = {
   productVariantId: Scalars['ID'];
   discounts: Array<TierPriceInput>;
@@ -1184,6 +1234,36 @@ export type MutationUpdateProductVariantTierPricesArgs = {
 export type MutationUpdateProductVariantTierPricesBySkuArgs = {
   productVariantSku: Scalars['String'];
   discounts: Array<TierPriceInput>;
+};
+
+
+export type MutationCreatePincodeArgs = {
+  input: CreatePincodeInput;
+};
+
+
+export type MutationUpdatePincodeArgs = {
+  input: UpdatePincodeInput;
+};
+
+
+export type MutationDeletePincodeArgs = {
+  id: Scalars['ID'];
+};
+
+
+export type MutationCreateShippingCountryArgs = {
+  input: CreateShippingCountryInput;
+};
+
+
+export type MutationUpdateShippingCountryArgs = {
+  input: UpdateShippingCountryInput;
+};
+
+
+export type MutationDeleteShippingCountryArgs = {
+  id: Scalars['ID'];
 };
 
 
@@ -1269,18 +1349,8 @@ export type MutationFulfillOrderArgs = {
 };
 
 
-export type MutationCreatePincodeArgs = {
-  input: CreatePincodeInput;
-};
-
-
-export type MutationUpdatePincodeArgs = {
-  input: UpdatePincodeInput;
-};
-
-
-export type MutationDeletePincodeArgs = {
-  id: Scalars['ID'];
+export type MutationUpdateEcomExpressConfigArgs = {
+  input: EcomExpressInput;
 };
 
 export type CreateAdministratorInput = {
@@ -1603,7 +1673,7 @@ export type Fulfillment = Node & {
   state: Scalars['String'];
   method: Scalars['String'];
   trackingCode?: Maybe<Scalars['String']>;
-  customFields?: Maybe<Scalars['JSON']>;
+  customFields?: Maybe<FulfillmentCustomFields>;
 };
 
 export type UpdateGlobalSettingsInput = {
@@ -1630,7 +1700,7 @@ export type UpdateGlobalSettingsResult = GlobalSettings | ChannelDefaultLanguage
 /**
  * @description
  * The state of a Job in the JobQueue
- * 
+ *
  * @docsCategory common
  */
 export enum JobState {
@@ -1730,6 +1800,7 @@ export type FulfillOrderInput = {
   orderWeight?: Maybe<Scalars['Int']>;
   packageAmount?: Maybe<Scalars['Float']>;
   orderId?: Maybe<Scalars['ID']>;
+  courier?: Maybe<Scalars['String']>;
 };
 
 export type CancelOrderInput = {
@@ -2364,7 +2435,7 @@ export enum DeletionResult {
  * @description
  * Permissions for administrators and customers. Used to control access to
  * GraphQL resolvers via the {@link Allow} decorator.
- * 
+ *
  * @docsCategory common
  */
 export enum Permission {
@@ -2628,7 +2699,7 @@ export type EmailAddressConflictError = ErrorResult & {
 /**
  * @description
  * ISO 4217 currency code
- * 
+ *
  * @docsCategory common
  */
 export enum CurrencyCode {
@@ -3062,7 +3133,7 @@ export type CustomFieldConfig = StringCustomFieldConfig | LocaleStringCustomFiel
  * region or script modifier (e.g. de_AT). The selection available is based
  * on the [Unicode CLDR summary list](https://unicode-org.github.io/cldr-staging/charts/37/summary/root.html)
  * and includes the major spoken languages of the world and any widely-used variants.
- * 
+ *
  * @docsCategory common
  */
 export enum LanguageCode {
@@ -4389,6 +4460,19 @@ export type DeleteNewsletterQueueInput = {
   finishAt?: Maybe<Scalars['String']>;
 };
 
+export enum RecommendationType {
+  Crosssell = 'CROSSSELL',
+  Upsell = 'UPSELL',
+  Related = 'RELATED'
+}
+
+export type ProductRecommendation = {
+  __typename?: 'ProductRecommendation';
+  product: Product;
+  recommendation: Product;
+  type: RecommendationType;
+};
+
 export type TierPrice = {
   __typename?: 'TierPrice';
   productVariant: ProductVariant;
@@ -4398,6 +4482,92 @@ export type TierPrice = {
 
 export type TierPriceInput = {
   quantity: Scalars['Int'];
+  price: Scalars['Float'];
+};
+
+export type Pincode = Node & {
+  __typename?: 'Pincode';
+  createdAt: Scalars['DateTime'];
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  pincode?: Maybe<Scalars['Int']>;
+  state?: Maybe<Scalars['String']>;
+  district?: Maybe<Scalars['String']>;
+  prepaid?: Maybe<Scalars['Boolean']>;
+  cod?: Maybe<Scalars['Boolean']>;
+  pickup?: Maybe<Scalars['Boolean']>;
+  cash?: Maybe<Scalars['Boolean']>;
+  repl?: Maybe<Scalars['Boolean']>;
+};
+
+export type PincodeList = PaginatedList & {
+  __typename?: 'PincodeList';
+  items: Array<Pincode>;
+  totalItems: Scalars['Int'];
+};
+
+export type PincodeDeleteReturn = {
+  __typename?: 'PincodeDeleteReturn';
+  error?: Maybe<Scalars['String']>;
+  message?: Maybe<Scalars['String']>;
+};
+
+export type PincodeListOptions = {
+  skip: Scalars['Int'];
+  take: Scalars['Int'];
+  sort?: Maybe<PincodeSortParameter>;
+  filter?: Maybe<PincodeFilterParameter>;
+};
+
+export type CheckPincodeInput = {
+  pincode: Scalars['String'];
+  productWeight?: Maybe<Scalars['Int']>;
+};
+
+export type UpdatePincodeInput = {
+  id: Scalars['ID'];
+  pincode?: Maybe<Scalars['Int']>;
+  state?: Maybe<Scalars['String']>;
+  district?: Maybe<Scalars['String']>;
+  prepaid?: Maybe<Scalars['Boolean']>;
+  cod?: Maybe<Scalars['Boolean']>;
+  pickup?: Maybe<Scalars['Boolean']>;
+  cash?: Maybe<Scalars['Boolean']>;
+  repl?: Maybe<Scalars['Boolean']>;
+};
+
+export type CreatePincodeInput = {
+  pincode?: Maybe<Scalars['Int']>;
+  state?: Maybe<Scalars['String']>;
+  district?: Maybe<Scalars['String']>;
+  prepaid?: Maybe<Scalars['Boolean']>;
+  cod?: Maybe<Scalars['Boolean']>;
+  pickup?: Maybe<Scalars['Boolean']>;
+  cash?: Maybe<Scalars['Boolean']>;
+  repl?: Maybe<Scalars['Boolean']>;
+};
+
+export type ShippingCountryPrice = Node & {
+  __typename?: 'ShippingCountryPrice';
+  id: Scalars['ID'];
+  country_code: Scalars['String'];
+  country_name: Scalars['String'];
+  price: Scalars['Float'];
+};
+
+export type ShippingCountryPriceList = PaginatedList & {
+  __typename?: 'ShippingCountryPriceList';
+  items: Array<ShippingCountryPrice>;
+  totalItems: Scalars['Int'];
+};
+
+export type CreateShippingCountryInput = {
+  country_code: Scalars['String'];
+  price: Scalars['Float'];
+};
+
+export type UpdateShippingCountryInput = {
+  id: Scalars['ID'];
   price: Scalars['Float'];
 };
 
@@ -4608,7 +4778,7 @@ export enum VerifyResult {
 export type VerifyResponse = {
   __typename?: 'VerifyResponse';
   result: VerifyResult;
-  message?: Maybe<Scalars['String']>;
+  brand?: Maybe<Scalars['String']>;
 };
 
 
@@ -4811,65 +4981,19 @@ export type PackingSlip = {
   rpin?: Maybe<Scalars['Int']>;
 };
 
-export type Pincode = Node & {
-  __typename?: 'Pincode';
-  createdAt: Scalars['DateTime'];
-  updatedAt: Scalars['DateTime'];
+export type EcomExpressAccount = Node & {
+  __typename?: 'EcomExpressAccount';
   id: Scalars['ID'];
-  pincode?: Maybe<Scalars['Int']>;
-  state?: Maybe<Scalars['String']>;
-  district?: Maybe<Scalars['String']>;
-  prepaid?: Maybe<Scalars['Boolean']>;
-  cod?: Maybe<Scalars['Boolean']>;
-  pickup?: Maybe<Scalars['Boolean']>;
-  cash?: Maybe<Scalars['Boolean']>;
-  repl?: Maybe<Scalars['Boolean']>;
+  username?: Maybe<Scalars['String']>;
+  password?: Maybe<Scalars['String']>;
+  production?: Maybe<Scalars['Boolean']>;
 };
 
-export type PincodeList = PaginatedList & {
-  __typename?: 'PincodeList';
-  items: Array<Pincode>;
-  totalItems: Scalars['Int'];
-};
-
-export type PincodeDeleteReturn = {
-  __typename?: 'PincodeDeleteReturn';
-  error?: Maybe<Scalars['String']>;
-  message?: Maybe<Scalars['String']>;
-};
-
-export type PincodeListOptions = {
-  skip: Scalars['Int'];
-  take: Scalars['Int'];
-  sort?: Maybe<PincodeSortParameter>;
-  filter?: Maybe<PincodeFilterParameter>;
-};
-
-export type CheckPincodeInput = {
-  pincode: Scalars['Int'];
-};
-
-export type UpdatePincodeInput = {
-  id: Scalars['ID'];
-  pincode?: Maybe<Scalars['Int']>;
-  state?: Maybe<Scalars['String']>;
-  district?: Maybe<Scalars['String']>;
-  prepaid?: Maybe<Scalars['Boolean']>;
-  cod?: Maybe<Scalars['Boolean']>;
-  pickup?: Maybe<Scalars['Boolean']>;
-  cash?: Maybe<Scalars['Boolean']>;
-  repl?: Maybe<Scalars['Boolean']>;
-};
-
-export type CreatePincodeInput = {
-  pincode?: Maybe<Scalars['Int']>;
-  state?: Maybe<Scalars['String']>;
-  district?: Maybe<Scalars['String']>;
-  prepaid?: Maybe<Scalars['Boolean']>;
-  cod?: Maybe<Scalars['Boolean']>;
-  pickup?: Maybe<Scalars['Boolean']>;
-  cash?: Maybe<Scalars['Boolean']>;
-  repl?: Maybe<Scalars['Boolean']>;
+export type EcomExpressInput = {
+  id?: Maybe<Scalars['ID']>;
+  username: Scalars['String'];
+  password: Scalars['String'];
+  production: Scalars['Boolean'];
 };
 
 export type AdministratorListOptions = {
@@ -4982,6 +5106,26 @@ export type ProductReviewListOptions = {
   take?: Maybe<Scalars['Int']>;
   sort?: Maybe<ProductReviewSortParameter>;
   filter?: Maybe<ProductReviewFilterParameter>;
+};
+
+export type ShippingCountryPriceListOptions = {
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  sort?: Maybe<ShippingCountryPriceSortParameter>;
+  filter?: Maybe<ShippingCountryPriceFilterParameter>;
+};
+
+export type ShippingCountryPriceSortParameter = {
+  id?: Maybe<SortOrder>;
+  country_code?: Maybe<SortOrder>;
+  country_name?: Maybe<SortOrder>;
+  price?: Maybe<SortOrder>;
+};
+
+export type ShippingCountryPriceFilterParameter = {
+  country_code?: Maybe<StringOperators>;
+  country_name?: Maybe<StringOperators>;
+  price?: Maybe<NumberOperators>;
 };
 
 export type VendorListOptions = {
@@ -5217,6 +5361,7 @@ export type ProductFilterParameter = {
   description?: Maybe<StringOperators>;
   reviewRating?: Maybe<NumberOperators>;
   reviewCount?: Maybe<NumberOperators>;
+  productRecommendationsEnabled?: Maybe<BooleanOperators>;
   isInStock?: Maybe<BooleanOperators>;
 };
 
@@ -5229,6 +5374,7 @@ export type ProductSortParameter = {
   description?: Maybe<SortOrder>;
   reviewRating?: Maybe<SortOrder>;
   reviewCount?: Maybe<SortOrder>;
+  productRecommendationsEnabled?: Maybe<SortOrder>;
   isInStock?: Maybe<SortOrder>;
 };
 
@@ -5442,6 +5588,28 @@ export type NewsletterSortParameter = {
   type?: Maybe<SortOrder>;
 };
 
+export type PincodeFilterParameter = {
+  createdAt?: Maybe<DateOperators>;
+  updatedAt?: Maybe<DateOperators>;
+  pincode?: Maybe<NumberOperators>;
+  state?: Maybe<StringOperators>;
+  district?: Maybe<StringOperators>;
+  prepaid?: Maybe<BooleanOperators>;
+  cod?: Maybe<BooleanOperators>;
+  pickup?: Maybe<BooleanOperators>;
+  cash?: Maybe<BooleanOperators>;
+  repl?: Maybe<BooleanOperators>;
+};
+
+export type PincodeSortParameter = {
+  createdAt?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  pincode?: Maybe<SortOrder>;
+  state?: Maybe<SortOrder>;
+  district?: Maybe<SortOrder>;
+};
+
 export type VendorFilterParameter = {
   firstName?: Maybe<StringOperators>;
   lastName?: Maybe<StringOperators>;
@@ -5515,28 +5683,6 @@ export type DelhiveryWarehouseSortParameter = {
   channelId?: Maybe<SortOrder>;
 };
 
-export type PincodeFilterParameter = {
-  createdAt?: Maybe<DateOperators>;
-  updatedAt?: Maybe<DateOperators>;
-  pincode?: Maybe<NumberOperators>;
-  state?: Maybe<StringOperators>;
-  district?: Maybe<StringOperators>;
-  prepaid?: Maybe<BooleanOperators>;
-  cod?: Maybe<BooleanOperators>;
-  pickup?: Maybe<BooleanOperators>;
-  cash?: Maybe<BooleanOperators>;
-  repl?: Maybe<BooleanOperators>;
-};
-
-export type PincodeSortParameter = {
-  createdAt?: Maybe<SortOrder>;
-  updatedAt?: Maybe<SortOrder>;
-  id?: Maybe<SortOrder>;
-  pincode?: Maybe<SortOrder>;
-  state?: Maybe<SortOrder>;
-  district?: Maybe<SortOrder>;
-};
-
 export type ProductVariantFilterParameter = {
   enabled?: Maybe<BooleanOperators>;
   trackInventory?: Maybe<StringOperators>;
@@ -5596,6 +5742,11 @@ export type HistoryEntrySortParameter = {
   updatedAt?: Maybe<SortOrder>;
 };
 
+export type FulfillmentCustomFields = {
+  __typename?: 'FulfillmentCustomFields';
+  courier?: Maybe<Scalars['String']>;
+};
+
 export type GlobalSettingsCustomFields = {
   __typename?: 'GlobalSettingsCustomFields';
   receivedEmailAddress?: Maybe<Scalars['String']>;
@@ -5634,18 +5785,21 @@ export type ProductCustomFields = {
   __typename?: 'ProductCustomFields';
   reviewRating?: Maybe<Scalars['Float']>;
   reviewCount?: Maybe<Scalars['Float']>;
+  productRecommendationsEnabled?: Maybe<Scalars['Boolean']>;
   isInStock?: Maybe<Scalars['Boolean']>;
 };
 
 export type CreateProductCustomFieldsInput = {
   reviewRating?: Maybe<Scalars['Float']>;
   reviewCount?: Maybe<Scalars['Float']>;
+  productRecommendationsEnabled?: Maybe<Scalars['Boolean']>;
   isInStock?: Maybe<Scalars['Boolean']>;
 };
 
 export type UpdateProductCustomFieldsInput = {
   reviewRating?: Maybe<Scalars['Float']>;
   reviewCount?: Maybe<Scalars['Float']>;
+  productRecommendationsEnabled?: Maybe<Scalars['Boolean']>;
   isInStock?: Maybe<Scalars['Boolean']>;
 };
 

@@ -76,7 +76,9 @@ const ProductDescription = ({
         )}
       </div>
       <div className="product-content__description space-mb--30">
-        <p>{product.shortDescription}</p>
+        {
+          product.shortDescription && <div dangerouslySetInnerHTML={{ __html: product.shortDescription}} />
+        }
       </div>
       <RenderOptionSelect
         selectedProduct={selectedProduct}

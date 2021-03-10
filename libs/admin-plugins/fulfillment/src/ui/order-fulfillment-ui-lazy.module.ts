@@ -2,6 +2,8 @@ import { NgModule, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/cor
 import { RouterModule } from '@angular/router';
 import { SharedModule } from "@vendure/admin-ui/core";
 import { marker } from "@biesbjerg/ngx-translate-extract-marker";
+import { FormsModule } from "@angular/forms";
+import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 import { OrderListComponent } from "./components/order-list/order-list.component";
 import { OrderDetailPopupComponent } from "./components/order-detail/order-detail.component";
 import {FulfillOrderDialogComponent} from "./components/fulfill-order-dialog/fulfill-order-dialog.component";
@@ -26,10 +28,13 @@ import {FulfillmentCardComponent} from "./components/fulfillment-card/fulfillmen
 import { RefundOrderDialogComponent } from './components/refund-order-dialog/refund-order-dialog.component';
 import {PrintOrderDetailComponent} from "./components/print-invoice/print-order-detail.component";
 import {PackingSlipComponent} from "./components/print-packing-slip/packing-slip.component";
+import {OrderListLinesComponent} from "./components/order-list/order-list-lines/order-list-lines.component";
 
 @NgModule({
     imports: [
         SharedModule,
+        FormsModule,
+        NgxDaterangepickerMd.forRoot(),
         RouterModule.forChild([
             {
                 path: 'orders',
@@ -70,6 +75,7 @@ import {PackingSlipComponent} from "./components/print-packing-slip/packing-slip
         FulfillmentCardComponent,
         PrintOrderDetailComponent,
         PackingSlipComponent,
+        OrderListLinesComponent,
     ],
     providers: [
     ]

@@ -8,6 +8,7 @@ query GetProductListCustomize($options: ProductListOptions) {
               id
               enabled
               languageCode
+              slug
               translations{
                 id
                 name
@@ -22,6 +23,12 @@ query GetProductListCustomize($options: ProductListOptions) {
               facetValues{
                 id
                 name
+              }
+              channels{
+                code
+              }
+              customFields{
+                status
               }
               variants {
                 id

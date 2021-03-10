@@ -4,6 +4,8 @@ export const convertRefToObject = (refsArray) => {
         const [key, ref] = entry;
         if(ref.value){
             resultConverting[`${key}`] = ref.value
+        }else if(ref.state){
+            resultConverting[`${key}`] = ref.state.value.value
         }
     });
    console.log(resultConverting)

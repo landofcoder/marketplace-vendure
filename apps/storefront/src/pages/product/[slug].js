@@ -37,6 +37,7 @@ import {
 import {GET_PRODUCT_RECENTLY_VIEWED} from "@bavaan/graphql/product/product-list.graphql";
 import ProductGridThreeWrapper from "../../components/ProductThumb/ProductGridThreeWrapper";
 import Swiper from "react-id-swiper";
+import { NextSeo } from 'next-seo';
 
 const ProductDetailPlaceHolder = (
   <div>
@@ -164,6 +165,23 @@ const ProductDetail = ({
         customPlaceholder={ProductDetailPlaceHolder}
         ready={!(queryProductDetail.loading || !queryProductDetail.data)}
       >
+        <NextSeo
+        title={product.name}
+        description={product.description}
+        openGraph={{
+          type: 'website',
+          title: product.name,
+          description: product.description,
+          images: [
+            {
+              url: product.image,
+              width: 800,
+              height: 600,
+              alt: product.name,
+            },
+          ],
+        }}
+      />
         {/* product details */}
         <div className="product-details pt-3 space-mb--50">
             <div style={{display: "flex", flexDirection: "row", flexWrap: "wrap"}}>

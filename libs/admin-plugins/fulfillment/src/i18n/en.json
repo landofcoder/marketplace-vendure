@@ -10,7 +10,16 @@
       "package-amount": "Total package amount",
       "create-pack": "Create pack",
       "print-invoice": "Print Invoice",
-      "courier": "Courier company Name"
+      "courier": "Courier company Name",
+      "order_date": "Order Date"
+    },
+    "order_list": {
+      "product_info": "Product Information",
+      "range": "Order date range"
     }
+  },
+  "state": {
+    "pack": "Pack",
+    "handover": "Handover"
   }
 }

@@ -7,6 +7,7 @@ export const VERIFY_SELLER  = gql`
             password: $password
         ) {
             result
+            brand
         }
     }
 `;

@@ -11,16 +11,17 @@ import {
     Order,
     OrderItem,
     TransactionalConnection,
-    patchEntity
+    patchEntity, OrderState
 } from "@vendure/core";
 import { CustomizeMutationFulfillOrderArgs } from "../../type";
 import { DelhiveryApiService } from "@bavaan/vendure-delhivery-plugin";
 import { VendorService } from '@bavaan/vendure-order-vendor-plugin';
 import { DelhiveryWarehouseService } from "@bavaan/vendure-delhivery-plugin/src/services/delhivery-warehouse.service";
-import {QueryGetPackingSlipArgs} from "../../generated-admin-types";
+import {QueryCountOrderByStatusArgs, QueryGetPackingSlipArgs} from "../../generated-admin-types";
 import { Vendor } from '@bavaan/vendure-order-vendor-plugin/src/entities/vendor.entity';
 import {EcomExpressApiService} from "@bavaan/vendure-ecomexpress-plugin/src/services/ecom-express-api.service";
 import { Fulfillment } from "@vendure/core/dist/entity/fulfillment/fulfillment.entity"
+import {QueryContactsArgs} from "@bavaan/vendure-contact-plugin/src/generated-admin-types";
 
 @Resolver()
 export class FulfillmentOrderResolver {
@@ -48,20 +49,26 @@ export class FulfillmentOrderResolver {
         });
         let channelCode: string|any = orderInfo?.channels && orderInfo.channels.length > 1 ? orderInfo.channels[1].code : orderInfo?.channels[0].code;
         let vendorInfo = await this.vendorService.findVendorByChannelCode(channelCode);
+        let response: any;
         if (args.input.method == "delhivery_shipping_method") {
-            return this.fulfillByDehlivery(ctx, args, orderInfo, vendorInfo);
+            response = await this.fulfillByDehlivery(ctx, args, orderInfo, vendorInfo);
         } else if (args.input.method == "ecomexpress_shipping_method"){
-            return this.fulfillByEcomExpress(ctx, args, orderInfo, vendorInfo);
+            response= await this.fulfillByEcomExpress(ctx, args, orderInfo, vendorInfo);
         } else if (args.input.method == "manual_shipping_method") {
             let result = await this.orderService.createFulfillment(ctx, args.input) as any;
             if(!result.customFields.courier){
                 result.customFields.courier = args.input.courier;
-                result = await this.connection.getRepository(Fulfillment).save(result, {reload: true});
+                response = await this.connection.getRepository(Fulfillment).save(result, {reload: true});
             }
-            return result;
         }
         else {
             throw new Error("Must choose method")
+        }
+        if(response){
+            await this.orderService.transitionToState(ctx,args.input.orderId,"Pack" as OrderState);
+            return response;
+        } else{
+            throw new Error("Error");
         }
     }
     
@@ -218,6 +225,26 @@ export class FulfillmentOrderResolver {
         } else {
             throw new Error("Delhivery Warehouse don't config! Please config Delhivery Warehouse!");
         }
+    }
+
+    @Query()
+    @Allow(Permission.UpdateOrder)
+    async countOrderByStatus(@Ctx() ctx: RequestContext, @Args() args: QueryCountOrderByStatusArgs){
+
+        const qb = this.connection
+            .getRepository(Order)
+            .createQueryBuilder('order')
+            .select("order.state AS state")
+            .addSelect("COUNT(*) AS count")
+            .leftJoin('order.channels', 'channel')
+            .andWhere('channel.id = :channelId', { channelId: ctx.channelId })
+            .groupBy("order.state");
+
+        let countOrderStatus = await qb.getRawMany();
+
+        // let returnOrder = await this.connection.getRepository(returnOrder)
+
+        return countOrderStatus;
     }
 
 }

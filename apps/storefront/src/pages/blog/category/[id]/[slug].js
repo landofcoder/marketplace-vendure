@@ -117,7 +117,7 @@ const Category = () => {
                 <Container>
                     <Row>
                         <Col className="space-mb--r130">
-                        <div className="pro-pagination-style">
+                        {/* <div className="pro-pagination-style">
                             {queryCountBlogPost.data ?
                                 <Paginator
                                     totalRecords={queryCountBlogPost.data.blogPostsConnection.aggregate.count}
@@ -132,7 +132,7 @@ const Category = () => {
                                 />
                                 : null
                             }
-                        </div>
+                        </div> */}
                         </Col>
                     </Row>
                 </Container>

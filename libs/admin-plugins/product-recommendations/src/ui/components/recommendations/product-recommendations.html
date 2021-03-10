@@ -1,5 +1,12 @@
 <div>
-  <input type="checkbox" [formControl]="formControl" />
+  <clr-checkbox-wrapper>
+    <input
+            type="checkbox"
+            clrCheckbox
+            [formControl]="formControl"
+    />
+
+  </clr-checkbox-wrapper>
   <div *ngIf="formControl.value">
     <div>Upsells</div>
     <ng-select [items]="(productSearchUpSell$ | async)?.search.items" [multiple]="true" [hideSelected]="true"

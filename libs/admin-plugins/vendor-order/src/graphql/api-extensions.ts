@@ -203,7 +203,7 @@ export const commonApiExtensions = gql`
     }
     type VerifyResponse {
         result: VerifyResult!
-        message: String
+        brand: String
     }
 
 `;

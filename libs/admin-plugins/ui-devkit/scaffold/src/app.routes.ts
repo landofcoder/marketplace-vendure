@@ -6,7 +6,7 @@ import { LoginModule } from './modules/login/login.module';
 import { extensionRoutes } from './extension.routes';
 
 export const routes: Route[] = [
-    { path: 'login', loadChildren: () => LoginModule },
+    { path: 'login', loadChildren: () => import('@vendure/admin-ui/login').then(m => m.LoginModule) },
     {
         path: '',
         canActivate: [AuthGuard],

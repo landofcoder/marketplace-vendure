@@ -24,6 +24,6 @@ export class VendorBank extends VendureEntity {
     @Column()
     type: string;
 
-    @Column()
+    @Column({default: ''})
     isCheck: string;
 }

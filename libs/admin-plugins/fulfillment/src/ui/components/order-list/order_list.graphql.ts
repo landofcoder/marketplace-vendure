@@ -35,3 +35,9 @@ export const GET_LIST_ORDERS = gql`
     }
     ${ORDER_FRAGMENT}
 `;
+
+export const COUNT_ORDER_BY_STATUS = gql`
+    query countOrderByStatus($filter: OrderFilterCondition){
+      countOrderByStatus(filter: $filter)
+    }
+`;

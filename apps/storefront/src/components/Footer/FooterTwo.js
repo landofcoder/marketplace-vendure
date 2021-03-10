@@ -151,7 +151,7 @@ const FooterTwo = ({ currentCustomer }) => {
                   <a href="/how-to-order">How To Order</a>
                 </li>
                 <li>
-                  <a href={process.env.ADMIN_URL + "/admin"}>Seller Account</a>
+                  <a href={process.env.ADMIN_URL + "/admin/vendor/info"}>Seller Account</a>
                 </li>
                 <li>
                   <a href={process.env.ADMIN_URL + "/admin/login"}>Seller Signup</a>

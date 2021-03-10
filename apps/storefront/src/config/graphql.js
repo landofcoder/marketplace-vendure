@@ -16,7 +16,7 @@ const links = {
           credentials: true
         }
     }),
-    shop: new HttpLink({ uri: 'http://localhost:3000/shop-api', credentials: 'include' })
+    shop: new HttpLink({ uri: 'http://0.0.0.0:3000/shop-api', credentials: 'include' })
 };
 const link = new ApolloLink(operation => {
     const definition = getMainDefinition(operation.query);

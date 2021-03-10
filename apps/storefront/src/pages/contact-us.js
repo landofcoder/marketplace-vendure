@@ -132,8 +132,7 @@ const Contact = ({ solveUpdateDirectData, currentCustomer, prevStep }) => {
                   <div className="icon-box__content">
                     <h3 className="title">ADDRESS</h3>
                     <p className="content">
-                      232 A Sai Krupa Co.Op.Society,Maharashtra
-                      Nagar,Appapada,Kurar Village,Malad East Mumbai 400097
+                      68 Nguyen Co Thach Street - Hanoi , 100000 - Vietnam
                     </p>
                   </div>
                 </div>
@@ -146,7 +145,7 @@ const Contact = ({ solveUpdateDirectData, currentCustomer, prevStep }) => {
                   <div className="icon-box__content">
                     <h3 className="title">CONTACT</h3>
                     <p className="content">
-                      8655076261 Mobile: (+86) – 550 – 76261{" "}
+                      Mobile: +84 0356535598
                     </p>
                   </div>
                 </div>
@@ -155,7 +154,7 @@ const Contact = ({ solveUpdateDirectData, currentCustomer, prevStep }) => {
                     <IoIosMail />
                   </div>
                   <div className="icon-box__content">
-                    <p className="content"> Mail: cs@swarajshop.com</p>
+                    <p className="content"> Mail: cs@storeofapp88@gmail.com</p>
                   </div>
                 </div>
               </Col>
@@ -182,10 +181,8 @@ const Contact = ({ solveUpdateDirectData, currentCustomer, prevStep }) => {
               <Col lg={12}>
                 <div className="google-map">
                   <iframe
-                    title="map"
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d942.0400863087226!2d72.864495!3d19.1881977!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b7101654ca03%3A0x823f761540584aa6!2sSai%20Kripa%20Medical%20Store!5e0!3m2!1sen!2s!4v1594000676956!5m2!1sen!2s"
-                    allowFullScreen
-                  />
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.964220232823!2d105.76310011450946!3d21.034117592972244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b947cd6e49%3A0x6a87974c6b44d671!2zNjggUGjhu5EgTmd1eeG7hW4gQ8ahIFRo4bqhY2gsIE3hu7kgxJDDrG5oLCBU4burIExpw6ptLCBIw6AgTuG7mWksIFZpZXRuYW0!5e0!3m2!1sen!2s!4v1615393746342!5m2!1sen!2s"
+                      width="600" height="450" style="border:0;" allowFullScreen="" loading="lazy"></iframe>
                 </div>
               </Col>
             </Row>

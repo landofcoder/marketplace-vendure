@@ -54,7 +54,7 @@ const BlogPlaceHolder = (
     </div>
 );
 const Blog = () => {
-    const [pageLimit, setPageLimit] = useState(3);
+    const [pageLimit, setPageLimit] = useState(1);
     const [offset, setOffset] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
     const [callApi, blogPostData] = useLazyQuery(
@@ -65,6 +65,7 @@ const Blog = () => {
     useEffect(() => {
         callApi({variables: {limit: pageLimit, start: currentPage}});
     }, [currentPage, pageLimit]);
+
     const blogCategoriesData = queryBlogCategories.data && queryBlogCategories.data.blogCategories ? queryBlogCategories.data.blogCategories : null;
     const blogTagsData = queryBlogTags.data && queryBlogTags.data.blogTags ? queryBlogTags.data.blogTags : null;
 
@@ -107,7 +108,7 @@ const Blog = () => {
                 : <ReactPlaceholder customPlaceholder={BlogPlaceHolder}
                                     ready={blogPostData.data}></ReactPlaceholder>
             }
-            <div className="blog-page-wrapper space-mb--r space-mt--r130">
+            {/* <div className="blog-page-wrapper space-mb--r space-mt--r130">
                 <Container>
                     <Row>
                         <Col className="space-mb--r130">
@@ -130,7 +131,7 @@ const Blog = () => {
                         </Col>
                     </Row>
                 </Container>
-            </div>
+            </div> */}
         </LayoutTwo>
     );
 };

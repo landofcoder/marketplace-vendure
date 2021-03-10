@@ -31,6 +31,19 @@ import {
 import CouponCode from "../../components/checkout/CouponCode";
 import Promotion from "../../components/checkout/Promotion";
 import { GET_ACTIVE_ORDER_VENDOR } from "@bavaan/graphql/cart/cart-drawer.graphql";
+import {MediaBlock, TextBlock} from "react-placeholder/lib/placeholders";
+import ReactPlaceholder from "react-placeholder";
+
+const CartPlaceHolder = (
+    <Container>
+      <Row>
+        <Col>
+          <TextBlock rows={10} color="#e2e2e2" />
+        </Col>
+      </Row>
+    </Container>
+);
+
 
 const Cart = ({
   decreaseQuantity,
@@ -66,14 +79,14 @@ const Cart = ({
   useEffect(() => {
     document.querySelector("body").classList.remove("overflow-hidden");
   });
-  let cartItems = useQuery(GET_ACTIVE_ORDER_VENDOR, {
+  let queryCartItems = useQuery(GET_ACTIVE_ORDER_VENDOR, {
     fetchPolicy: "network-only",
   });
-  cartItems = cartItems.data?.activeOrderVendors;
+  let cartItems = queryCartItems.data?.activeOrderVendors;
 
-  useEffect(() => {
-    assignPrevStep("/other/cart");
-  }, []);
+  // useEffect(() => {
+  //   assignPrevStep("/other/cart");
+  // }, []);
 
   if (cartItems != null && cartItems.length > 0) {
     formatter = formatterConvertCurrency(cartItems[0].currencyCode);
@@ -82,14 +95,18 @@ const Cart = ({
   return (
     <LayoutFive>
       {/* breadcrumb */}
+      <ReactPlaceholder
+          customPlaceholder={CartPlaceHolder}
+          ready={!(queryCartItems.loading || !queryCartItems.data)}
+      >
       <BreadcrumbOne
         pageTitle="Cart"
         backgroundImage="/assets/images/example/about-us/breadcrumb-example.png"
       >
         <ul className="breadcrumb__list">
-          <li>
+          <li style={{display: "inline"}}>
             <Link href="/" as={process.env.PUBLIC_URL + "/"}>
-              <a>Home</a>
+              <a>Home /</a>
             </Link>
           </li>
 
@@ -301,6 +318,7 @@ const Cart = ({
           )}
         </Container>
       </div>
+      </ReactPlaceholder>
     </LayoutFive>
   );
 };

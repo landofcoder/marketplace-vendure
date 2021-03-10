@@ -11,9 +11,7 @@
     margin-bottom: 6px;
 }
 
-.search-input {
-    margin-left: 6px;
-    margin-top: 6px;
+.style-input {
     min-width: 300px;
 }
 
@@ -47,4 +45,28 @@ ng-select {
     ::ng-deep .ng-select-container {
         height: 36px;
     }
+}
+
+.btn{
+    height: auto;
+    text-transform: none;
+    margin: 0;
+    p {
+        margin-top: 0.2rem;
+        margin-bottom: -0.5rem;
+    }
+}
+
+.btn-group{
+    margin-right: 1.5rem;
+}
+
+.filter{
+    display: inline-flex;
+    margin-bottom: -0.6rem;
+}
+
+.product-info {
+    width: 500px;
+    overflow: auto;
 }

@@ -14,7 +14,7 @@ module.exports = withPlugins([
     env: {
       PUBLIC_URL: "",
       ADMIN_URL: "http://0.0.0.0:3000",
-      STRAPI_URL: ""
+      STRAPI_URL: "http://0.0.0.0:1337"
     }
   }
 ]);

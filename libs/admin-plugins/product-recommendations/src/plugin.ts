@@ -41,7 +41,7 @@ export type ProductRecommendationInput = {
       type: "boolean",
       name: "productRecommendationsEnabled",
       label: [
-        { languageCode: LanguageCode.en, value: "Has product recommendations" },
+        { languageCode: LanguageCode.en, value: "productRecommendation" },
       ],
     });
     return config;
