@@ -181,8 +181,9 @@ const Contact = ({ solveUpdateDirectData, currentCustomer, prevStep }) => {
               <Col lg={12}>
                 <div className="google-map">
                   <iframe
+                      title="map"
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.964220232823!2d105.76310011450946!3d21.034117592972244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b947cd6e49%3A0x6a87974c6b44d671!2zNjggUGjhu5EgTmd1eeG7hW4gQ8ahIFRo4bqhY2gsIE3hu7kgxJDDrG5oLCBU4burIExpw6ptLCBIw6AgTuG7mWksIFZpZXRuYW0!5e0!3m2!1sen!2s!4v1615393746342!5m2!1sen!2s"
-                      width="600" height="450" style="border:0;" allowFullScreen="" loading="lazy"></iframe>
+                      allowFullScreen/>
                 </div>
               </Col>
             </Row>
