@@ -1,4 +1,4 @@
-Swarajshop.com
+https://vendure-marketplace.com
 
 ## Setup project
 
