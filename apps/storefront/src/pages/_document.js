@@ -5,13 +5,13 @@ export default class MyDocument extends Document {
         return (
             <Html lang="en">
                 <Head>
-                    <meta name="keywords" content="Swarajshop" />
+                    <meta name="keywords" content="storeofapp" />
                     <meta name="robots" content="INDEX,FOLLOW" />
-                    <meta name='application-name' content='Swarajshop' />
+                    <meta name='application-name' content='storeofapp' />
                     <meta name='apple-mobile-web-app-capable' content='yes' />
                     <meta name='apple-mobile-web-app-status-bar-style' content='default' />
-                    <meta name='apple-mobile-web-app-title' content='Buy Artificial Jewelry Online | Ethnic Jewelry | Traditional Jewelry' />
-                    <meta name='description' content='Looking for the buy artificial jewelry online.We are providing ethnic jewelry,traditional jewelry,fashion jewelry with home delivery at best price.Visit now' />
+                    <meta name='apple-mobile-web-app-title' content='' />
+                    <meta name='description' content='' />
                     <meta name='format-detection' content='telephone=no' />
                     <meta name='mobile-web-app-capable' content='yes' />
                     <meta name='msapplication-config' content='/images/icons/browserconfig.xml' />
@@ -21,9 +21,9 @@ export default class MyDocument extends Document {
                     <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover' />
 
                     <link rel='apple-touch-icon' sizes='180x180' href='/images/icons/apple-touch-icon.png' />
-                    <link rel='icon' type="image/x-icon" sizes='32x32' href='https://www.swarajshop.com/pub/media/favicon/stores/4/2018_01_29_06_45_39_62573_Swarajshop-1_3.jpg' />
-                    <link rel='icon' type="image/x-icon" sizes='16x16' href='https://www.swarajshop.com/pub/media/favicon/stores/4/2018_01_29_06_45_39_62573_Swarajshop-1_3.jpg' />
-                    <link rel='shortcut icon' type="image/x-icon" sizes='16x16' href="https://www.swarajshop.com/pub/media/favicon/stores/4/2018_01_29_06_45_39_62573_Swarajshop-1_3.jpg" />
+                    <link rel='icon' type="image/x-icon" sizes='32x32' href='' />
+                    <link rel='icon' type="image/x-icon" sizes='16x16' href='' />
+                    <link rel='shortcut icon' type="image/x-icon" sizes='16x16' href="" />
                     <link
                         href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
                         rel="stylesheet"

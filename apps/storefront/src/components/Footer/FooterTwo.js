@@ -42,10 +42,10 @@ const FooterTwo = ({ currentCustomer }) => {
             {/*=======  copyright text  =======*/}
             <div className="footer-single-widget__copyright">
               &copy; {new Date().getFullYear() + " "}
-              <a href="https://www.hasthemes.com" target="_blank">
-                Swarajshop
+              <a href="https://storeofapp.com" target="_blank">
+                Storeofapp
               </a>
-              <span> Email us: cs@swarjshop.com </span>
+              <span> Email us: cs@storeofapp88@gmail.com </span>
             </div>
             <div className="payment-icon space-mb--30">
               <img
