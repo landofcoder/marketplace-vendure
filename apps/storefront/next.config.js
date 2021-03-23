@@ -9,12 +9,5 @@ module.exports = withPlugins([
       pwa: {
         dest: 'public'
     }
-  }],
-  {
-    env: {
-      PUBLIC_URL: "",
-      ADMIN_URL: "http://0.0.0.0:3000",
-      STRAPI_URL: "http://0.0.0.0:1337"
-    }
-  }
+  }]
 ]);
