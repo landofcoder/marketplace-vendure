@@ -9,7 +9,7 @@ const LayoutFive = ({ children }) => {
       {children}
       <FooterTwo />
         <CookieConsent
-            style={{ background: "#8a8b8cd6" }}
+            style={{ background: "#8a8b8cd6", padding: "0 5vw" }}
             buttonStyle={{ backgroundColor: "red", borderRadius: "4px", color:"#fff", fontWeight: 500 }}
         >
             This website uses cookies to enhance the user experience.
