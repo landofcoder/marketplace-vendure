@@ -21,9 +21,9 @@ export default class MyDocument extends Document {
                     <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover' />
 
                     <link rel='apple-touch-icon' sizes='180x180' href='/images/icons/apple-touch-icon.png' />
-                    <link rel='icon' type="image/x-icon" sizes='32x32' href='' />
-                    <link rel='icon' type="image/x-icon" sizes='16x16' href='' />
-                    <link rel='shortcut icon' type="image/x-icon" sizes='16x16' href="" />
+                    {/*<link rel='icon' type="image/x-icon" sizes='32x32' href='' />*/}
+                    {/*<link rel='icon' type="image/x-icon" sizes='16x16' href='' />*/}
+                    <link rel='icon' type="image/png" sizes='16x16'href="/assets/favico.png" />
                     <link
                         href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
                         rel="stylesheet"
