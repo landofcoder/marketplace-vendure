@@ -55,9 +55,13 @@ class MyApp extends App {
             />
         }
         <Head>
-          <title>Vendure | Marketplace</title>
+          <title>Vendure Multivendor Platform | Storeofapp.com</title>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="manifest" href="/site.webmanifest" key="site-manifest" />
+          <link rel="icon" href="/assets/favico.png" type="image/x-icon" />
+          {/* Start of Tawk.to Script */}
+          <script type="text/javascript" src="/js/chat.js"></script>
+          {/*End of Tawk.to Script*/}
         </Head>
         <ToastProvider placement="bottom-left">
           <Provider store={reduxStore}>

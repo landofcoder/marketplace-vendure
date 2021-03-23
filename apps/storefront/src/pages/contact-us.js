@@ -154,7 +154,7 @@ const Contact = ({ solveUpdateDirectData, currentCustomer, prevStep }) => {
                     <IoIosMail />
                   </div>
                   <div className="icon-box__content">
-                    <p className="content"> Mail: cs@storeofapp88@gmail.com</p>
+                    <p className="content"> Mail: info@storeofapp.com</p>
                   </div>
                 </div>
               </Col>

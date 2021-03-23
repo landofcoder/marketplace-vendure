@@ -82,7 +82,7 @@ const HeaderOne = ({ aboutOverlay, cartItems, wishlistItems }) => {
                 <span className="header-separator">|</span>
                 <div className="order-online-text">
                   Order Online Call
-                  <span className="number colorReverse">(0123) 456789</span>
+                  <span className="number colorReverse">+84 0356535598</span>
                 </div>
               </div>
               <div className="header-top__right">

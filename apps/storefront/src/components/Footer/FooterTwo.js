@@ -45,7 +45,7 @@ const FooterTwo = ({ currentCustomer }) => {
               <a href="https://storeofapp.com" target="_blank">
                 Storeofapp
               </a>
-              <span> Email us: cs@storeofapp88@gmail.com </span>
+              <span> Email us: info@storeofapp.com </span>
             </div>
             <div className="payment-icon space-mb--30">
               <img
