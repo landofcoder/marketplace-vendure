@@ -2,15 +2,15 @@
     <vdr-ab-left>
         <div class="flex clr-align-items-center">
             <vdr-entity-info [entity]="entity$ | async"></vdr-entity-info>
-            <clr-toggle-wrapper *vdrIfPermissions="'UpdateOrder'">
-                <input
-                        type="checkbox"
-                        clrToggle
-                        name="verified"
-                        [formControl]="detailForm.get(['vendor', 'verified'])"
-                />
-                <label>{{ 'common.enabled' | translate }}</label>
-            </clr-toggle-wrapper>
+<!--            <clr-toggle-wrapper *vdrIfPermissions="'UpdateOrder'">-->
+<!--                <input-->
+<!--                        type="checkbox"-->
+<!--                        clrToggle-->
+<!--                        name="verified"-->
+<!--                        [formControl]="detailForm.get(['vendor', 'verified'])"-->
+<!--                />-->
+<!--                <label>{{ 'common.enabled' | translate }}</label>-->
+<!--            </clr-toggle-wrapper>-->
         </div>
     </vdr-ab-left>
 
