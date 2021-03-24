@@ -132,7 +132,7 @@ const HeaderOne = ({ aboutOverlay, cartItems, wishlistItems }) => {
                   <Link href="/" as={process.env.PUBLIC_URL + "/"}>
                     <a>
                       <img
-                        src={process.env.PUBLIC_URL + "/assets/images/logo.png"}
+                        src={process.env.PUBLIC_URL + "/assets/images/brand1.png"}
                         className="img-fluid"
                         alt=""
                         style={{ width: "140px" }}

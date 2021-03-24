@@ -25,7 +25,7 @@ const CustomerService = () => {
             </BreadcrumbOne>
             <div className="element-wrapper space-mt--r100 space-mb--r130">
                 <Container>
-                    <Row className="space-mb--20">
+                    <Row className="space-mb--20" style={{paddingLeft: "30px" }}>
                         <Col>
                             <h3 className="space-mb--20 text-danger"><strong>Customer Service</strong></h3>
                             <p>Shipping & Delivery</p>

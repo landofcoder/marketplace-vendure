@@ -1,7 +1,5 @@
 import Link from "next/link";
 import { Container, Row, Col } from "react-bootstrap";
-import Card from "react-bootstrap/Card";
-import Accordion from "react-bootstrap/Accordion";
 import { LayoutFive } from "../components/Layout";
 import { BreadcrumbOne } from "@bavaan/storefront-base/src/components/Breadcrumb";
 
@@ -29,10 +27,10 @@ const Wholesales = () => {
                         <Col>
                             <h3 className="space-mb--20 text-danger"><strong>Wholesales</strong></h3>
                             <p className="space-mb--20 ">
-                                Buy Wholesale on Swarajshop |
+                                Buy Wholesale on Storeapp |
                                 Indian Jewelry, Sarees, Home Decor, Handicrafts
                             </p>
-                            <h5 className="space-mb--20 text-danger">Swarajshop Wholesale</h5>
+                            <h5 className="space-mb--20 text-danger">Storeapp Wholesale</h5>
                             <p className="space-mb--20 ">
                                 Thank you for your interest in our products.
                                 We are India's largest marketplace for Indian
@@ -67,7 +65,7 @@ const Wholesales = () => {
                                 selection which has more than 50,000+products.
                                 Most of them are available for wholesale globally.
                                 We will soon be putting a dedicated section for wholesale
-                                products on Swarajshop.com
+                                products on vendure-marketplace.com
                             </p>
                             <h5 className="space-mb--20 text-danger">Shipping</h5>
                             <p className="space-mb--20 ">
@@ -113,25 +111,25 @@ const Wholesales = () => {
                             <p className="space-mb--20 ">
                                 We also provide samplers (at no cost) in some cases and
                                 is purely discretionary at our end. Please send us an email
-                                at Mangesh@Swarajshop.com if you need samples of products.
+                                at info@storeofapp.com if you need samples of products.
                             </p>
                             <h5 className="space-mb--20 text-danger">Placing an Order</h5>
                             <p className="space-mb--20 ">
                                 Phone or email may be used to place wholesale orders.
-                                You can also order online from www.Swarajshop.com by
+                                You can also order online from vendure-marketplace.com by
                                 selecting the products which are available for wholesale
                                 and then clicking the checkout button. The wholesale coupon
                                 can be applied to give you the desired discounts on wholesale purchase.
                             </p>
                             <h5 className="space-mb--20 text-danger">Contact us</h5>
                             <p>
-                                Name : Mangesh Shinde
+                                Name : Panda Thuan
                             </p>
                             <p>
-                                Mobile : Whatssapp no. +91-8655076261
+                                Mobile : Whatssapp no. +84 0356535598
                             </p>
                             <p>
-                                Email : Swarajshopindia@gmail.com
+                                Email : info@storeofapp.com
                             </p>
                         </Col>
                     </Row>

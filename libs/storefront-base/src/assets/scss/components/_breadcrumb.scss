@@ -27,6 +27,7 @@
       }
 
       &:last-child {
+        position: absolute;
         margin-right: 0;
 
         color: $black--two;

@@ -1,7 +1,5 @@
 import Link from "next/link";
 import { Container, Row, Col } from "react-bootstrap";
-import Card from "react-bootstrap/Card";
-import Accordion from "react-bootstrap/Accordion";
 import { LayoutFive } from "../components/Layout";
 import { BreadcrumbOne } from "@bavaan/storefront-base/src/components/Breadcrumb";
 
@@ -31,9 +29,9 @@ const RefundPolicy = () => {
                             <p className="space-mb--50 ">
                                 SHIPPING & REFUND POLICIES
                             </p>
-                            <h5 className="space-mb--20 text-danger">Swarajshop 100% Buyer Protection Program Details:</h5>
+                            <h5 className="space-mb--20 text-danger"> Storeofapp 100% Buyer Protection Program Details:</h5>
                             <p className="space-mb--20">
-                                Swarajshop.com has a friendly return and refund policy to
+                                Storeofapp has a friendly return and refund policy to
                                 ensure your online purchase is free of stress. We offer "100%
                                 Buyer Protection Program" for our valued customers. We do not
                                 release your payment to the seller till the products are received
@@ -42,7 +40,7 @@ const RefundPolicy = () => {
                                 hard that our refund/return policies do not bring any ugly surprises to you
                                 post your purchase.
                             </p>
-                            <h5 className="space-mb--20 text-danger">What is Swarajshop’s Return Policy?</h5>
+                            <h5 className="space-mb--20 text-danger">What is storeofapp’s Return Policy?</h5>
                             <p className="space-mb--20">
                                 Our "100% Buyer Protection Program" allows for easy returns and refunds for:
                             </p>
@@ -83,7 +81,7 @@ const RefundPolicy = () => {
                                 <strong>To register dispute directly with seller, please follow below mentioned easy process:</strong>
                             </p>
                             <p>
-                                1. Go to your customer account here at http://swarajshop.com/customer/account/login/ and sign in when prompted.
+                                1. Go to your customer account here at https://www.vendure-marketplace.com/customer/account/login/ and sign in when prompted.
                             </p>
                             <p>
                                 2. Or Click the "My Account link" at the top of the site and sign in when prompted.
@@ -101,8 +99,8 @@ const RefundPolicy = () => {
                                 6. Click "Raise Dispute to Seller" button once ready.
                             </p>
                             <p className="space-mb--20">
-                                7. If you are not registered on Swarajshop.com, you can register by clicking the "Register" link
-                                on the top of website and then file the dispute or you can send email to swarajshopindia@gmail.com
+                                7. If you are not registered on https://www.vendure-marketplace.com/, you can register by clicking the "Register" link
+                                on the top of website and then file the dispute or you can send email to info@storeofapp.com
                             </p>
                             <p className="space-mb--20">
                                 After the seller reviews your return request, you will receive an e-mail with instructions
@@ -124,8 +122,8 @@ const RefundPolicy = () => {
                                 When you're returning an item that was damaged/ defective or due
                                 to an error on the seller's part, you will be compensated for return courier
                                 charges. You will be paid flat Rs. 100 voucher which can be used to buy any of
-                                the Swarajshop products for next 3 months. If the product has been picked from you
-                                by Swarajshop arranged courier partner, the return delivery voucher will not be issued
+                                the Storeofapp products for next 3 months. If the product has been picked from you
+                                by Storeofapp arranged courier partner, the return delivery voucher will not be issued
                                 since no return cost was incurred by you. Please pack well when you are returning the product.
                             </p>
                             <p className="space-mb--20 ">
@@ -139,7 +137,7 @@ const RefundPolicy = () => {
                                 us of the receipt of the item back from you or the
                                 online tracking shows as delivered to the seller address.
                                 Remember that items have to be returned to sellers directly
-                                by you unless a return pickup has been authorized by Swarajshop.com
+                                by you unless a return pickup has been authorized by https://www.vendure-marketplace.com/
                                 team. Once the seller notifies us of the receipt of the return item,
                                 we will credit the amount back to you within 15 working days
                                 (does not include Saturdays, Sundays and Bank Holidays).
@@ -180,13 +178,13 @@ const RefundPolicy = () => {
                             </p>
                             <h5 className="space-mb--20 text-danger">Do you deliver internationally?</h5>
                             <p className="space-mb--20">
-                                Swarajshop does deliver items internationally. You are more
+                                Storeofapp does deliver items internationally. You are more
                                 than welcome to make your purchases on our site from anywhere in the world.
                                 We use DHL, DTDC, India Post or FEDEX to deliver your shipments safely and timely to you.
                             </p>
                             <h5 className="space-mb--20 text-danger">How can I track the delivery of my order?</h5>
                             <p className="space-mb--20">
-                                All Swarajshop items are delivered through reputed courier partners
+                                All Storeofapp items are delivered through reputed courier partners
                                 who will provide you with a Tracking ID for your order by which you
                                 can track your delivery on the respective websites of our courier partners.
                                 We email you the tracking number after we dispatch your order. You can also
@@ -197,7 +195,7 @@ const RefundPolicy = () => {
                                 Nagpur , Sangli , Dombivili , Nasik , Mumbai , Pimpri & Chinchwardi , Kothrud (Pune) ,
                                 Ahmednagar , Pune , Akola are Octroiable cities. Any applicable octroi will be payable
                                 by the customer. Please pay Octroi to the courier company if
-                                requested by them in these cities. Swarajshop.com is not responsible for any octroi payments.
+                                requested by them in these cities. https://www.vendure-marketplace.com is not responsible for any octroi payments.
                             </p>
                             <p className="space-mb--20">
                                 Who would be responsible for paying local taxes in countries outside of India?

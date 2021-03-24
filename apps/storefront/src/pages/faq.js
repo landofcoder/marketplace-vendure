@@ -25,7 +25,7 @@ const Faqs = () => {
             </BreadcrumbOne>
             <div className="element-wrapper space-mt--r100 space-mb--r130">
                 <Container>
-                    <Row className="space-mb--20">
+                    <Row className="space-mb--20" style={{ paddingRight: "25px", paddingLeft: "25px"}}>
                         <Col>
                             <h3 className="space-mb--20 text-danger"><strong>FAQ</strong></h3>
                             <p>These terms are required to protect the

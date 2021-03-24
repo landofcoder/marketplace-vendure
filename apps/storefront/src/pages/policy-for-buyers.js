@@ -93,7 +93,7 @@ const PolicyForBuyers = () => {
                                 User, brand or product in your feedback. You must inform the Company immediately
                                 on becoming aware of violation of any applicable laws or violation of the
                                 provisions of this User Agreement and the rules and policies made thereunder
-                                at swarajshopindia@gmail.com
+                                at info@storeofapp.com
                             </p>
                             <p className="space-mb--20 ">
                                 Limit on volume of Transactions: The Company reserves the right
@@ -133,7 +133,7 @@ const PolicyForBuyers = () => {
                                 that the buyer has committed to pay the Transaction Price by Payment on Delivery.
                             </p>
                             <p className="space-mb--20 ">
-                                Dispatch Details: The seller or the Company (if the seller is availing Swarajshop
+                                Dispatch Details: The seller or the Company (if the seller is availing Storeofapp
                                 Logistics services) shall provide the Dispatch Details on the Website within [7]
                                 days from the Payment Confirmation or within such timelines as may be agreed upon
                                 between the buyer and seller on the Website. If the Seller fails to enter the
@@ -145,7 +145,7 @@ const PolicyForBuyers = () => {
                             </p>
                             <p className="space-mb--20 ">
                                 Delivery: The time within which the seller or the Company
-                                (if the seller is availing Swarajshop Logistics services) is required
+                                (if the seller is availing Storeofapp Logistics services) is required
                                 to ensure Delivery of the items to the buyer shall be calculated from
                                 the time the seller/Company enters the Dispatch Details on the Website i.e.
                                 within 7 days from entering the Dispatch Details for delivery within India and
@@ -161,7 +161,7 @@ const PolicyForBuyers = () => {
                                 Delivery time prescribed in the above clause, it shall be construed
                                 as a deemed Delivery in respect of that Transaction and the Transaction
                                 Price shall not be refunded. In case of Cash on Delivery Transactions
-                                or if the seller is availing Swarajshop Logistics services, the Company
+                                or if the seller is availing Storeofapp Logistics services, the Company
                                 will update the shipment Delivery status on a periodic basis and the Buyer
                                 is not required to confirm receipt of items.
                             </p>
@@ -215,7 +215,7 @@ const PolicyForBuyers = () => {
                                 or fees, if any.
                             </p>
                             <p>
-                                For electronics payments, refund shall be made through the SwarajPay Facility using
+                                For electronics payments, refund shall be made through the StorePay Facility using
                                 NEFT / RTGS or any other online banking / electronic funds transfer system approved
                                 by Reserve Bank India.
                             </p>
@@ -227,14 +227,14 @@ const PolicyForBuyers = () => {
                             <p className="space-mb--20 ">
                                 Arrangement with the Issuing Bank: All Transactions conducted on the Website for
                                 which Valid Cards and Valid Bank Accounts are used for remittance of payment
-                                for Transactions on the SwarajPay Facility will also be governed by the terms
+                                for Transactions on the StorePay Facility will also be governed by the terms
                                 and conditions agreed to between the buyer and the respective Issuing Bank and
                                 payment instrument issuing company and you shall not violate any such terms and
                                 conditions. You agree to indemnify and hold harmless the Company and its
                                 service providers against any direct or indirect liability that may arise on
                                 account of such violation. All online bank transfers from Valid Bank Accounts
                                 are processed using the gateway provided by the respective Issuing Bank which
-                                support the SwarajPay Facility to provide these services to the Users.
+                                support the StorePay Facility to provide these services to the Users.
                             </p>
                             <p className="space-mb--20 ">
                                 Octroi and other local levies: Delivery of items to buyers located in places where

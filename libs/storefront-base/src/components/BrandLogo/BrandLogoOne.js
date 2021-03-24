@@ -13,7 +13,7 @@ const BrandLogoOne = ({ brandLogoData }) => {
                 {brandLogoData &&
                   brandLogoData.map((single, i) => {
                     return (
-                      <Col lg={2} md={4} xs={6} key={i}>
+                      <Col lg={2} md={4} xs={6} key={i} style={{alignItem: "center", alignSelf: "center"}}>
                         <div className="single-brand space-mb-mobile-only--30">
                           <a href={single.url} target="_blank">
                             <img
