@@ -2,16 +2,16 @@
   {
     "id": "1",
     "image": "/assets/images/brands/logo-1.png",
-    "url": "/"
+    "url": "https://brainos.vn"
   },
   {
     "id": "2",
     "image": "/assets/images/brands/logo-2.png",
-    "url": "/"
+    "url": "https://landofcoder.com"
   },
   {
     "id": "3",
     "image": "/assets/images/brands/logo-3.png",
-    "url": "/"
+    "url": "https://storeofapp.com"
   }
 ]
