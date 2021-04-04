@@ -80,7 +80,7 @@ const Verify = ({ solveUpdateDirectData, currentCustomer, prevStep }) => {
                     <Col lg={12}>
                       <div className="section-title--login text-center space-mb--50">
                         <h2 className="space-mb--20">Verify Your Account</h2>
-                        <p>Thank your sigin up to Swarajshop marketplace, great to have you back!</p>
+                        <p>Thank your sigin up to Vendure-Marketplace marketplace, great to have you back!</p>
                         {
                           status ?
                               <p style={{color: 'red'}}>{status}</p>

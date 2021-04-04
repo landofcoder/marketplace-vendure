@@ -50,7 +50,7 @@ const Faqs = () => {
                                             <Card.Body>
                                                 <p>
                                                     Cash on delivery facility is available and
-                                                    Swarajshop accepts orders only against confirmed
+                                                    Vendure-Marketplace accepts orders only against confirmed
                                                     online payment orders.
                                                 </p>
                                             </Card.Body>
@@ -122,7 +122,7 @@ const Faqs = () => {
                                                     Photographs are not scaled to size and for this reason,
                                                     the products are explained clearly with dimensions.
                                                     Customers are requested to go through the product description
-                                                    and pictures carefully before placing the order. Swarajshop
+                                                    and pictures carefully before placing the order. Vendure-Marketplace
                                                     can give assurance that the products will be exactly as shown
                                                     in picture and description. But the colour accuracy may
                                                     slightly vary from the picture because of quality settings
@@ -156,7 +156,7 @@ const Faqs = () => {
                                                     them? Will they throw it? The answer is not. The same product
                                                     will be sent to another customer. The logic is, its not feasible
                                                     for any seller to throw away returned product. They will send the
-                                                    same to other customers and the chain goes on. But Swarajshop does
+                                                    same to other customers and the chain goes on. But Vendure-Marketplace does
                                                     not take returns like that and we can always assure that brand new
                                                     products are always shipped to the customer. Incase if customers
                                                     still insist that they need such 30 days no questions asked return
@@ -243,11 +243,11 @@ const Faqs = () => {
                                                 <p>
                                                     We can very well assure you that our site is more secure
                                                     than any other website as regards payment. This is because
-                                                    Swarajshop never accepts any card details and never stores any
+                                                    Vendure-Marketplace never accepts any card details and never stores any
                                                     card information. After reviewing order, while customers click the
                                                     payment button, they are automatically taken to a secure https website.
                                                     It’s a direct bank payment page. Only after confirming the payment,
-                                                    customers will be redirected again to Swarajshop.com website.
+                                                    customers will be redirected again to Vendure-Marketplace.com website.
                                                     In a way, we do not know which card you are using at all.
                                                 </p>
                                             </Card.Body>

@@ -64,8 +64,8 @@ export class InitializerService implements OnModuleInit {
                     GSTINID: "27DQGPS4819Q1ZV",
                     state: "Mumbai",
                     ADHAR: "2521141111125",
-                    aboutUs: "Swarajshop Is Online Jewellery supplier store ",
-                    staffEmail: "Swarajshopvendor@gmail.com",
+                    aboutUs: "Vendure-marketplace Is Online Jewellery supplier store ",
+                    staffEmail: "storeofapp88@gmail.com",
                     phone: "7718888149",
                 });
                 // save vendorContact
@@ -73,7 +73,7 @@ export class InitializerService implements OnModuleInit {
                     vendor: createdVendor,
                     contactName: 'admin',
                     pickupAddress: '232 Sai Krupa Society,Malad East mumbai 400097',
-                    email: 'Swarajshopvendor@gmail.com',
+                    email: 'storeofapp88@gmail.com',
                     phone: '7718888149'
                 });
                 // save vendorMarketingContact

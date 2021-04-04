@@ -91,7 +91,7 @@ export const config: VendureConfig = {
             },
             globalTemplateVars: {
                 // The following variables will change depending on your storefront implementation
-                fromAddress: '"swarajshop" <noreply@swarajshop.com>',
+                fromAddress: '"swarajshop" <noreply@storeofapp.com>',
                 verifyEmailAddressUrl: 'http://localhost:8080/verify',
                 passwordResetUrl: 'http://localhost:8080/password-reset',
                 changeEmailAddressUrl: 'http://localhost:8080/verify-email-address-change',

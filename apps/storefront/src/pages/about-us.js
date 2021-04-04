@@ -120,7 +120,7 @@ const About = () => {
             {/*              <div className="about-page-text">*/}
             {/*                <p className="space-mb--35">*/}
             {/*                  Today, We are happy to introduce our ecommerce*/}
-            {/*                  marketplace with the name swarajshop.com with*/}
+            {/*                  marketplace with the name storeofapp.com with*/}
             {/*                  delivering thousands of smiles each day by our*/}
             {/*                  most loved piece of jewelry all over India and*/}
             {/*                  internationally.*/}
@@ -137,7 +137,7 @@ const About = () => {
             {/*                <div className="about-page-text">*/}
             {/*                  <p className="space-mb--35">*/}
             {/*                    In 2019, With our focused research team who*/}
-            {/*                    always need Swarajshop product to be the largest*/}
+            {/*                    always need Vendure-Marketplace product to be the largest*/}
             {/*                    in the market by maintaining the trends in the*/}
             {/*                    jewelry, we came up with added varieties by*/}
             {/*                    manufacturing the big Kundan jewelry with the*/}
@@ -188,13 +188,13 @@ const About = () => {
             {/*            <Row>*/}
             {/*              <Col md={2}>*/}
             {/*                <div className="about-page-text">*/}
-            {/*                  <p className="space-mb--35">2010</p>*/}
+            {/*                  <p className="space-mb--35">2021</p>*/}
             {/*                </div>*/}
             {/*              </Col>*/}
             {/*              <Col>*/}
             {/*                <div className="about-page-text">*/}
             {/*                  <p className="space-mb--35">*/}
-            {/*                    In 2010, Swarajshop started its ecommerce*/}
+            {/*                    In 2021, Vendure-Marketplace started its ecommerce*/}
             {/*                    marketplace in India, with solely into candle*/}
             {/*                    making, and deliberately tie-up with the third*/}
             {/*                    party supplier for maintaining the customer*/}

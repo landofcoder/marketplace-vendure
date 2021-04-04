@@ -73,7 +73,7 @@ const DeliveryInformation = () => {
                                     <div className="icon-box--feature-icon__content">
                                         <p><strong>Internationally Order Pcoccess:</strong></p>
                                         <p>
-                                            <strong>Please Note:</strong> Swarajshop delivers product internationally on purchase of
+                                            <strong>Please Note:</strong> Vendure-Marketplace delivers product internationally on purchase of
                                         minimum 3 orders for the customer to be eligible
                                         for international order processing.
                                     </p>
@@ -85,7 +85,7 @@ const DeliveryInformation = () => {
                             <div className="about-page-text space-mb--30 mt-0">
                                 <h3>Payment options</h3>
                                 <p>
-                                    Swarajshop offers various payment
+                                    Vendure-Marketplace offers various payment
                                     options. Here's a look at what's available:
                                     </p>
                             </div>
