@@ -31,9 +31,9 @@ const RefundPolicy = () => {
                             <p className="space-mb--50 ">
                                 SHIPPING & REFUND POLICIES
                             </p>
-                            <h5 className="space-mb--20 text-danger">Swarajshop 100% Buyer Protection Program Details:</h5>
+                            <h5 className="space-mb--20 text-danger">Vendure-marketplace.com 100% Buyer Protection Program Details:</h5>
                             <p className="space-mb--20">
-                                Swarajshop.com has a friendly return and refund policy to
+                                Vendure-marketplace.com has a friendly return and refund policy to
                                 ensure your online purchase is free of stress. We offer "100%
                                 Buyer Protection Program" for our valued customers. We do not
                                 release your payment to the seller till the products are received
@@ -42,7 +42,7 @@ const RefundPolicy = () => {
                                 hard that our refund/return policies do not bring any ugly surprises to you
                                 post your purchase.
                             </p>
-                            <h5 className="space-mb--20 text-danger">What is Swarajshop’s Return Policy?</h5>
+                            <h5 className="space-mb--20 text-danger">What is Vendure-marketplace.com’s Return Policy?</h5>
                             <p className="space-mb--20">
                                 Our "100% Buyer Protection Program" allows for easy returns and refunds for:
                             </p>
@@ -69,7 +69,7 @@ const RefundPolicy = () => {
                                 You need to register your dispute in either of the two ways:
                             </p>
                             <p>
-                                1. By sending email to swarajshopindia@gmail.com with images
+                                1. By sending email to storeofappindia@gmail.com with images
                                 of broken/defective/damaged products within 3 days of delivery.
                                 We need photos of the damaged/defective/different products received
                                 so that we can defend your dispute with relevant seller. Please mention
@@ -83,7 +83,7 @@ const RefundPolicy = () => {
                                 <strong>To register dispute directly with seller, please follow below mentioned easy process:</strong>
                             </p>
                             <p>
-                                1. Go to your customer account here at http://swarajshop.com/customer/account/login/ and sign in when prompted.
+                                1. Go to your customer account here at http://storeofapp.com/customer/account/login/ and sign in when prompted.
                             </p>
                             <p>
                                 2. Or Click the "My Account link" at the top of the site and sign in when prompted.
@@ -101,8 +101,8 @@ const RefundPolicy = () => {
                                 6. Click "Raise Dispute to Seller" button once ready.
                             </p>
                             <p className="space-mb--20">
-                                7. If you are not registered on Swarajshop.com, you can register by clicking the "Register" link
-                                on the top of website and then file the dispute or you can send email to swarajshopindia@gmail.com
+                                7. If you are not registered on Vendure-marketplace.com, you can register by clicking the "Register" link
+                                on the top of website and then file the dispute or you can send email to storeofappindia@gmail.com
                             </p>
                             <p className="space-mb--20">
                                 After the seller reviews your return request, you will receive an e-mail with instructions
@@ -116,7 +116,7 @@ const RefundPolicy = () => {
                                 issue and provide instructions for your return/ resolution.
                                 If the seller does not respond even after 3 business days,
                                 or if your issue is not addressed to your satisfaction, you
-                                can submit the dispute by sending email to swarajshopindia@gmail.com
+                                can submit the dispute by sending email to storeofappindia@gmail.com
                                 and we will ensure you get timely resolution to your dispute.
                             </p>
                             <h5 className="space-mb--20 text-danger">Who pays for the delivery charges for returning of products?</h5>
@@ -124,8 +124,8 @@ const RefundPolicy = () => {
                                 When you're returning an item that was damaged/ defective or due
                                 to an error on the seller's part, you will be compensated for return courier
                                 charges. You will be paid flat Rs. 100 voucher which can be used to buy any of
-                                the Swarajshop products for next 3 months. If the product has been picked from you
-                                by Swarajshop arranged courier partner, the return delivery voucher will not be issued
+                                the Vendure-marketplace.com products for next 3 months. If the product has been picked from you
+                                by Vendure-marketplace.com arranged courier partner, the return delivery voucher will not be issued
                                 since no return cost was incurred by you. Please pack well when you are returning the product.
                             </p>
                             <p className="space-mb--20 ">
@@ -139,7 +139,7 @@ const RefundPolicy = () => {
                                 us of the receipt of the item back from you or the
                                 online tracking shows as delivered to the seller address.
                                 Remember that items have to be returned to sellers directly
-                                by you unless a return pickup has been authorized by Swarajshop.com
+                                by you unless a return pickup has been authorized by Vendure-marketplace.com
                                 team. Once the seller notifies us of the receipt of the return item,
                                 we will credit the amount back to you within 15 working days
                                 (does not include Saturdays, Sundays and Bank Holidays).
@@ -180,13 +180,13 @@ const RefundPolicy = () => {
                             </p>
                             <h5 className="space-mb--20 text-danger">Do you deliver internationally?</h5>
                             <p className="space-mb--20">
-                                Swarajshop does deliver items internationally. You are more
+                                Vendure-marketplace.com does deliver items internationally. You are more
                                 than welcome to make your purchases on our site from anywhere in the world.
                                 We use DHL, DTDC, India Post or FEDEX to deliver your shipments safely and timely to you.
                             </p>
                             <h5 className="space-mb--20 text-danger">How can I track the delivery of my order?</h5>
                             <p className="space-mb--20">
-                                All Swarajshop items are delivered through reputed courier partners
+                                All Vendure-marketplace.com items are delivered through reputed courier partners
                                 who will provide you with a Tracking ID for your order by which you
                                 can track your delivery on the respective websites of our courier partners.
                                 We email you the tracking number after we dispatch your order. You can also
@@ -197,7 +197,7 @@ const RefundPolicy = () => {
                                 Nagpur , Sangli , Dombivili , Nasik , Mumbai , Pimpri & Chinchwardi , Kothrud (Pune) ,
                                 Ahmednagar , Pune , Akola are Octroiable cities. Any applicable octroi will be payable
                                 by the customer. Please pay Octroi to the courier company if
-                                requested by them in these cities. Swarajshop.com is not responsible for any octroi payments.
+                                requested by them in these cities. Vendure-marketplace.com is not responsible for any octroi payments.
                             </p>
                             <p className="space-mb--20">
                                 Who would be responsible for paying local taxes in countries outside of India?

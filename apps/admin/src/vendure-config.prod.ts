@@ -43,7 +43,7 @@ export const config: VendureConfig = {
     //     type: 'mysql',
     //     synchronize: true, // turn this off for production
     //     logging: false,
-    //     database: 'swarajshop',
+    //     database: 'storeofapp',
     //     host: 'localhost',
     //     port: 3306,
     //     username: 'root',
@@ -70,7 +70,7 @@ export const config: VendureConfig = {
         AssetServerPlugin.init({
             route: 'assets',
             assetUploadDir: path.join(__dirname, '../static/assets'),
-            assetUrlPrefix: '//swarajshop.staging.com/assets',
+            assetUrlPrefix: '//storeofapp.staging.com/assets',
             port: 3001,
         }),
         DefaultSearchPlugin,
@@ -91,7 +91,7 @@ export const config: VendureConfig = {
             },
             globalTemplateVars: {
                 // The following variables will change depending on your storefront implementation
-                fromAddress: '"swarajshop" <noreply@swarajshop.com>',
+                fromAddress: '"storeofapp" <noreply@storeofapp.com>',
                 verifyEmailAddressUrl: 'http://localhost:8080/verify',
                 passwordResetUrl: 'http://localhost:8080/password-reset',
                 changeEmailAddressUrl: 'http://localhost:8080/verify-email-address-change',
@@ -99,7 +99,7 @@ export const config: VendureConfig = {
         }),
         AdminUiPlugin.init({
             hostname: 'localhost',
-            apiHost: "swarajshop.staging.com",
+            apiHost: "storeofapp.staging.com",
             port: 3002,
             app: customAdminUi({ recompile: !IS_PROD, devMode: !IS_PROD }),
         }),

@@ -45,13 +45,13 @@ const About = () => {
                   <p className="dark-title space-mb--35">SIMPLY OR WHITE</p>
                   <h2 className="title space-mb--15">Who we are</h2>
                   <p className="title-text">
-                    Swarajshop is the leading manufacturer of fashion jewelry
+                    Vendure-marketplace.com is the leading manufacturer of fashion jewelry
                     worldwide, before-mentioned are the varieties of the product
                     provider as Kundan, Ethnic Jewellery, imitation jewelry, and
                     always offering at competitive prices. We are a one-stop
                     online Portal for women-centric products Worldwide. We are
                     regularly exporting to countries like India, Canada, the
-                    USA, Germany, UAE, Dubai, etc. Our brand, ‘Swarajshop,’ has
+                    USA, Germany, UAE, Dubai, etc. Our brand, ‘Vendure-marketplace.com,’ has
                     crossed its entire milestone in the world of designer
                     jewelry and sarees. We have satisfied customers all over the
                     world. We are the most trusted and Prime Selling brand on
@@ -132,7 +132,7 @@ const About = () => {
                           <div className="about-page-text">
                             <p className="space-mb--35">
                               Today, We are happy to introduce our ecommerce
-                              marketplace with the name swarajshop.com with
+                              marketplace with the name storeofapp.com with
                               delivering thousands of smiles each day by our
                               most loved piece of jewelry all over India and
                               internationally.
@@ -149,7 +149,7 @@ const About = () => {
                             <div className="about-page-text">
                               <p className="space-mb--35">
                                 In 2019, With our focused research team who
-                                always need Swarajshop product to be the largest
+                                always need Vendure-marketplace.com product to be the largest
                                 in the market by maintaining the trends in the
                                 jewelry, we came up with added varieties by
                                 manufacturing the big Kundan jewelry with the
@@ -206,7 +206,7 @@ const About = () => {
                           <Col>
                             <div className="about-page-text">
                               <p className="space-mb--35">
-                                In 2010, Swarajshop started its ecommerce
+                                In 2010, Vendure-marketplace.com started its ecommerce
                                 marketplace in India, with solely into candle
                                 making, and deliberately tie-up with the third
                                 party supplier for maintaining the customer

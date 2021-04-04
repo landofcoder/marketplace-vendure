@@ -1,20 +1,5 @@
 version: '3.3'
 services:
-    proxy:
-        image: "traefik:1.7"
-        command: -c /dev/null --web --docker --docker.domain=leestyle.vn --logLevel=DEBUG --configFile=/etc/traefik/conf/acme.toml
-        ports:
-          - "80:80"
-          - "8080:8080"
-          - "443:443"
-        volumes:
-          - /var/run/docker.sock:/var/run/docker.sock
-        labels:
-          - "traefik.frontend.rule=Host:traefik.swarajshop.staging.com"
-          - "traefik.port=8080"
-          - "traefik.enable=true"   
-        networks:
-          - proxy
     admin-web:
         container_name: admin-web
         image: bavaan-admin-web:latest
@@ -25,9 +10,11 @@ services:
             NODE_ENV: production
         restart: on-failure
         labels:
-            - "traefik.frontend.rule=Host:swarajshop.staging.com"
-            - traefik.docker.network=proxy
-            - traefik.port=8080
+            - "traefik.enable=true"
+            - "traefik.http.routers.venduremarketplace.rule=Host(`vendure-marketplace.com`)"
+            - "traefik.http.routers.venduremarketplace.entrypoints=web"
+            - "traefik.http.services.venduremarketplace.loadbalancer.server.port=8080"
+            - "traefik.docker.network=proxy"
         ports:
             - 8080
             - 3000

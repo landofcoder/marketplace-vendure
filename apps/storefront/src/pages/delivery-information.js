@@ -36,7 +36,7 @@ const DeliveryInformation = () => {
                                 <div className="about-page-text space-mb--30 mt-0">
                                     <h3>Delivery options</h3>
                                     <p>
-                                        swarajshop offers a variety of delivery options.
+                                        storeofapp offers a variety of delivery options.
                                         Optimise your costs by choosing the right one for
                                         your order size and location. Available options include:
                                     </p>
@@ -73,7 +73,7 @@ const DeliveryInformation = () => {
                                     <div className="icon-box--feature-icon__content">
                                         <p><strong>Internationally Order Pcoccess:</strong></p>
                                         <p>
-                                            <strong>Please Note:</strong> Swarajshop delivers product internationally on purchase of
+                                            <strong>Please Note:</strong> Vendure-marketplace.com delivers product internationally on purchase of
                                         minimum 3 orders for the customer to be eligible
                                         for international order processing.
                                     </p>
@@ -85,7 +85,7 @@ const DeliveryInformation = () => {
                             <div className="about-page-text space-mb--30 mt-0">
                                 <h3>Payment options</h3>
                                 <p>
-                                    Swarajshop offers various payment
+                                    Vendure-marketplace.com offers various payment
                                     options. Here's a look at what's available:
                                     </p>
                             </div>
@@ -125,7 +125,7 @@ const DeliveryInformation = () => {
                                     <p><strong>Debit Card & Credit Card</strong></p>
                                     <p>
                                         Payment will be made using credit card registered on
-                                        swarajshop Online. Manage your defined credit cards in
+                                        storeofapp Online. Manage your defined credit cards in
                                         "My credit cards" section.
                                     </p>
                                 </div>
@@ -140,7 +140,7 @@ const DeliveryInformation = () => {
                                         PayPal is an online payment system that acts as
                                         an intermediary between an individual and online stores.
                                         If you already have a PayPal account, from mid-April you
-                                        can use this account immediately when purchasing your swarajshop
+                                        can use this account immediately when purchasing your storeofapp
                                         products. If you do not have a PayPal account and you wish to use
                                         this payment option, please go to www.paypal.com and create your
                                         own personal PayPal account.

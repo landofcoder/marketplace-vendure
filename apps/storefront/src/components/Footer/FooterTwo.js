@@ -43,7 +43,7 @@ const FooterTwo = ({ currentCustomer }) => {
             <div className="footer-single-widget__copyright">
               &copy; {new Date().getFullYear() + " "}
               <a href="https://www.hasthemes.com" target="_blank">
-                Swarajshop
+                Vendure-marketplace.com
               </a>
               <span> Email us: cs@swarjshop.com </span>
             </div>

@@ -29,10 +29,10 @@ const Wholesales = () => {
                         <Col>
                             <h3 className="space-mb--20 text-danger"><strong>Wholesales</strong></h3>
                             <p className="space-mb--20 ">
-                                Buy Wholesale on Swarajshop |
+                                Buy Wholesale on Vendure-marketplace.com |
                                 Indian Jewelry, Sarees, Home Decor, Handicrafts
                             </p>
-                            <h5 className="space-mb--20 text-danger">Swarajshop Wholesale</h5>
+                            <h5 className="space-mb--20 text-danger">Vendure-marketplace.com Wholesale</h5>
                             <p className="space-mb--20 ">
                                 Thank you for your interest in our products.
                                 We are India's largest marketplace for Indian
@@ -67,7 +67,7 @@ const Wholesales = () => {
                                 selection which has more than 50,000+products.
                                 Most of them are available for wholesale globally.
                                 We will soon be putting a dedicated section for wholesale
-                                products on Swarajshop.com
+                                products on Vendure-marketplace.com
                             </p>
                             <h5 className="space-mb--20 text-danger">Shipping</h5>
                             <p className="space-mb--20 ">
@@ -96,7 +96,7 @@ const Wholesales = () => {
                             <p className="space-mb--20 ">
                                 Products can not be returned until you receive a confirmation
                                 on whether products can be returned or not from us. Please send
-                                email to swarajshopindia@gmail.com immediately within 24 hours
+                                email to storeofappindia@gmail.com immediately within 24 hours
                                 of receiving the shipment if you wish to return them. A 20% restocking
                                 fee and shipping charges will apply if the return is accepted by us.
                             </p>
@@ -113,12 +113,12 @@ const Wholesales = () => {
                             <p className="space-mb--20 ">
                                 We also provide samplers (at no cost) in some cases and
                                 is purely discretionary at our end. Please send us an email
-                                at Mangesh@Swarajshop.com if you need samples of products.
+                                at Mangesh@Vendure-marketplace.com if you need samples of products.
                             </p>
                             <h5 className="space-mb--20 text-danger">Placing an Order</h5>
                             <p className="space-mb--20 ">
                                 Phone or email may be used to place wholesale orders.
-                                You can also order online from www.Swarajshop.com by
+                                You can also order online from www.Vendure-marketplace.com by
                                 selecting the products which are available for wholesale
                                 and then clicking the checkout button. The wholesale coupon
                                 can be applied to give you the desired discounts on wholesale purchase.
@@ -131,7 +131,7 @@ const Wholesales = () => {
                                 Mobile : Whatssapp no. +91-8655076261
                             </p>
                             <p>
-                                Email : Swarajshopindia@gmail.com
+                                Email : Vendure-marketplace.comindia@gmail.com
                             </p>
                         </Col>
                     </Row>

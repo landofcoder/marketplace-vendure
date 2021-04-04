@@ -152,11 +152,11 @@ export const config: VendureConfig = {
             },
             globalTemplateVars: {
                 // The following variables will change depending on your storefront implementation
-                fromAddress: process.env.FROM_ADDRESS || '"Swarajshop" <noreply@swarajshop.com>',
-                supportAddress: process.env.SUPPORT_EMAIL || 'cs@swarajshop.com',
-                neworderAddress: process.env.INFO_EMAIL || 'info@swarajshop.com',
-                adminAddress: process.env.ADMIN_EMAIL || 'admin@swarajshop.com',
-                storeName: process.env.STORE_NAME || 'Swarajshop',
+                fromAddress: process.env.FROM_ADDRESS || '"Vendure Marketplace" <noreply@storeofapp.com>',
+                supportAddress: process.env.SUPPORT_EMAIL || 'cs@storeofapp.com',
+                neworderAddress: process.env.INFO_EMAIL || 'info@storeofapp.com',
+                adminAddress: process.env.ADMIN_EMAIL || 'admin@storeofapp.com',
+                storeName: process.env.STORE_NAME || 'Vendure Marketplace',
                 unsubsribeUrl: STORE_DOMAIN + '/unsubscribe',
                 verifyEmailAddressUrl: STORE_DOMAIN + '/customer/verify',
                 passwordResetUrl: STORE_DOMAIN + '/customer/reset-password',

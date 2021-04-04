@@ -173,7 +173,7 @@ const CustomerService = () => {
                                         <Accordion.Collapse eventKey="6">
                                             <Card.Body>
                                                 <p className="space-mb--20">
-                                                    Send an email to Swarajshopindia@gmail.com with your order number
+                                                    Send an email to Vendure-marketplace.comindia@gmail.com with your order number
                                                     mentioning the product you want to return and your bank details where
                                                     you want us to refund the amount. Please ensure that bank details submitted
                                                     to us are free of any errors.
@@ -188,7 +188,7 @@ const CustomerService = () => {
                                                 </p>
                                                 <p>
                                                     Ship the product to the mailing address mentioned and send an email to
-                                                    Swarajshopindia@gmail.com with the tracking number. Without tracking number,
+                                                    Vendure-marketplace.comindia@gmail.com with the tracking number. Without tracking number,
                                                     product can’t be tracked and can be lost in transit.
                                                 </p>
                                                 <p>

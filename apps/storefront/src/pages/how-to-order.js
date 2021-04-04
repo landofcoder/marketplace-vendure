@@ -29,12 +29,12 @@ const HowToOrder = () => {
                         <Col>
                             <h3 className="space-mb--20 text-danger"><strong>How to Order</strong></h3>
                             <p className="space-mb--20 ">
-                                How to Order on Swarajshop.com
+                                How to Order on Vendure-marketplace.com
                             </p>
-                            <h5 className="space-mb--20 text-danger">Swarajshop Wholesale</h5>
+                            <h5 className="space-mb--20 text-danger">Vendure-marketplace.com Wholesale</h5>
                             <p className="space-mb--20 ">
-                                Swarajshop.com is an online marketplace for Indian products which
-                                means you can only buy Swarajshop products on www.Swarajshop.com.
+                                Vendure-marketplace.com is an online marketplace for Indian products which
+                                means you can only buy Vendure-marketplace.com products on www.Vendure-marketplace.com.
                                 We have limited Cash on Delivery which means the payment method is
                                 mostly via Credit/Debit card or Net-banking via Indian banks. We also
                                 accept Credit/Debit Cards from other countries and other currencies
@@ -58,7 +58,7 @@ const HowToOrder = () => {
                             <p className="space-mb--20 ">Email & Shipping Details</p>
                             <p>
                                 You will be asked to login with your email-id if you
-                                already have registered with Swarajshop.com before.
+                                already have registered with Vendure-marketplace.com before.
                             </p>
                             <p>
                                 If you are buying for the first time, you can continue as
@@ -93,10 +93,10 @@ const HowToOrder = () => {
                            </p>
                             <p>
                                 Once you have paid via Credit/Debit Card or Net Banking, you will be redirected
-                                to Swarajshop.com and a Transaction number will be given to you
+                                to Vendure-marketplace.com and a Transaction number will be given to you
                            </p>
                             <p>
-                                You will also receive an order confirmation email from Swarajshop.com
+                                You will also receive an order confirmation email from Vendure-marketplace.com
                            </p>
                             <p>
                                 In India, the delivery takes max 10 days and outside of India the delivery happens in 21 days

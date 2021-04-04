@@ -16,7 +16,7 @@ const RefundAndShipping = () => {
         <LayoutFive>
             {/* breadcrumb */}
             <BreadcrumbOne
-                pageTitle="Swarajshop Refund and Shipping"
+                pageTitle="Vendure-marketplace.com Refund and Shipping"
                 backgroundImage="/assets/images/backgrounds/breadcrumb-bg-1.png"
             >
                 <ul className="breadcrumb__list">
@@ -25,7 +25,7 @@ const RefundAndShipping = () => {
                             <a>Home</a>
                         </Link>
                     </li>
-                    <li>Swarajshop Refund and Shipping</li>
+                    <li>Vendure-marketplace.com Refund and Shipping</li>
                 </ul>
             </BreadcrumbOne>
             <div className="space-mt--r130 space-mb--r130">
@@ -37,8 +37,8 @@ const RefundAndShipping = () => {
                                     <h3>Refund Options</h3>
                                     <p>
                                         If you are in India and wish to refund for any item purchased
-                                        from Swarajshop.com, Please go through the below refund policy
-                                        on Swarajshop website order purchased:
+                                        from Vendure-marketplace.com, Please go through the below refund policy
+                                        on Vendure-marketplace.com website order purchased:
                                     </p>
                                 </div>
                                 <div className="icon-box icon-box--feature-icon space-mb--35">
@@ -74,8 +74,8 @@ const RefundAndShipping = () => {
                                     <div className="icon-box--feature-icon__content">
                                         <p><strong>International Refund Policy</strong></p>
                                         <p>
-                                            If you are outside India and wish to get a refund for any items purchased from Swarajshop.com,
-                                            Please go through the below International customers refund policy on Swarajshop website order purchased.
+                                            If you are outside India and wish to get a refund for any items purchased from Vendure-marketplace.com,
+                                            Please go through the below International customers refund policy on Vendure-marketplace.com website order purchased.
                                         </p>
                                         <p>We take up to 15 days to refund our international customers with any mode of payment.</p>
                                     </div>
@@ -86,7 +86,7 @@ const RefundAndShipping = () => {
                             <div className="about-page-text space-mb--30 mt-0">
                                 <h3>Shipping Options</h3>
                                 <p>
-                                    Swarajshop offers various Shipping options. Here's a look at what's available:
+                                    Vendure-marketplace.com offers various Shipping options. Here's a look at what's available:
                                 </p>
                             </div>
                             <div className="space-mb--35">

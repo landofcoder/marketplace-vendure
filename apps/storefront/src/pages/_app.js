@@ -55,7 +55,7 @@ class MyApp extends App {
             />
         }
         <Head>
-          <title>Swarajshop | Marketplace</title>
+          <title>Vendure-Marketplace | Headless Marketplace | Storeofapp.com</title>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="manifest" href="/site.webmanifest" key="site-manifest" />
         </Head>

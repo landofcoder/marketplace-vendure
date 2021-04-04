@@ -43,7 +43,7 @@ const TermsAndConditions = () => {
                                     This document is published in accordance with the provisions of Rule 3
                                     (1) of the Information Technology (Intermediaries guidelines) Rules,
                                     2011 that require publishing the rules and regulations, privacy policy
-                                    and user agreement for access or usage of swarajshop.com website.
+                                    and user agreement for access or usage of storeofapp.com website.
                                 </strong>
                             </p>
                             <p className="space-mb--20 ">
@@ -52,23 +52,23 @@ const TermsAndConditions = () => {
                             <p className="space-mb--20 ">
                                 This User Agreement contains rules and regulations, policies,
                                 terms & conditions and agreement applicable to any person who may access or
-                                use Swarajshop, including any subdomains, webpages or extension of Swarajshop.com;
+                                use Vendure-marketplace.com, including any subdomains, webpages or extension of Vendure-marketplace.com;
                                 you hereby agree and acknowledge to be bound by the terms of this User Agreement.
                             </p>
                             <p className="space-mb--20 ">
-                                The use of Swarajshop and the services provided are subject to the rules and
+                                The use of Vendure-marketplace.com and the services provided are subject to the rules and
                                 regulations, policies, notices, terms & conditions set forth in this User
                                 Agreement. For the purposes of this User Agreement, <strong>'User'</strong> and wherever the
                                 context may require <strong>'You'</strong> (or any variation thereof), shall mean any natural
-                                or legal person who has agreed to become a user of Swarajshop by accessing or
-                                browsing the Website and/or has registered as a member of Swarajshop by submitting
+                                or legal person who has agreed to become a user of Vendure-marketplace.com by accessing or
+                                browsing the Website and/or has registered as a member of Vendure-marketplace.com by submitting
                                 identification information/ registration details using the computer system of
-                                Swarajshop and accepting the electronic record of the User Agreement, has
+                                Vendure-marketplace.com and accepting the electronic record of the User Agreement, has
                                 obtained a unique username along and a secret alpha-numerical key (password)
                                 for using the Website.
                             </p>
                             <p className="space-mb--20 ">
-                                <strong>Amendment:</strong> Swarajshop Handicrafts (Henceforth referred to as "Company") reserves
+                                <strong>Amendment:</strong> Vendure-marketplace.com Handicrafts (Henceforth referred to as "Company") reserves
                                 the right to change this Website and/or alter the terms and conditions of this
                                 User Agreement at any time and retains the right to deny access to anyone who the
                                 Company believes has violated the provisions of this User Agreement. You are advised
@@ -83,19 +83,19 @@ const TermsAndConditions = () => {
                                 your rights or increases your responsibilities.]
                             </p>
                             <p className="space-mb--20 ">
-                                By impliedly or expressly accepting this User Agreement, you also accept and agree to be bound by Swarajshop
+                                By impliedly or expressly accepting this User Agreement, you also accept and agree to be bound by Vendure-marketplace.com
                                 Rules and Policies for Sellers and Buyers as provided from time to time in the following hyperlinks:
                             </p>
                             <p>
-                                <u>Swarajshop Policies for Sellers</u>
+                                <u>Vendure-marketplace.com Policies for Sellers</u>
                             </p>
                             <p>
-                                <u>Swarajshop Policies for Buyers</u>
+                                <u>Vendure-marketplace.com Policies for Buyers</u>
                             </p>
                             <p>Definitions</p>
                             <p className="space-mb--20 ">
                                 <strong>Payment on Billing</strong> shall mean a Transaction where the payment for the
-                                items purchased is paid through the (i) Swarajshop authorised Payment Gateway
+                                items purchased is paid through the (i) Vendure-marketplace.com authorised Payment Gateway
                                 Facility or (ii) the buyer (if permitted by the relevant seller) has opted to
                                 deposit the Transaction Price in the bank account of the Company by way of cash,
                                 cheque, demand draft or any other mode of payment and such payment of the
@@ -118,7 +118,7 @@ const TermsAndConditions = () => {
                                 Payment on Billing or the buyer has opted for Payment on Delivery, or such
                                 other mode of payment approved by the Company) by the seller through a reputed
                                 courier service or by the Logistics Partner at the address communicated by the
-                                buyer on Swarajshop.
+                                buyer on Vendure-marketplace.com.
                             </p>
 
                             <p className="space-mb--20 ">
@@ -126,7 +126,7 @@ const TermsAndConditions = () => {
                                 Price has been paid by the buyer by Payment on Billing or the buyer has opted
                                 for Payment on Delivery, or such other mode of payment approved by the Company)
                                 have been dispatched by the seller through a reputed courier service or by the
-                                Logistics Partner at the address communicated by the buyer on Swarajshop.
+                                Logistics Partner at the address communicated by the buyer on Vendure-marketplace.com.
                             </p>
                             <p className="space-mb--20 ">
                                 <strong>Dispatch Details</strong> means the true, accurate and valid data, information, details
@@ -136,7 +136,7 @@ const TermsAndConditions = () => {
                             </p>
                             <p className="space-mb--20 ">
                                 <strong>Information</strong> means and shall include any confidential and/or personally identifiable
-                                information or other information provided to the Company or other Users of Swarajshop
+                                information or other information provided to the Company or other Users of Vendure-marketplace.com
                                 at the time of registration, buying or listing process or through any email feature and
                                 shall include without limitation your name, email address, billing/shipping address, phone
                                 number and banking / financial information.
@@ -145,11 +145,11 @@ const TermsAndConditions = () => {
                                 <strong>Issuing Bank</strong>Issuing Bank in respect of a buyer, means any bank that has issued a Valid Card
                                 (credit/ debit/ cash card) to the buyer or the branch of a bank which maintains
                                 a valid Bank Account in the name of buyer; with which the buyer makes payment of
-                                the Transaction Price. [Currently, Swarajshop authorised Payment Gateway Facility
+                                the Transaction Price. [Currently, Vendure-marketplace.com authorised Payment Gateway Facility
                                 supports online bank transfers from the banks that are available while selecting
                                 prepay as the payment method. The Company may add or remove or suspend any one or
                                 more banks directly or through any payment gateway facilitators, and such change
-                                shall come into effect upon the same being posted on Swarajshop.]
+                                shall come into effect upon the same being posted on Vendure-marketplace.com.]
                             </p>
                             <p className="space-mb--20">
                                 <strong>Logistics Partner</strong> shall mean reputable logistics and courier company(s) appointed by
@@ -159,7 +159,7 @@ const TermsAndConditions = () => {
                             </p>
                             <p className="space-mb--20">
                                 <strong>Transaction</strong>  means every electronically generated valid purchase
-                                order placed by the Buyer for purchasing the items listed by the Seller on Swarajshop.
+                                order placed by the Buyer for purchasing the items listed by the Seller on Vendure-marketplace.com.
                             </p>
                             <p className="space-mb--20">
                                 <strong>Transaction Price</strong>  means the price to be paid for the items to
@@ -185,26 +185,26 @@ const TermsAndConditions = () => {
                                 National Electronic Funds Transfer (NEFT) and/or Real Time Gross Settlement (RTGS)].
                             </p>
                             <p className="space-mb--20">
-                                <strong>Swarajshop authorised Payment Gateway facility</strong> means the automated electronic payment
+                                <strong>Vendure-marketplace.com authorised Payment Gateway facility</strong> means the automated electronic payment
                                 or collection and remittance facility provided by the Company to Buyers and Sellers
                                 to facilitate purchase and sale of items as well as making payments there for on
-                                Swarajshop directly through banks or financial institution infrastructure or indirectly
+                                Vendure-marketplace.com directly through banks or financial institution infrastructure or indirectly
                                 through payment gateway facility providers or through any such facility authorized by the
                                 Reserve Bank of India to provide enabling support facility for collection and remittance
-                                of payment. [Currently, Swarajshop authorised Payment Gateway Facility supports online
+                                of payment. [Currently, Vendure-marketplace.com authorised Payment Gateway Facility supports online
                                 bank transfers from the banks that are available while selecting the Prepay mode as the
                                 payment method. The Company may add or remove or suspend any one or more banks directly or
                                 through any payment gateway facilitators, and such change shall come into effect upon the same
-                                being posted on Swarajshop.]
+                                being posted on Vendure-marketplace.com.]
                             </p>
                             <p>Eligibility</p>
                             <p>
-                                Swarajshop or any service provided by Swarajshop may only be used or accessed by such persons
+                                Vendure-marketplace.com or any service provided by Vendure-marketplace.com may only be used or accessed by such persons
                                 who can form legally binding contracts under Indian Contract Act, 1872. Persons who are
                                 'incompetent to contract' within the meaning of the Indian Contract Act, 1872 including
-                                minors, persons of unsound mind, and undischarged insolvents are not eligible to use Swarajshop.
+                                minors, persons of unsound mind, and undischarged insolvents are not eligible to use Vendure-marketplace.com.
                                 A minor is not allowed to access or register as a User or sell or purchase any items on
-                                Swarajshop.
+                                Vendure-marketplace.com.
                             </p>
                             <p>
                                 If you represent and are registering as a business entity, by accepting the User
@@ -215,51 +215,51 @@ const TermsAndConditions = () => {
                             </p>
                             <p>Registration and Communication</p>
                             <p>
-                                By registering on Swarajshop, you agree to allow us to contact you through any mode of
+                                By registering on Vendure-marketplace.com, you agree to allow us to contact you through any mode of
                                 communication (Email/Chat/Telephone call) for any confirmation or service related
                                 information for the order placed by you, on the contact details provided by you.
                                 Any kind of legal implication raised, due to the incorrect nature of the details
-                                provided by you, Swarajshop will not be held responsible for the same.
+                                provided by you, Vendure-marketplace.com will not be held responsible for the same.
                             </p>
                             <p>
-                                You agree that your sole purpose of registering or using Swarajshop is to buy or sell
+                                You agree that your sole purpose of registering or using Vendure-marketplace.com is to buy or sell
                                 unique Indian handicraft products including green-crafted and ethnic products or such
                                 products as may be specifically notified by the Company on the Website from time to time
-                                (that are permitted to be bought and sold under applicable law) and you shall not use Swarajshop
+                                (that are permitted to be bought and sold under applicable law) and you shall not use Vendure-marketplace.com
                                 for any other purpose including for selling or buying products other than as mentioned above or
                                 products that are not allowed under applicable law to be sold or bought by you in any manner.
                             </p>
                             <p>
                                 You agree to provide true, accurate and complete information while registering or
-                                for any other purpose when prompted to do so on Swarajshop. You are prohibited
+                                for any other purpose when prompted to do so on Vendure-marketplace.com. You are prohibited
                                 from misrepresenting your identity and agree not to represent yourself as another
                                 User or login/ register using the identity of any other person. You are responsible
                                 to maintain and promptly update the information provided while registering or for
-                                any other purpose on Swarajshop to ensure that the information provided by you is
+                                any other purpose on Vendure-marketplace.com to ensure that the information provided by you is
                                 true, accurate, current and complete at all times. If you provide any information
                                 that is untrue, inaccurate, not current or incomplete or the Company has reasonable
                                 grounds to deduce that such information is untrue, inaccurate, not current or
                                 incomplete, or not in accordance with this User Agreement, the Company reserves
                                 the right to indefinitely suspend or terminate or block your use or access to
-                                Swarajshop in any manner whatsoever.
+                                Vendure-marketplace.com in any manner whatsoever.
                             </p>
                             <p>
-                                <strong>Seller Registration:</strong> To be eligible to sell items on Swarajshop,
-                                the User is required to separately register with Swarajshop authorised
-                                Payment Gateway facility on its page on Swarajshop. The seller shall provide
-                                complete details of the Seller Bank Account as a part of the Swarajshop
+                                <strong>Seller Registration:</strong> To be eligible to sell items on Vendure-marketplace.com,
+                                the User is required to separately register with Vendure-marketplace.com authorised
+                                Payment Gateway facility on its page on Vendure-marketplace.com. The seller shall provide
+                                complete details of the Seller Bank Account as a part of the Vendure-marketplace.com
                                 authorised Payment Gateway Seller Registration or at a later date in lieu
                                 of or in addition to the original Seller’s Bank Account..
                             </p>
                             <p>
                                 <strong>Buyer Registration:</strong> Other than being a User, there is no separate registration
-                                requirement for buyers. Swarajshop authorised Payment Gateway facility is
+                                requirement for buyers. Vendure-marketplace.com authorised Payment Gateway facility is
                                 available to Buyers who hold a Valid Card or Valid Bank Account.
                             </p>
                             <p>
                                 <strong>Electronic Communication:</strong> You agree to keep yourself updated with all data,
-                                information and communication pertaining to you made available on Swarajshop.
-                                You further agree that your use of Swarajshop or provision of any data or
+                                information and communication pertaining to you made available on Vendure-marketplace.com.
+                                You further agree that your use of Vendure-marketplace.com or provision of any data or
                                 information including any correspondence (by email or otherwise) to or by the
                                 Company is through electronic records and you consent to receive communication
                                 from the Company via electronic records which will be deemed adequate service of
@@ -268,51 +268,51 @@ const TermsAndConditions = () => {
                             <p>Terms of Use</p>
                             <p>
                                 You understand and agree that the Company merely provide hosting services to its Users
-                                who access Swarajshop for purchase and sale of unique Indian products
+                                who access Vendure-marketplace.com for purchase and sale of unique Indian products
                                 (that are permitted to be bought and sold under applicable law). All items advertised
-                                and/or listed on Swarajshop and the contents therein are advertised and listed by Users
+                                and/or listed on Vendure-marketplace.com and the contents therein are advertised and listed by Users
                                 and are third party purchasers and/or sellers as the case may be. You also give
                                 permission to the Website and the Company to store details and records of your
-                                usage of Swarajshop indefinitely. However, this does not constitute any obligation
+                                usage of Vendure-marketplace.com indefinitely. However, this does not constitute any obligation
                                 on the part of the Company or the Website to do so.
                             </p>
                             <p>
-                                Currently the membership on Swarajshop is free and the Company does not levy any
-                                charges/fees for browsing or buying on Swarajshop. However, for the purposes of
-                                listing any item on Swarajshop to be sold or availing other services provided by
-                                the Company through Swarajshop such as packing, warehousing, courier etc.,
+                                Currently the membership on Vendure-marketplace.com is free and the Company does not levy any
+                                charges/fees for browsing or buying on Vendure-marketplace.com. However, for the purposes of
+                                listing any item on Vendure-marketplace.com to be sold or availing other services provided by
+                                the Company through Vendure-marketplace.com such as packing, warehousing, courier etc.,
                                 the Seller will be charged fees as provided in the Facility Charges Policy
                                 incorporated herein by reference. The Company reserves the right to introduce
-                                new services or modify the existing services provided on Swarajshop. Additionally,
+                                new services or modify the existing services provided on Vendure-marketplace.com. Additionally,
                                 the Company at its sole discretion may introduce fees for the new services provided
                                 or amend/ introduce fees for the existing services, as the case may be. Changes to
                                 the User Agreement or any of the rules and policies of the Company shall be posted
-                                on Swarajshop and such changes shall automatically become effective immediately
-                                after they are posted on Swarajshop.
+                                on Vendure-marketplace.com and such changes shall automatically become effective immediately
+                                after they are posted on Vendure-marketplace.com.
                             </p>
                             <p>
-                                All fees/ charges shall be quoted in Indian Rupees and shall be payable to Swarajshop
+                                All fees/ charges shall be quoted in Indian Rupees and shall be payable to Vendure-marketplace.com
                                 Handicrafts Private within such time as specified in the invoice. You are responsible for paying
-                                all charges/ fees associated with the use of Swarajshop and shall be liable to pay any and all
+                                all charges/ fees associated with the use of Vendure-marketplace.com and shall be liable to pay any and all
                                 applicable taxes, charges, cesses etc. which may be levied. In case of any non- payment,
                                 the Company reserves the right to issue a warning or temporarily/ indefinitely suspend or
-                                terminate your membership with Swarajshop and disallow access to Swarajshop. The Company
+                                terminate your membership with Vendure-marketplace.com and disallow access to Vendure-marketplace.com. The Company
                                 also reserves the right to take any legal action against you in case of any non- payment of
                                 charges/fees to the Company.
                             </p>
                             <p>
-                                If you purchase anything on Swarajshop, you agree to also comply with the terms and conditions
+                                If you purchase anything on Vendure-marketplace.com, you agree to also comply with the terms and conditions
                                 set out in the Policy for Buyers incorporated herein by reference.
                             </p>
                             <p>
-                                If you propose to sell anything on Swarajshop, you agree to also comply with the terms and conditions
+                                If you propose to sell anything on Vendure-marketplace.com, you agree to also comply with the terms and conditions
                                 set out in the Policy for Sellers incorporated herein by reference.
                             </p>
                             <p>
                                 The Company offers listing, packing, courier, warehousing, design and other value added services
-                                (Swarajshop Logistics) to the sellers who opt to avail any of the Swarajshop Logistics services agree
-                                to comply with the terms and conditions set out in Policy for Swarajshop Logistics iincorporated herein
-                                by reference. The sellers will be charged for such services availed from Swarajshop Logistics in accordance
+                                (Vendure-marketplace.com Logistics) to the sellers who opt to avail any of the Vendure-marketplace.com Logistics services agree
+                                to comply with the terms and conditions set out in Policy for Vendure-marketplace.com Logistics iincorporated herein
+                                by reference. The sellers will be charged for such services availed from Vendure-marketplace.com Logistics in accordance
                                 with the Facility Charges Policy.
                             </p>
                             <p>
@@ -325,11 +325,11 @@ const TermsAndConditions = () => {
                             <p>
                                 The Company neither originates nor transmits any communication/ information on behalf of any User
                                 nor does it modify the contents of any communication transmitted. The Company has no control over
-                                third parties and contents generated by the Users on Swarajshop.
+                                third parties and contents generated by the Users on Vendure-marketplace.com.
                             </p>
                             <p>
-                                Any information provided by you to the Company or submitted to Swarajshop or provide or display to other
-                                Users of Swarajshop in the registration, buying or listing process, in the feedback area or through
+                                Any information provided by you to the Company or submitted to Vendure-marketplace.com or provide or display to other
+                                Users of Vendure-marketplace.com in the registration, buying or listing process, in the feedback area or through
                                 any e-mail communication is solely your responsibility and the Company merely is a platform where
                                 such information is distributed, published, displayed or used by Users. The Company or the Website
                                 is not liable for accuracy, appropriateness or legality of such information.
@@ -340,12 +340,12 @@ const TermsAndConditions = () => {
                             <p>
                                 All contractual terms of the manner and terms & conditions of delivery, payment,
                                 insurance etc. between the buyer and the seller shall be independently agreed with
-                                the other users of Swarajshop that you may transact with.
+                                the other users of Vendure-marketplace.com that you may transact with.
                             </p>
                             <p>
-                                You will treat Swarajshop as a mere passive conduit which is used as a platform by
+                                You will treat Vendure-marketplace.com as a mere passive conduit which is used as a platform by
                                 Users to create listings or provide information for the purpose of selling their items so that
-                                such information can be discovered and read by other Users of Swarajshop who may wish to purchase
+                                such information can be discovered and read by other Users of Vendure-marketplace.com who may wish to purchase
                                 such items from other Users or provide feedback on items they have purchased or sellers who have
                                 sold any item to them.
                             </p>
@@ -412,38 +412,38 @@ const TermsAndConditions = () => {
                                 under the User Agreement or any other applicable law for the time being in force including but not
                                 limited to the Drugs and Cosmetics Act, 1940, the Drugs and Magic Remedies (Objectionable Advertisements)
                                 Act, 1954, the Indian Penal Code, 1860, Information Technology Act 2000 as amended time to time and rules
-                                there under or (ii) are at the same time listed for sale on a web site other than Swarajshop. You shall
-                                not promote any website or webpage or link on Swarajshop.
+                                there under or (ii) are at the same time listed for sale on a web site other than Vendure-marketplace.com. You shall
+                                not promote any website or webpage or link on Vendure-marketplace.com.
                             </p>
                             <p>
                                 In case of any violation of the above provisions, the Company has the right to immediately terminate the access
-                                or usage rights of the user to Swarajshop without any notice and any such violating information that is displayed
-                                or submitted on Swarajshop can be removed immediately and completely.
+                                or usage rights of the user to Vendure-marketplace.com without any notice and any such violating information that is displayed
+                                or submitted on Vendure-marketplace.com can be removed immediately and completely.
                             </p>
                             <p>
                                 You shall be responsible for keeping backup versions of the information and data
-                                provided by you. You hereby agree that you will not expect Swarajshop to
+                                provided by you. You hereby agree that you will not expect Vendure-marketplace.com to
                                 restore or keep back up of your information and data and not hold the Website
                                 or the Company accountable for any loss of data in any circumstances.
                             </p>
                             <p>
                                 You shall not, either alone or in conjunction with other users, manipulate or attempt
-                                to manipulate the prices of any item being sold or purchased on Swarajshop. You will
-                                also refrain from accessing information or databases in an unauthorized manner from Swarajshop
+                                to manipulate the prices of any item being sold or purchased on Vendure-marketplace.com. You will
+                                also refrain from accessing information or databases in an unauthorized manner from Vendure-marketplace.com
                                 or servers where information or databases are kept.
                             </p>
                             <p>
                                 You shall not attempt to or circumvent or manipulate any of the obligations conferred on you by this
                                 User Agreement. If such attempt is discovered, it will constitute sufficient ground for termination
-                                of access to Swarajshop and also for taking appropriate legal action.
+                                of access to Vendure-marketplace.com and also for taking appropriate legal action.
                             </p>
                             <p>
-                                In case of any transaction or attempted transaction pertaining to any item listed on Swarajshop
+                                In case of any transaction or attempted transaction pertaining to any item listed on Vendure-marketplace.com
                                 which is violating this User Agreement or applicable laws comes to your knowledge, you shall
-                                forthwith take all steps to inform the Company of such violation at cs@swarajshop.com.
+                                forthwith take all steps to inform the Company of such violation at cs@storeofapp.com.
                             </p>
                             <p>
-                                If you choose to provide feedback on Swarajshop which is visible to other users,
+                                If you choose to provide feedback on Vendure-marketplace.com which is visible to other users,
                                 you shall exercise due care while making comments and not make any comments that are
                                 not factual in nature and shall not post defamatory or illegal or offensive/ obscene contents.
                             </p>
@@ -464,9 +464,9 @@ const TermsAndConditions = () => {
                             </p>
                             <p>Disclaimers</p>
                             <p>
-                                Swarajshop is only a platform where users may meet and interact with one another for their transactions.
+                                Vendure-marketplace.com is only a platform where users may meet and interact with one another for their transactions.
                                 The Website or the Company is not and cannot be a party to or control in any manner any transaction between
-                                two users of Swarajshop.
+                                two users of Vendure-marketplace.com.
                             </p>
                             <p>
                                 All commercial / contractual terms are offered by and agreed to between buyers and sellers alone as per
@@ -481,23 +481,23 @@ const TermsAndConditions = () => {
                                 The Company is neither involved in the buying and selling of items on the Website nor liable or responsible for
                                 any non- performance or breach of any contract entered into between the Users (i.e. buyer and seller) including but not
                                 limited to non-delivery or non-receipt, non-payment, damage, breach of representations and warranties provided by the seller
-                                or any fraud as regards the items listed on Swarajshop. The Users acknowledge that the Company will not be liable for any damages,
+                                or any fraud as regards the items listed on Vendure-marketplace.com. The Users acknowledge that the Company will not be liable for any damages,
                                 interests or claims etc. resulting from not processing or any delay in processing a Transaction/ Transaction Price which is beyond
                                 the control of the Company. The Company shall not and is not required to mediate or resolve any dispute or disagreement between users.
                             </p>
                             <p>
                                 The Company does not make any representation or warranty as to the attributes (such as quality, worth, marketability, merchantability,
-                                usefulness) of the items proposed to be sold or offered to be sold or purchased on Swarajshop. In particular, the Company does not implicitly
+                                usefulness) of the items proposed to be sold or offered to be sold or purchased on Vendure-marketplace.com. In particular, the Company does not implicitly
                                 or explicitly support or endorse the sale or purchase of any items on the Website. The Company shall not be liable for any errors or omissions,
                                 whether on behalf of itself or third parties.
                             </p>
                             <p>
                                 The Company does not make any representation or warranty as to the attributes (such as legal title, creditworthiness, identity etc.) of any of
                                 its users. You are advised use your best judgment and independently verify the bona fides of any particular User that you choose to deal with
-                                on Swarajshop.
+                                on Vendure-marketplace.com.
                             </p>
                             <p>
-                                Swarajshop is only a venue through which Users can reach a larger base to buy and sell unique Indian products.
+                                Vendure-marketplace.com is only a venue through which Users can reach a larger base to buy and sell unique Indian products.
                                 The Company is only providing a platform in form of the Website for communication and a hosting service for
                                 information and it is agreed that the contract for sale of any of the items shall be a strictly bipartite contract
                                 between the seller and the buyer. At no time shall any right, title or interest over the items vest with the Company
@@ -507,15 +507,15 @@ const TermsAndConditions = () => {
                                 supply as offered by sellers.
                             </p>
                             <p>
-                                The Company and its suppliers, affiliates and service providers make available Swarajshop and services including the Swarajshop
-                                Logistics, Swarajshop authorised Payment Gateway facility for electronic payment on an "as is" basis and without any warranty or condition,
+                                The Company and its suppliers, affiliates and service providers make available Vendure-marketplace.com and services including the Vendure-marketplace.com
+                                Logistics, Vendure-marketplace.com authorised Payment Gateway facility for electronic payment on an "as is" basis and without any warranty or condition,
                                 express, implied or statutory and specifically disclaim any implied warranties of title, merchantability, fitness for a particular purpose
-                                and non-infringement. The Company specifically disclaims any such warranty. You expressly agree that the use of Swarajshop and Swarajshop
+                                and non-infringement. The Company specifically disclaims any such warranty. You expressly agree that the use of Vendure-marketplace.com and Vendure-marketplace.com
                                 authorised payment gateway electronic payment facility is at your own risk.
                             </p>
                             <p>
                                 You release and indemnify the Company and/or any of its officers and representatives from any cost, damage, liability or other
-                                consequence of any of the actions of the users of Swarajshop and specifically waive any claims that you may have in this behalf under
+                                consequence of any of the actions of the users of Vendure-marketplace.com and specifically waive any claims that you may have in this behalf under
                                 any applicable law. The Company cannot control the information provided by other Users, which is made available on the Website notwithstanding
                                 the Company's reasonable efforts in that behalf. You may find other User's information to be offensive, harmful, inaccurate, or deceptive.
                                 Please use caution and practice safe trading when using the Website. Please note that there may be risks in dealing with foreign nationals,
@@ -528,7 +528,7 @@ const TermsAndConditions = () => {
                                 In no event shall the Company or its suppliers, affiliates and service providers be liable for any direct, indirect, incidental,
                                 special, consequential or exemplary damages, including but not limited to, damages for loss of profits, goodwill, use,
                                 data or other intangible losses arising (in any manner whatsoever, including but not limited to negligence) out of or in connection
-                                with Swarajshop, Swarajshop authorised payment gateway facility, services provided by the Logistics Partner or any other services or
+                                with Vendure-marketplace.com, Vendure-marketplace.com authorised payment gateway facility, services provided by the Logistics Partner or any other services or
                                 this User Agreement.
                             </p>
                             <p>
@@ -536,18 +536,18 @@ const TermsAndConditions = () => {
                                 paid by you to the Company. The Company, its associates, affiliates and service providers and
                                 technology partners make no representations or warranties about the accuracy, reliability, completeness,
                                 and/or timeliness of any content, information, software, text, graphics, links or communications provided on
-                                or through the use of Swarajshop or that the operation of Swarajshop or the Logistics Partner or Swarajshop
+                                or through the use of Vendure-marketplace.com or that the operation of Vendure-marketplace.com or the Logistics Partner or Vendure-marketplace.com
                                 authorised payment gateway facility will be error free and/or uninterrupted. The Company provides no guarantee
                                 to its Users in respect of the products sold on the Website. Consequently, the Company assumes no liability
                                 whatsoever for any monetary or other damage suffered by you on account of:
                             </p>
                             <p>
                                 The delay, failure, interruption, or corruption of any data or
-                                other information transmitted in connection with use of the Website or Swarajshop authorised payment gateway facility.
+                                other information transmitted in connection with use of the Website or Vendure-marketplace.com authorised payment gateway facility.
                             </p>
                             <p>
-                                Any delay, failure, interruption or errors in the operation of Swarajshop or the Logistics Partner
-                                or Swarajshop authorised payment gateway facility.
+                                Any delay, failure, interruption or errors in the operation of Vendure-marketplace.com or the Logistics Partner
+                                or Vendure-marketplace.com authorised payment gateway facility.
                             </p>
                             <p>
                                 Indemnity
@@ -561,13 +561,13 @@ const TermsAndConditions = () => {
                             </p>
                             <p>Payment</p>
                             <p>
-                                Payments for the items on Swarajshop, at the option of the relevant seller, can be made by way of (i) Payment on Billing
-                                which can be made through the Swarajshop authorised payment gateway Facility or by depositing cash, cheque, demand draft
+                                Payments for the items on Vendure-marketplace.com, at the option of the relevant seller, can be made by way of (i) Payment on Billing
+                                which can be made through the Vendure-marketplace.com authorised payment gateway Facility or by depositing cash, cheque, demand draft
                                 in the bank account of the Company; or (ii) Payment on Delivery wherein payment shall be made only by cash on delivery, or
-                                such other method of payment as may be permitted by the Company on Swarajshop in its sole discretion.
+                                such other method of payment as may be permitted by the Company on Vendure-marketplace.com in its sole discretion.
                             </p>
                             <p>
-                                For the purposes of buying and/or selling any item listed on Swarajshop, you agree and undertake not to
+                                For the purposes of buying and/or selling any item listed on Vendure-marketplace.com, you agree and undertake not to
                                 make payments in any manner other than as provided, without the prior consent of the Company.
                             </p>
                             <p>
@@ -576,13 +576,13 @@ const TermsAndConditions = () => {
                                 through Payment on Billing or Payment on Delivery to and from other Users in respect of Transactions.
                             </p>
                             <p>
-                                In order to enable Users to carry out transactions on Swarajshop, the Company will in addition to other
-                                methods of payment provide an electronic payment facility i.e. Swarajshop authorised payment gateway facility
-                                by E-billing Solutions Private Limited on the Website. The Swarajshop authorised payment gateway facility enables
+                                In order to enable Users to carry out transactions on Vendure-marketplace.com, the Company will in addition to other
+                                methods of payment provide an electronic payment facility i.e. Vendure-marketplace.com authorised payment gateway facility
+                                by E-billing Solutions Private Limited on the Website. The Vendure-marketplace.com authorised payment gateway facility enables
                                 automated collection and remittance services using the facilities of various Indian banks, financial institutions,
                                 credit/ debit/ cash card brands, various third party service providers and/or payment card industry issuers and
                                 through such other infrastructure and facilities as may be authorized by the Reserve Bank of India for collection,
-                                refund and remittance, as the case may be. The Swarajshop authorised payment gateway facility shall be availed in
+                                refund and remittance, as the case may be. The Vendure-marketplace.com authorised payment gateway facility shall be availed in
                                 accordance with the terms of this User Agreement and the rules and policies prescribed hereunder.
                             </p>
                             <p>
@@ -593,7 +593,7 @@ const TermsAndConditions = () => {
                                 institution infrastructure or indirectly through payment gateway facility providers or through any such
                                 facility authorized by the Reserve Bank of India to provide enabling support facility for collection and
                                 remittance of payment where the Transaction Price is remitted and/or refunded) may delay the time within which
-                                the Transaction Price are collected/ remitted by the Company through the Swarajshop authorised payment gateway
+                                the Transaction Price are collected/ remitted by the Company through the Vendure-marketplace.com authorised payment gateway
                                 facility. The Company neither makes any representations nor makes any warranties regarding the amount of time
                                 needed to complete processing, including delays in the banking system and nor shall the Company be liable
                                 for any actual or consequential damages arising from any claim of delay.
@@ -605,21 +605,21 @@ const TermsAndConditions = () => {
                             </p>
                             <p>
                                 You agree and accept that the Company is neither acting as trustee nor acting in a fiduciary capacity with respect
-                                to the Transaction or the Transaction Price, by providing the Swarajshop authorised payment gateway facility or any
+                                to the Transaction or the Transaction Price, by providing the Vendure-marketplace.com authorised payment gateway facility or any
                                 other method of payment to its Users.
                             </p>
                             <p>Consent and Privacy Policy</p>
                             <p>
-                                By using Swarajshop and/or by providing your information, you consent to the collection
-                                and use of such information disclosed by you on Swarajshop on Swarajshop authorised payment
+                                By using Vendure-marketplace.com and/or by providing your information, you consent to the collection
+                                and use of such information disclosed by you on Vendure-marketplace.com on Vendure-marketplace.com authorised payment
                                 gateway facility, by the Company. The personal information / data including but not limited to the
-                                Information provided by the You to Swarajshop/ Swarajshop authorised payment gateway facility during the
+                                Information provided by the You to Vendure-marketplace.com/ Vendure-marketplace.com authorised payment gateway facility during the
                                 course of a Transaction shall be treated as strictly confidential and retained in accordance with the
                                 Privacy Policy which is incorporated herein by reference and applicable laws and regulations including but
                                 not limited to Information Technology Act, 2000 and rules there under. The Company does not sell or rent or
                                 otherwise disclose your personal information to third parties for their marketing purposes without your explicit
                                 consent and the Company only uses your information in the manner described in the Privacy Policy. If you do not
-                                agree to your Information being transferred or used in this way, please do not use Swarajshop.
+                                agree to your Information being transferred or used in this way, please do not use Vendure-marketplace.com.
                             </p>
                             <p>
                                 The Company views the protection of user’s privacy as a very important community principle. The Company
@@ -634,14 +634,14 @@ const TermsAndConditions = () => {
                                 as it deems fit including but not limited to cancellation of the Transaction or payments made, limit your activity,
                                 immediately remove your information or listings, or end your listing, warn other Users of your actions, forthwith
                                 temporarily/indefinitely suspend or terminate or block your membership, and/or refuse to provide you with access
-                                to Swarajshop or initiate any legal action it may deem fit, particularly in the event:
+                                to Vendure-marketplace.com or initiate any legal action it may deem fit, particularly in the event:
                             </p>
                             <p>
                                 You breach any of the provisions of this User Agreement including any of the rules and policies,
                                 documents, terms and conditions made thereunder which are incorporated therein by reference;
                             </p>
                             <p>
-                                Any misuse of the Swarajshop authorised payment gateway facility
+                                Any misuse of the Vendure-marketplace.com authorised payment gateway facility
                             </p>
                             <p>
                                 The Company is unable to verify or authenticate any information provided by you;
@@ -657,7 +657,7 @@ const TermsAndConditions = () => {
                             </p>
                             <p>
                                 Any User that may have been suspended or blocked may not register or attempt
-                                to register with Swarajshop or use Swarajshop in any manner whatsoever until
+                                to register with Vendure-marketplace.com or use Vendure-marketplace.com in any manner whatsoever until
                                 such time that such User is reinstated by the Company. Notwithstanding the above,
                                 if you breach the User Agreement or the rules and policies and other documents
                                 incorporated therein by reference, the Company reserves the right to recover any
@@ -670,16 +670,16 @@ const TermsAndConditions = () => {
                             </p>
                             <p>
                                 In case of any grievance, objection or complaint on your part with
-                                respect to the Website, other Users, Swarajshop authorised payment gateway
+                                respect to the Website, other Users, Vendure-marketplace.com authorised payment gateway
                                 facility or the Company, including any complaints or enquiry about suspension,
-                                termination or blocking of your membership or right to use Swarajshop, you should
+                                termination or blocking of your membership or right to use Vendure-marketplace.com, you should
                                 promptly raise such grievance or complaint with the designated Grievance Officer
-                                at cs@Swarajshop.com and provide him with all necessary information and/or documents
+                                at cs@Vendure-marketplace.com and provide him with all necessary information and/or documents
                                 to enable the Company/ Grievance Officer to resolve the issue.
                             </p>
                             <p>
                                 The name and contact details of the Grievance Officer is published
-                                on Swarajshop as required under the provisions of the Information
+                                on Vendure-marketplace.com as required under the provisions of the Information
                                 Technology Act, 2000 and the rules made thereunder.
                             </p>
                             <p>General</p>
@@ -690,7 +690,7 @@ const TermsAndConditions = () => {
                             </p>
                             <p>
                                 Except as explicitly stated otherwise, any notices directed to the Company
-                                shall be given by email to Swarajshop@gmail.com and any notices to you by the
+                                shall be given by email to Vendure-marketplace.com@gmail.com and any notices to you by the
                                 Company shall be provided to the email address provided by you during the registration
                                 process. Notice shall be deemed given 24 hours after email is sent, unless the sending
                                 party is notified that the email address is invalid. Alternatively, we may give you notice
@@ -724,10 +724,10 @@ const TermsAndConditions = () => {
                             </p>
                             <p>ARBITRATION</p>
                             <p>
-                                If any dispute arises between you and the Company during your use of Swarajshop or the Swarajshop
-                                authorised payment gateway facility or Swarajshop Services or any service incidental to the
+                                If any dispute arises between you and the Company during your use of Vendure-marketplace.com or the Vendure-marketplace.com
+                                authorised payment gateway facility or Vendure-marketplace.com Services or any service incidental to the
                                 Website or thereafter, in connection with the validity, interpretation, implementation or alleged
-                                breach of any provision of the User Agreement and/or Swarajshop authorised payment gateway Agreement,
+                                breach of any provision of the User Agreement and/or Vendure-marketplace.com authorised payment gateway Agreement,
                                 or the rules, policies and documents incorporated therein by reference, the dispute shall be referred
                                 to a sole arbitrator who shall be an independent and neutral third party identified by the Company whose
                                 decision shall be final. The place of arbitration shall be Mumbai. The Arbitration & Conciliation Act,
