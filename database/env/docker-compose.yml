@@ -1,0 +1,44 @@
+# Use root/example as user/password credentials
+version: "2"
+
+services:
+
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - 3366:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root202188
+    volumes:
+      - ../data/mysql:/var/lib/mysql
+    networks:
+      - internal
+
+  phpmyadmin:
+    depends_on:
+      - db
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - '80'
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.dbvenduremarketplace.rule=Host(`db.vendure-marketplace.com`)"
+      - "traefik.http.routers.dbvenduremarketplace.entrypoints=web"
+      - "traefik.http.services.dbvenduremarketplace.loadbalancer.server.port=80"
+      - "traefik.docker.network=proxy"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: root202188
+    networks:
+      - proxy
+      - internal
+
+networks:
+  proxy:
+    external:
+      name: proxy
+  internal:
+    driver: bridge
