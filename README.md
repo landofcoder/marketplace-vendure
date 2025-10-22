@@ -2,7 +2,7 @@ https://vendure-marketplace.com
 
 ## Setup project
 
-1. clone code https://github.com/landofcoder/marketplace-mobile-app.git
+1. clone code https://github.com/landofcoder/marketplace-vendure.git
 2. run $ yarn
 3. build admin ui. $ yarn workspace @bavaan/ui-devkit build
 4. get data: $ yarn workspace @bavaan/admin run populate
